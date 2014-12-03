@@ -134,6 +134,7 @@
 				B64D66931A2FC5D6006C9189 /* Sources */,
 				B64D66941A2FC5D6006C9189 /* Frameworks */,
 				B64D66951A2FC5D6006C9189 /* Resources */,
+				B64D66C31A2FC670006C9189 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -218,6 +219,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B64D66C31A2FC670006C9189 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B64D66931A2FC5D6006C9189 /* Sources */ = {
