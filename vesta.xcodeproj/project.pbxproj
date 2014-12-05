@@ -260,6 +260,7 @@
 				TargetAttributes = {
 					B64D66961A2FC5D6006C9189 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = X47Q4F2D2T;
 					};
 					B64D66B21A2FC5D6006C9189 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -495,6 +496,7 @@
 			baseConfigurationReference = DE09CA33BBDEB3AAE3631C90 /* Pods-vesta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -510,6 +512,7 @@
 			baseConfigurationReference = 021384AC38D269427C962DE8 /* Pods-vesta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
