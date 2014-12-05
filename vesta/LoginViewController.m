@@ -12,7 +12,7 @@
 #import "SJUser.h"
 #import "NSString+FontAwesome.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 @end
 
@@ -21,14 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Make sure the keyboard is dismissed when we tap outside
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
+    // Same thing when we hit the 'return' key
+    [self.loginTextField setDelegate:self];
+    [self.passwordTextField setDelegate:self];
+    
     // Style our login form
     self.rightArrow.font = [UIFont fontWithName:kFontAwesomeFamilyName size:14];
     self.rightArrow.text = [NSString fontAwesomeIconStringForIconIdentifier:@"fa-chevron-right"];
     
     self.loginButton.clipsToBounds = YES;
-    self.loginButton.layer.cornerRadius = 24;
+    self.loginButton.layer.cornerRadius = 20;
     self.signupButton.clipsToBounds = YES;
-    self.signupButton.layer.cornerRadius = 24;
+    self.signupButton.layer.cornerRadius = 20;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,6 +78,14 @@
     
 }
 
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 #pragma mark - Navigation
 

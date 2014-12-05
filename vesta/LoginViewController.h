@@ -11,11 +11,14 @@
 #import <LoopBack/LBUser.h>
 
 @interface LoginViewController : UIViewController
+
 - (IBAction)actionLoginWithCredentials:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
 @property (weak, nonatomic) IBOutlet UILabel *rightArrow;
 @property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton;
+
 @end
