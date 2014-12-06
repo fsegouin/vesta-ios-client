@@ -317,14 +317,11 @@
                     </view>
                     <connections>
                         <outlet property="forgotPasswordButton" destination="nHr-uG-gIx" id="kxl-At-lHh"/>
-                        <outlet property="lockLogo" destination="TV0-Vs-wWI" id="Cbx-ea-RVO"/>
                         <outlet property="loginButton" destination="MXk-ip-MoL" id="d1W-xR-kV8"/>
                         <outlet property="loginTextField" destination="RfP-DD-BaB" id="4m2-xQ-Tc7"/>
                         <outlet property="passwordTextField" destination="ldu-4D-vdm" id="b3q-0D-27J"/>
                         <outlet property="rightArrow" destination="Jfb-Dv-7rF" id="GMY-PV-H70"/>
                         <outlet property="signupButton" destination="AT1-LR-VjL" id="2eM-n7-0la"/>
-                        <outlet property="userLogo" destination="DKw-JY-zA7" id="BID-aH-anj"/>
-                        <outlet property="vestaLogo" destination="UN5-sm-BJj" id="bEo-V7-z4I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmR-RI-1yE" userLabel="First Responder" sceneMemberID="firstResponder"/>
