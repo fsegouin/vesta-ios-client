@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SJCartoparty.h"
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) SJCartoparty* detailCartoparty;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

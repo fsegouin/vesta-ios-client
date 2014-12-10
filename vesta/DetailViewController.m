@@ -18,9 +18,9 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+- (void)setDetailCartoparty:(SJCartoparty *)newDetailCartoparty {
+    if (_detailCartoparty != newDetailCartoparty) {
+        _detailCartoparty = newDetailCartoparty;
             
         // Update the view.
         [self configureView];
@@ -29,8 +29,8 @@
 
 - (void)configureView {
     // Update the user interface for the detail item.
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.detailCartoparty) {
+        self.detailDescriptionLabel.text = [self.detailCartoparty _description];
     }
 }
 
