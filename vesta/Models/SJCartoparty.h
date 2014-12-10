@@ -10,4 +10,18 @@
 
 @interface SJCartoparty : LBModel
 
+@property (nonatomic, copy) id objectId;
+@property (nonatomic, copy) NSString *_description;
+@property (nonatomic, copy) NSDate *from;
+@property (nonatomic, copy) NSDate *to;
+@property (nonatomic, copy) NSArray *cities;
+@property (nonatomic, copy) id ownerId;
+@property BOOL isUserAMember;
+
+@end
+
+@interface SJCartopartyRepository : LBModelRepository
+
++ (instancetype)repository;
+
 @end

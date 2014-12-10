@@ -11,3 +11,13 @@
 @implementation SJCartoparty
 
 @end
+
+@implementation SJCartopartyRepository
+
++ (instancetype)repository {
+    SJCartopartyRepository *repository = [self repositoryWithClassName:@"Cartoparties"];
+    repository.modelClass = [SJCartoparty class];
+    return repository;
+}
+
+@end

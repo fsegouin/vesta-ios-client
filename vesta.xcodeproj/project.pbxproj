@@ -15,10 +15,11 @@
 		B64D66AB1A2FC5D6006C9189 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B64D66AA1A2FC5D6006C9189 /* Images.xcassets */; };
 		B64D66AE1A2FC5D6006C9189 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B64D66AC1A2FC5D6006C9189 /* LaunchScreen.xib */; };
 		B64D66BA1A2FC5D6006C9189 /* vestaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D66B91A2FC5D6006C9189 /* vestaTests.m */; };
-		B656B3241A31E5FF00A07F5F /* LoopBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B656B3231A31E5FF00A07F5F /* LoopBack.framework */; };
 		B656B3271A31E77500A07F5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B3261A31E77500A07F5F /* LoginViewController.m */; };
 		B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B3291A31EA7800A07F5F /* SJUser.m */; };
 		B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B32D1A31FAF800A07F5F /* SJCartoparty.m */; };
+		B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B0C0D1A38E04500E17893 /* LoopBack.framework */; };
+		B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */; };
 		B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14B1A3247A400E69A9A /* lock_icon.png */; };
 		B6C9E1521A3247A400E69A9A /* user_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14C1A3247A400E69A9A /* user_icon.png */; };
 		B6C9E1531A3247A400E69A9A /* user_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14D1A3247A400E69A9A /* user_icon@2x.png */; };
@@ -58,13 +59,15 @@
 		B64D66B31A2FC5D6006C9189 /* vestaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vestaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64D66B81A2FC5D6006C9189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B64D66B91A2FC5D6006C9189 /* vestaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vestaTests.m; sourceTree = "<group>"; };
-		B656B3231A31E5FF00A07F5F /* LoopBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoopBack.framework; sourceTree = "<group>"; };
 		B656B3251A31E77500A07F5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B656B3261A31E77500A07F5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		B656B3281A31EA7800A07F5F /* SJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJUser.h; path = Models/SJUser.h; sourceTree = "<group>"; };
 		B656B3291A31EA7800A07F5F /* SJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJUser.m; path = Models/SJUser.m; sourceTree = "<group>"; };
 		B656B32C1A31FAF800A07F5F /* SJCartoparty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJCartoparty.h; path = Models/SJCartoparty.h; sourceTree = "<group>"; };
 		B656B32D1A31FAF800A07F5F /* SJCartoparty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJCartoparty.m; path = Models/SJCartoparty.m; sourceTree = "<group>"; };
+		B65B0C0D1A38E04500E17893 /* LoopBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopBack.framework; path = Frameworks/LoopBack.framework; sourceTree = "<group>"; };
+		B6BB46CE1A3746A9005FB96D /* CartopartiesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartopartiesListTableViewController.h; sourceTree = "<group>"; };
+		B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartopartiesListTableViewController.m; sourceTree = "<group>"; };
 		B6C9E14B1A3247A400E69A9A /* lock_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock_icon.png; path = Assets/lock_icon.png; sourceTree = "<group>"; };
 		B6C9E14C1A3247A400E69A9A /* user_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_icon.png; path = Assets/user_icon.png; sourceTree = "<group>"; };
 		B6C9E14D1A3247A400E69A9A /* user_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user_icon@2x.png"; path = "Assets/user_icon@2x.png"; sourceTree = "<group>"; };
@@ -82,7 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6ED1D6B1A322DC800673A5B /* QuartzCore.framework in Frameworks */,
-				B656B3241A31E5FF00A07F5F /* LoopBack.framework in Frameworks */,
+				B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */,
 				E2D60ECEA24849B4AAE8CF92 /* libPods-vesta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +142,8 @@
 				B64D66A21A2FC5D6006C9189 /* MasterViewController.m */,
 				B64D66A41A2FC5D6006C9189 /* DetailViewController.h */,
 				B64D66A51A2FC5D6006C9189 /* DetailViewController.m */,
+				B6BB46CE1A3746A9005FB96D /* CartopartiesListTableViewController.h */,
+				B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */,
 				B64D66A71A2FC5D6006C9189 /* Main.storyboard */,
 				B64D66AA1A2FC5D6006C9189 /* Images.xcassets */,
 				B64D66AC1A2FC5D6006C9189 /* LaunchScreen.xib */,
@@ -176,8 +181,8 @@
 		B656B3221A31E5B700A07F5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B65B0C0D1A38E04500E17893 /* LoopBack.framework */,
 				B6ED1D6A1A322DC800673A5B /* QuartzCore.framework */,
-				B656B3231A31E5FF00A07F5F /* LoopBack.framework */,
 				890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */,
 			);
 			name = Frameworks;
@@ -260,7 +265,6 @@
 				TargetAttributes = {
 					B64D66961A2FC5D6006C9189 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = X47Q4F2D2T;
 					};
 					B64D66B21A2FC5D6006C9189 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -369,6 +373,7 @@
 				B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */,
 				B64D66A31A2FC5D6006C9189 /* MasterViewController.m in Sources */,
 				B64D669D1A2FC5D6006C9189 /* main.m in Sources */,
+				B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */,
 				B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */,
 				B64D66A61A2FC5D6006C9189 /* DetailViewController.m in Sources */,
 				B656B3271A31E77500A07F5F /* LoginViewController.m in Sources */,
@@ -500,6 +505,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = vesta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -516,6 +522,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = vesta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

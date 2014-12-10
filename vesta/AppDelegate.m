@@ -19,8 +19,15 @@ static LBRESTAdapter * _adapter = nil;
 
 + (LBRESTAdapter *) adapter
 {
-    if ( !_adapter)
+    if ( !_adapter) {
+        
+//        API root path
         _adapter = [LBRESTAdapter adapterWithURL:[NSURL URLWithString:@"http://localhost:3000/api/"]];
+        
+//        Add custom routes (static methods)
+        [[_adapter contract] addItem:[SLRESTContractItem itemWithPattern:@"/Cartoparties" verb:@"GET"] forMethod:@"Cartoparties.filter"];
+        
+    }
     return _adapter;
 }
 
@@ -59,7 +66,7 @@ static LBRESTAdapter * _adapter = nil;
 //#pragma mark - Split view
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailCartoparty] == nil)) {
         // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
         return YES;
     } else {
