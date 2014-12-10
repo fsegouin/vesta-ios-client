@@ -21,6 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    DEBUG
+    
+    self.loginTextField.text = @"test0@test.fr";
+    self.passwordTextField.text = @"test";
+    
     // Make sure the keyboard is dismissed when we tap outside
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -60,8 +65,19 @@
     // Define the load error functional block
     void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
         NSLog(@"Error %@", error.description);
+        NSLog(@"userInfo error : %@", error.userInfo);
+        
+        NSString *localizedDescriptionError = [[error userInfo] valueForKey:@"NSLocalizedDescription"];
+        NSString *errorMessage = [NSString string];
+        
+        if ([localizedDescriptionError rangeOfString:@"401"].location == NSNotFound) {
+            errorMessage = localizedDescriptionError;
+        } else {
+            errorMessage = @"Vérifiez vos informations de connexion";
+        }
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur"
-                                                        message:error.description
+                                                        message:errorMessage
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
