@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
   - AFNetworking/NSURLConnection (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -20,15 +20,21 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FlickrKit (1.0.4)
   - FontAwesome+iOS (0.0.1)
   - HexColors (2.2.1)
   - MBProgressHUD (0.9)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - FlickrKit
   - FontAwesome+iOS (from `https://github.com/alexdrone/ios-fontawesome.git`)
   - HexColors
   - MBProgressHUD (~> 0.8)
+  - SDWebImage
 
 EXTERNAL SOURCES:
   FontAwesome+iOS:
@@ -36,8 +42,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  FlickrKit: 1bbc5c91f065fa0d7ce4119c5d5c63a9241eea73
   FontAwesome+iOS: 2aa702396e80d0f9a553a8110fc6de660ad2c8e3
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.35.0
