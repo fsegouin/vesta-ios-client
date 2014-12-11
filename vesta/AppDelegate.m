@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "FlickrKit.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -38,6 +39,12 @@ static LBRESTAdapter * _adapter = nil;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
+    
+//    Flickr API Wraper
+    
+    FlickrKit *fk = [FlickrKit sharedFlickrKit];
+    [fk initializeWithAPIKey:@"225b171188afd87d71b8fdfddb58a92c" sharedSecret:@"72dd0915bafad010"];
+    
     return YES;
 }
 

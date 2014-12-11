@@ -10,6 +10,7 @@ target 'vesta' do
     pod 'AFNetworking', '~> 2.5.0'
     pod 'FlickrKit'
     pod 'SDWebImage'
+    pod 'DateTools'
 end
 
 target 'vestaTests' do

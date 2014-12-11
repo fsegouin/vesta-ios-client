@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DateTools (1.4.3)
   - FlickrKit (1.0.4)
   - FontAwesome+iOS (0.0.1)
   - HexColors (2.2.1)
@@ -30,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - DateTools
   - FlickrKit
   - FontAwesome+iOS (from `https://github.com/alexdrone/ios-fontawesome.git`)
   - HexColors
@@ -42,6 +44,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   FlickrKit: 1bbc5c91f065fa0d7ce4119c5d5c63a9241eea73
   FontAwesome+iOS: 2aa702396e80d0f9a553a8110fc6de660ad2c8e3
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153

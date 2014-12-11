@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 utt. All rights reserved.
 //
 
+#include <stdlib.h>
+
 #import "AppDelegate.h"
 #import "MasterViewController.h"
 #import "DetailViewController.h"
@@ -13,12 +15,15 @@
 #import "CartopartiesListTableViewController.h"
 #import "SJUser.h"
 #import "SJCartoparty.h"
+#import "FlickrKit.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
-@property (strong, nonatomic) NSArray *tableData;
+@property (strong, nonatomic) NSMutableArray *tableData;
 @property (strong, nonatomic) NSMutableArray *subscribedCartoparties;
+@property BOOL firstLaunch;
 @end
 
 @implementation MasterViewController
@@ -40,6 +45,8 @@
 //    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     self.subscribedCartoparties = [NSMutableArray array];
+    self.tableData = [NSMutableArray array];
+    self.firstLaunch = YES;
     
 }
 
@@ -57,8 +64,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     SJUser *loggedUser = [SJUser sharedManager];
 
-    if ([loggedUser accessToken] != nil) {
+    if ([loggedUser accessToken] != nil && self.firstLaunch) {
         //        Download cartoparties I already suscribed to
+        self.firstLaunch = FALSE;
         [self getModels];
     }
 }
@@ -93,14 +101,42 @@
     // Define the load success block for the LBModelRepository allWithSuccess message
     void (^loadSuccessBlock)(NSArray *) = ^(NSArray *models) {
         NSLog( @"selfSuccessBlock %lu", (unsigned long)[models count]);
-        self.tableData = models;
+//        self.tableData = models;
         
-        for (NSDictionary *cartoparty in models) {
-            [self.subscribedCartoparties addObject:[cartoparty valueForKey:@"id"]];
-            NSLog(@"Cartoparty id : %@", [cartoparty valueForKey:@"id"]);
+        [self.tableData removeAllObjects];
+        
+        for (NSDictionary *model in models) {
+            
+            SJCartoparty *cartoparty = [[SJCartoparty alloc] init];
+            
+            [cartoparty setFrom:[model valueForKey:@"from"]];
+            [cartoparty setTo:[model valueForKey:@"to"]];
+            [cartoparty setCities:[model valueForKey:@"cities"]];
+            [cartoparty set_description:[model valueForKey:@"description"]];
+            [cartoparty setObjectId:[model valueForKey:@"id"]];
+            
+            [self.subscribedCartoparties addObject:[cartoparty objectId]];
+            
+//        Flickr API
+            FlickrKit *fk = [FlickrKit sharedFlickrKit];
+            NSDictionary *cartopartyCity = [[cartoparty cities] firstObject];
+
+            [fk call:@"flickr.photos.search" args:@{@"text": [cartopartyCity valueForKey:@"cityname"], @"sort": @"relevance"} completion:^(NSDictionary *response, NSError *error) {
+                // Note this is not the main thread!
+                if (response) {
+                    NSDictionary *photoData = [[response valueForKeyPath:@"photos.photo"] objectAtIndex:arc4random_uniform(5)];
+                    NSURL *url = [fk photoURLForSize:FKPhotoSizeMedium640 fromPhotoDictionary:photoData];
+                    NSLog(@"URL: %@", url);
+                    [cartoparty setImageUrl:url];
+                    [self.tableData addObject:cartoparty];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        // Any GUI related operations here
+                        [self.tableView reloadData];
+                    });
+                }
+            }];
         }
         
-        [self.tableView reloadData];
         // [self showGuideMessage:@"Great! you just pulled code from node"];
     };//end selfSuccessBlock
     
@@ -112,10 +148,7 @@
     [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/users/%@/Cartoparties", userId] verb:@"GET"] forMethod:@"users.cartoparties"];
     
     // Invoke the allWithSuccess message for the LBModelRepository
-    // Equivalent http JSON endpoint request : http://localhost:3000/api/products
-    
-//    [objectB allWithSuccess: loadSuccessBlock failure: loadErrorBlock];
-//    NSString *token = [[SJUser sharedManager] accessToken];
+    // Equivalent http JSON endpoint request : http://localhost:3000/api/users/:id/Cartoparties
 
     [objectB invokeStaticMethod:@"cartoparties" parameters:@{@"filter":@{@"include":@"cities"}} success:loadSuccessBlock failure:loadErrorBlock];
 
@@ -126,16 +159,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        LBModel *object = self.tableData[indexPath.row];
-        NSDictionary *objectSelected = self.tableData[indexPath.row];
-        
-        SJCartoparty *cartoparty = [[SJCartoparty alloc] init];
-        [cartoparty setFrom:[objectSelected valueForKey:@"from"]];
-        [cartoparty setTo:[objectSelected valueForKey:@"to"]];
-        [cartoparty setCities:[objectSelected valueForKey:@"cities"]];
-        [cartoparty set_description:[objectSelected valueForKey:@"description"]];
-        [cartoparty setObjectId:[objectSelected valueForKey:@"id"]];
 
+        SJCartoparty *cartoparty = self.tableData[indexPath.row];
         
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailCartoparty:cartoparty];
@@ -161,22 +186,27 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    LBModel *model = (LBModel *)[self.tableData objectAtIndex:indexPath.row];
+    SJCartoparty *model = (SJCartoparty *)[self.tableData objectAtIndex:indexPath.row];
     
-    NSArray *cities = [NSArray arrayWithArray:[model objectForKeyedSubscript:@"cities"]];
-    NSDictionary *cityDictionary = [NSDictionary dictionaryWithDictionary:[cities firstObject]];
+    UIImageView *backgroundImage = (UIImageView*)[cell viewWithTag:10];
+    [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
+    [backgroundImage setClipsToBounds:YES];
+    [backgroundImage sd_setImageWithURL:[model imageUrl]
+                       placeholderImage:nil];
     
-    cell.textLabel.text = [[NSString alloc] initWithFormat:@"%@",
-                               [model objectForKeyedSubscript:@"description"] ];
+    UILabel *descriptionLabel = (UILabel*)[cell viewWithTag:20];
+    descriptionLabel.text = [[NSString alloc] initWithFormat:@"%@",
+                               [model _description] ];
     
-    if ([cityDictionary valueForKey:@"cityname"] != nil) {
-        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@",
-                                     [cityDictionary valueForKey:@"cityname"] ];
-    }
-    else
-        cell.detailTextLabel.text = @"N/A";
+    UILabel *dateLabel = (UILabel*)[cell viewWithTag:21];
+    dateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@",
+                      [model from], [model to] ];
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 160;
 }
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

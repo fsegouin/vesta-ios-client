@@ -10,6 +10,32 @@
 
 @implementation SJCartoparty
 
+- (NSString *)getStringFromJsonDate:(NSString *)jsonDate {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+    
+    NSDate *date = [dateFormat dateFromString:jsonDate];
+    NSDateFormatter *newDateFormatter = [[NSDateFormatter alloc]init];
+    [newDateFormatter setDateFormat:@"dd MMM yyy"];
+    NSString *newString = [newDateFormatter stringFromDate:date];
+    
+    return newString;
+    
+}
+
+- (void)setFrom:(NSString *)newFrom {
+    
+    _from = [self getStringFromJsonDate:newFrom];
+    
+}
+
+- (void)setTo:(NSString *)newTo {
+    
+    _to = [self getStringFromJsonDate:newTo];
+    
+}
+
 @end
 
 @implementation SJCartopartyRepository
