@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AYVibrantButton (1.0.3)
   - DateTools (1.4.3)
   - FlickrKit (1.0.4)
   - FontAwesome+iOS (0.0.1)
@@ -28,15 +29,18 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
+  - THProgressView (1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - AYVibrantButton
   - DateTools
   - FlickrKit
   - FontAwesome+iOS (from `https://github.com/alexdrone/ios-fontawesome.git`)
   - HexColors
   - MBProgressHUD (~> 0.8)
   - SDWebImage
+  - THProgressView
 
 EXTERNAL SOURCES:
   FontAwesome+iOS:
@@ -44,11 +48,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  AYVibrantButton: 6ef08db44395e9b819560191a048297be2e8b727
   DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   FlickrKit: 1bbc5c91f065fa0d7ce4119c5d5c63a9241eea73
   FontAwesome+iOS: 2aa702396e80d0f9a553a8110fc6de660ad2c8e3
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  THProgressView: 083589a96d15ee94329a27cab1d1a79111722efa
 
 COCOAPODS: 0.35.0

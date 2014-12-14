@@ -10,15 +10,21 @@
 		B64D669D1A2FC5D6006C9189 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D669C1A2FC5D6006C9189 /* main.m */; };
 		B64D66A01A2FC5D6006C9189 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D669F1A2FC5D6006C9189 /* AppDelegate.m */; };
 		B64D66A31A2FC5D6006C9189 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D66A21A2FC5D6006C9189 /* MasterViewController.m */; };
-		B64D66A61A2FC5D6006C9189 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D66A51A2FC5D6006C9189 /* DetailViewController.m */; };
 		B64D66A91A2FC5D6006C9189 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B64D66A71A2FC5D6006C9189 /* Main.storyboard */; };
 		B64D66AB1A2FC5D6006C9189 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B64D66AA1A2FC5D6006C9189 /* Images.xcassets */; };
 		B64D66AE1A2FC5D6006C9189 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B64D66AC1A2FC5D6006C9189 /* LaunchScreen.xib */; };
 		B64D66BA1A2FC5D6006C9189 /* vestaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D66B91A2FC5D6006C9189 /* vestaTests.m */; };
+		B6518E321A399D2200DD43CC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6518E311A399D2200DD43CC /* FontAwesome.ttf */; };
+		B6518E381A399E7700DD43CC /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6518E331A399E7700DD43CC /* Montserrat-Regular.otf */; };
+		B6518E391A399E7700DD43CC /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6518E341A399E7700DD43CC /* Montserrat-Black.otf */; };
+		B6518E3A1A399E7700DD43CC /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6518E351A399E7700DD43CC /* Montserrat-Bold.otf */; };
+		B6518E3B1A399E7700DD43CC /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6518E361A399E7700DD43CC /* Montserrat-Hairline.otf */; };
+		B6518E3C1A399E7700DD43CC /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6518E371A399E7700DD43CC /* Montserrat-Light.otf */; };
 		B656B3271A31E77500A07F5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B3261A31E77500A07F5F /* LoginViewController.m */; };
 		B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B3291A31EA7800A07F5F /* SJUser.m */; };
 		B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B32D1A31FAF800A07F5F /* SJCartoparty.m */; };
 		B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B0C0D1A38E04500E17893 /* LoopBack.framework */; };
+		B692B3151A39ADC40082030E /* CartopartyDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B692B3141A39ADC40082030E /* CartopartyDetailTableViewController.m */; };
 		B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */; };
 		B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14B1A3247A400E69A9A /* lock_icon.png */; };
 		B6C9E1521A3247A400E69A9A /* user_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14C1A3247A400E69A9A /* user_icon.png */; };
@@ -26,7 +32,6 @@
 		B6C9E1541A3247A400E69A9A /* lock_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */; };
 		B6C9E1551A3247A400E69A9A /* map_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14F1A3247A400E69A9A /* map_logo.png */; };
 		B6C9E1561A3247A400E69A9A /* map_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E1501A3247A400E69A9A /* map_logo@2x.png */; };
-		B6C9E1581A3249F000E69A9A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E1571A3249F000E69A9A /* FontAwesome.ttf */; };
 		B6ED1D6B1A322DC800673A5B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6ED1D6A1A322DC800673A5B /* QuartzCore.framework */; };
 		E2D60ECEA24849B4AAE8CF92 /* libPods-vesta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */; };
 /* End PBXBuildFile section */
@@ -51,14 +56,18 @@
 		B64D669F1A2FC5D6006C9189 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B64D66A11A2FC5D6006C9189 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		B64D66A21A2FC5D6006C9189 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		B64D66A41A2FC5D6006C9189 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		B64D66A51A2FC5D6006C9189 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		B64D66A81A2FC5D6006C9189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B64D66AA1A2FC5D6006C9189 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B64D66AD1A2FC5D6006C9189 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B64D66B31A2FC5D6006C9189 /* vestaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vestaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64D66B81A2FC5D6006C9189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B64D66B91A2FC5D6006C9189 /* vestaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vestaTests.m; sourceTree = "<group>"; };
+		B6518E311A399D2200DD43CC /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = Assets/Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		B6518E331A399E7700DD43CC /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.otf"; path = "Assets/Fonts/Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		B6518E341A399E7700DD43CC /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Black.otf"; path = "Assets/Fonts/Montserrat-Black.otf"; sourceTree = "<group>"; };
+		B6518E351A399E7700DD43CC /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.otf"; path = "Assets/Fonts/Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		B6518E361A399E7700DD43CC /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Hairline.otf"; path = "Assets/Fonts/Montserrat-Hairline.otf"; sourceTree = "<group>"; };
+		B6518E371A399E7700DD43CC /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.otf"; path = "Assets/Fonts/Montserrat-Light.otf"; sourceTree = "<group>"; };
 		B656B3251A31E77500A07F5F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		B656B3261A31E77500A07F5F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		B656B3281A31EA7800A07F5F /* SJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJUser.h; path = Models/SJUser.h; sourceTree = "<group>"; };
@@ -66,6 +75,8 @@
 		B656B32C1A31FAF800A07F5F /* SJCartoparty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJCartoparty.h; path = Models/SJCartoparty.h; sourceTree = "<group>"; };
 		B656B32D1A31FAF800A07F5F /* SJCartoparty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJCartoparty.m; path = Models/SJCartoparty.m; sourceTree = "<group>"; };
 		B65B0C0D1A38E04500E17893 /* LoopBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopBack.framework; path = Frameworks/LoopBack.framework; sourceTree = "<group>"; };
+		B692B3131A39ADC40082030E /* CartopartyDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartopartyDetailTableViewController.h; sourceTree = "<group>"; };
+		B692B3141A39ADC40082030E /* CartopartyDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartopartyDetailTableViewController.m; sourceTree = "<group>"; };
 		B6BB46CE1A3746A9005FB96D /* CartopartiesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartopartiesListTableViewController.h; sourceTree = "<group>"; };
 		B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartopartiesListTableViewController.m; sourceTree = "<group>"; };
 		B6C9E14B1A3247A400E69A9A /* lock_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock_icon.png; path = Assets/lock_icon.png; sourceTree = "<group>"; };
@@ -74,7 +85,6 @@
 		B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lock_icon@2x.png"; path = "Assets/lock_icon@2x.png"; sourceTree = "<group>"; };
 		B6C9E14F1A3247A400E69A9A /* map_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_logo.png; path = Assets/map_logo.png; sourceTree = "<group>"; };
 		B6C9E1501A3247A400E69A9A /* map_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_logo@2x.png"; path = "Assets/map_logo@2x.png"; sourceTree = "<group>"; };
-		B6C9E1571A3249F000E69A9A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = Assets/FontAwesome.ttf; sourceTree = "<group>"; };
 		B6ED1D6A1A322DC800673A5B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DE09CA33BBDEB3AAE3631C90 /* Pods-vesta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vesta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vesta/Pods-vesta.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,8 +150,8 @@
 				B656B3261A31E77500A07F5F /* LoginViewController.m */,
 				B64D66A11A2FC5D6006C9189 /* MasterViewController.h */,
 				B64D66A21A2FC5D6006C9189 /* MasterViewController.m */,
-				B64D66A41A2FC5D6006C9189 /* DetailViewController.h */,
-				B64D66A51A2FC5D6006C9189 /* DetailViewController.m */,
+				B692B3131A39ADC40082030E /* CartopartyDetailTableViewController.h */,
+				B692B3141A39ADC40082030E /* CartopartyDetailTableViewController.m */,
 				B6BB46CE1A3746A9005FB96D /* CartopartiesListTableViewController.h */,
 				B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */,
 				B64D66A71A2FC5D6006C9189 /* Main.storyboard */,
@@ -178,6 +188,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B6518E301A399CF500DD43CC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B6518E331A399E7700DD43CC /* Montserrat-Regular.otf */,
+				B6518E341A399E7700DD43CC /* Montserrat-Black.otf */,
+				B6518E351A399E7700DD43CC /* Montserrat-Bold.otf */,
+				B6518E361A399E7700DD43CC /* Montserrat-Hairline.otf */,
+				B6518E371A399E7700DD43CC /* Montserrat-Light.otf */,
+				B6518E311A399D2200DD43CC /* FontAwesome.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		B656B3221A31E5B700A07F5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +225,7 @@
 		B6F39EFB1A323AFC00B110E3 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				B6C9E1571A3249F000E69A9A /* FontAwesome.ttf */,
+				B6518E301A399CF500DD43CC /* Fonts */,
 				B6C9E14B1A3247A400E69A9A /* lock_icon.png */,
 				B6C9E14C1A3247A400E69A9A /* user_icon.png */,
 				B6C9E14D1A3247A400E69A9A /* user_icon@2x.png */,
@@ -297,13 +320,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6C9E1561A3247A400E69A9A /* map_logo@2x.png in Resources */,
-				B6C9E1581A3249F000E69A9A /* FontAwesome.ttf in Resources */,
+				B6518E321A399D2200DD43CC /* FontAwesome.ttf in Resources */,
+				B6518E3B1A399E7700DD43CC /* Montserrat-Hairline.otf in Resources */,
 				B64D66A91A2FC5D6006C9189 /* Main.storyboard in Resources */,
 				B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */,
+				B6518E3C1A399E7700DD43CC /* Montserrat-Light.otf in Resources */,
+				B6518E391A399E7700DD43CC /* Montserrat-Black.otf in Resources */,
 				B64D66AE1A2FC5D6006C9189 /* LaunchScreen.xib in Resources */,
 				B64D66AB1A2FC5D6006C9189 /* Images.xcassets in Resources */,
 				B6C9E1541A3247A400E69A9A /* lock_icon@2x.png in Resources */,
 				B6C9E1551A3247A400E69A9A /* map_logo.png in Resources */,
+				B6518E381A399E7700DD43CC /* Montserrat-Regular.otf in Resources */,
+				B6518E3A1A399E7700DD43CC /* Montserrat-Bold.otf in Resources */,
 				B6C9E1531A3247A400E69A9A /* user_icon@2x.png in Resources */,
 				B6C9E1521A3247A400E69A9A /* user_icon.png in Resources */,
 			);
@@ -373,9 +401,9 @@
 				B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */,
 				B64D66A31A2FC5D6006C9189 /* MasterViewController.m in Sources */,
 				B64D669D1A2FC5D6006C9189 /* main.m in Sources */,
+				B692B3151A39ADC40082030E /* CartopartyDetailTableViewController.m in Sources */,
 				B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */,
 				B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */,
-				B64D66A61A2FC5D6006C9189 /* DetailViewController.m in Sources */,
 				B656B3271A31E77500A07F5F /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
