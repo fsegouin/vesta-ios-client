@@ -89,7 +89,7 @@
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties?filter
     
-    [cartopartyRepository invokeStaticMethod:@"filter" parameters:@{@"filter":@{@"include":@"cities"}} success:loadSuccessBlock failure:loadErrorBlock];
+    [cartopartyRepository invokeStaticMethod:@"filter" parameters:@{@"filter":@{@"include":@"cities",@"order":@"to ASC"}} success:loadSuccessBlock failure:loadErrorBlock];
     
     
 };

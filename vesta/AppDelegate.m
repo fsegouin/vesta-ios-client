@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
+#import "CartopartyDetailTableViewController.h"
 #import "FlickrKit.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
@@ -73,7 +73,7 @@ static LBRESTAdapter * _adapter = nil;
 //#pragma mark - Split view
 
 - (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailCartoparty] == nil)) {
+    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[CartopartyDetailTableViewController class]] && ([(CartopartyDetailTableViewController *)[(UINavigationController *)secondaryViewController topViewController] detailCartoparty] == nil)) {
         // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
         return YES;
     } else {

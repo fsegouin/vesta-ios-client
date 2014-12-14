@@ -11,6 +11,8 @@ target 'vesta' do
     pod 'FlickrKit'
     pod 'SDWebImage'
     pod 'DateTools'
+    pod 'AYVibrantButton'
+    pod 'THProgressView'
 end
 
 target 'vestaTests' do

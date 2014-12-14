@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "CartopartyDetailTableViewController.h"
 #import "LoginViewController.h"
 #import "CartopartiesListTableViewController.h"
 #import "SJUser.h"
@@ -124,8 +124,8 @@
             [fk call:@"flickr.photos.search" args:@{@"text": [cartopartyCity valueForKey:@"cityname"], @"sort": @"relevance"} completion:^(NSDictionary *response, NSError *error) {
                 // Note this is not the main thread!
                 if (response) {
-                    NSDictionary *photoData = [[response valueForKeyPath:@"photos.photo"] objectAtIndex:arc4random_uniform(5)];
-                    NSURL *url = [fk photoURLForSize:FKPhotoSizeMedium640 fromPhotoDictionary:photoData];
+                    NSDictionary *photoData = [[response valueForKeyPath:@"photos.photo"] objectAtIndex:arc4random_uniform(10)];
+                    NSURL *url = [fk photoURLForSize:FKPhotoSizeLarge1024 fromPhotoDictionary:photoData];
                     NSLog(@"URL: %@", url);
                     [cartoparty setImageUrl:url];
                     [self.tableData addObject:cartoparty];
@@ -136,6 +136,8 @@
                 }
             }];
         }
+        
+        NSLog(@"Fini de traiter les URL!");
         
         // [self showGuideMessage:@"Great! you just pulled code from node"];
     };//end selfSuccessBlock
@@ -162,7 +164,7 @@
 
         SJCartoparty *cartoparty = self.tableData[indexPath.row];
         
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        CartopartyDetailTableViewController *controller = (CartopartyDetailTableViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailCartoparty:cartoparty];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
