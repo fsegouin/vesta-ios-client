@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AXWireButton (0.1.9)
   - AYVibrantButton (1.0.3)
   - DateTools (1.4.3)
   - FlickrKit (1.0.4)
@@ -33,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
+  - AXWireButton
   - AYVibrantButton
   - DateTools
   - FlickrKit
@@ -48,6 +50,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  AXWireButton: 62cd4dae76b8f3cd6121f4f4420d2e33b008a4be
   AYVibrantButton: 6ef08db44395e9b819560191a048297be2e8b727
   DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   FlickrKit: 1bbc5c91f065fa0d7ce4119c5d5c63a9241eea73

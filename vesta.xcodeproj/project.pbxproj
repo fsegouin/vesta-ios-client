@@ -24,6 +24,7 @@
 		B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B3291A31EA7800A07F5F /* SJUser.m */; };
 		B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B32D1A31FAF800A07F5F /* SJCartoparty.m */; };
 		B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B0C0D1A38E04500E17893 /* LoopBack.framework */; };
+		B68A79D01A3F24D4006919B1 /* SJCheckButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A79CF1A3F24D4006919B1 /* SJCheckButton.m */; };
 		B692B3151A39ADC40082030E /* CartopartyDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B692B3141A39ADC40082030E /* CartopartyDetailTableViewController.m */; };
 		B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */; };
 		B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14B1A3247A400E69A9A /* lock_icon.png */; };
@@ -75,6 +76,8 @@
 		B656B32C1A31FAF800A07F5F /* SJCartoparty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJCartoparty.h; path = Models/SJCartoparty.h; sourceTree = "<group>"; };
 		B656B32D1A31FAF800A07F5F /* SJCartoparty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJCartoparty.m; path = Models/SJCartoparty.m; sourceTree = "<group>"; };
 		B65B0C0D1A38E04500E17893 /* LoopBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopBack.framework; path = Frameworks/LoopBack.framework; sourceTree = "<group>"; };
+		B68A79CE1A3F24D4006919B1 /* SJCheckButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJCheckButton.h; path = Models/SJCheckButton.h; sourceTree = "<group>"; };
+		B68A79CF1A3F24D4006919B1 /* SJCheckButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJCheckButton.m; path = Models/SJCheckButton.m; sourceTree = "<group>"; };
 		B692B3131A39ADC40082030E /* CartopartyDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartopartyDetailTableViewController.h; sourceTree = "<group>"; };
 		B692B3141A39ADC40082030E /* CartopartyDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartopartyDetailTableViewController.m; sourceTree = "<group>"; };
 		B6BB46CE1A3746A9005FB96D /* CartopartiesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartopartiesListTableViewController.h; sourceTree = "<group>"; };
@@ -214,12 +217,22 @@
 		B656B32B1A31EA8100A07F5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B68A79CD1A3F24C2006919B1 /* SJCheckButton */,
 				B656B3281A31EA7800A07F5F /* SJUser.h */,
 				B656B3291A31EA7800A07F5F /* SJUser.m */,
 				B656B32C1A31FAF800A07F5F /* SJCartoparty.h */,
 				B656B32D1A31FAF800A07F5F /* SJCartoparty.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		B68A79CD1A3F24C2006919B1 /* SJCheckButton */ = {
+			isa = PBXGroup;
+			children = (
+				B68A79CE1A3F24D4006919B1 /* SJCheckButton.h */,
+				B68A79CF1A3F24D4006919B1 /* SJCheckButton.m */,
+			);
+			name = SJCheckButton;
 			sourceTree = "<group>";
 		};
 		B6F39EFB1A323AFC00B110E3 /* Assets */ = {
@@ -404,6 +417,7 @@
 				B692B3151A39ADC40082030E /* CartopartyDetailTableViewController.m in Sources */,
 				B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */,
 				B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */,
+				B68A79D01A3F24D4006919B1 /* SJCheckButton.m in Sources */,
 				B656B3271A31E77500A07F5F /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
