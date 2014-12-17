@@ -13,7 +13,8 @@
 
 - (void)setSelected:(BOOL)selected
 {
-    self.emphasized = !self.isEmphasized;
+    self.emphasized = selected;
+    [super setSelected:selected];
     [self setNeedsDisplay];
 }
 
@@ -26,7 +27,7 @@
     UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(1, 1, 30, 30)];
     UIColor *ovalFillColor = [UIColor whiteColor];
     
-    if (self.isEmphasized)
+    if (self.emphasized)
         ovalFillColor = [UIColor colorWithHexString:@"#2ecc71"];
     
     [ovalFillColor setFill];
@@ -45,7 +46,7 @@
     
     UIColor *bezierStrokeColor = [UIColor colorWithHexString:@"#2ecc71"];
     
-    if (self.isEmphasized)
+    if (self.emphasized)
         bezierStrokeColor = [UIColor whiteColor];
     
     [bezierStrokeColor setStroke];
