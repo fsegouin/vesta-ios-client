@@ -6,10 +6,18 @@
 //  Copyright (c) 2014 utt. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "CartopartyDetailTableViewController.h"
+#import "PointListTableViewController.h"
+#import "UserListTableViewController.h"
 #import "SJUser.h"
+#import "SJCheckButton.h"
+#import "SJCartoparty.h"
+#import "THProgressView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "NSString+FontAwesome.h"
+#import "UIColor+FlatUI.h"
 
 @interface CartopartyDetailTableViewController ()
 
@@ -31,9 +39,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.cartopartyImage sd_setImageWithURL:[_detailCartoparty imageUrl] placeholderImage:nil];
-    self.cartopartyDescriptionLabel.text = [[NSString alloc] initWithFormat:@"%@", [_detailCartoparty _description]];
-    self.cartopartyDateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [_detailCartoparty from], [_detailCartoparty to] ];
+//    SJUser *loggedUser = [SJUser sharedManager];
+//    if ([loggedUser accessToken] != nil && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    
+        [self.cartopartyImage sd_setImageWithURL:[_detailCartoparty imageUrl] placeholderImage:nil];
+        self.cartopartyDescriptionLabel.text = [[NSString alloc] initWithFormat:@"%@", [_detailCartoparty _description]];
+        self.cartopartyDateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [_detailCartoparty from], [_detailCartoparty to] ];
+        
+        self.subscribersIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:32];
+        self.pointsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
+        self.meetupsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
+
+        self.subscribersIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAUsers];
+        self.pointsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAThumbTack];
+        self.meetupsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FACalendar];
+    
+    [self.progressView setProgress:0.5f animated:YES];
+        
+        [self getUsersCount];
+    [self getRecordsCount];
+    
+//    }
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -58,7 +84,96 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - API calls
+
+- (void)getRecordsCount
+{
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
+    // Get records count for this cartoparty on the server
+    // GET /Cartoparties/{id}/users/count
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    // Define the load error functional block
+    void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
+        NSLog( @"Error %@", error.description);
+    };//end selfFailblock
+    
+    // Define the load success block for the LBModelRepository allWithSuccess message
+    void (^loadSuccessBlock)(NSDictionary *) = ^(NSDictionary *model) {
+        self.pointsNumberLabel.text = [NSString stringWithFormat:@"%@", [model valueForKey:@"count"]];
+        [[self tableView] reloadData];
+
+    };//end selfSuccessBlock
+    
+    //Get a local representation of the model type
+    SJCartopartyRepository *cartopartyRepository = (SJCartopartyRepository *)[[AppDelegate adapter] repositoryWithClass:[SJCartopartyRepository class]];
+    
+    // Invoke the allWithSuccess message for the LBModelRepository
+    // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties/:id/records/count
+    
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%d/records/count", [[_detailCartoparty objectId] intValue]] verb:@"GET"] forMethod:@"Cartoparties.countRecords"];
+    
+    [cartopartyRepository invokeStaticMethod:@"countRecords" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
+    
+};
+
+- (void)getUsersCount
+{
+    // +++++++++++++++++++++++++++++++++++++++++++++++++
+    // Get users count for this cartoparty on the server
+    // GET /Cartoparties/{id}/users/count
+    // +++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    // Define the load error functional block
+    void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
+        NSLog( @"Error %@", error.description);
+    };//end selfFailblock
+    
+    // Define the load success block for the LBModelRepository allWithSuccess message
+    void (^loadSuccessBlock)(NSDictionary *) = ^(NSDictionary *model) {
+        self.subscribersNumberLabel.text = [NSString stringWithFormat:@"%@", [model valueForKey:@"count"]];
+        [[self tableView] reloadData];
+        
+    };//end selfSuccessBlock
+    
+    //Get a local representation of the model type
+    SJCartopartyRepository *cartopartyRepository = (SJCartopartyRepository *)[[AppDelegate adapter] repositoryWithClass:[SJCartopartyRepository class]];
+    
+    // Invoke the allWithSuccess message for the LBModelRepository
+    // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties/:id/users/count
+    
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%d/users/count", [[_detailCartoparty objectId] intValue]] verb:@"GET"] forMethod:@"Cartoparties.countUsers"];
+    
+    [cartopartyRepository invokeStaticMethod:@"countUsers" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
+    
+};
+
+
+#pragma mark - Buttons actions
+
+- (IBAction)subscribeButtonAction:(SJCheckButton *)sender {
+    sender.selected = !sender.isSelected;
+}
+
+
 #pragma mark - Table view data source
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1)
+        return 38;
+    else
+        return 0;
+}
+
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Set the text color of our header/footer text.
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
+//    [header.textLabel setTextColor:[UIColor whiteColor]];
+    [header.contentView setBackgroundColor:[UIColor colorFromHexCode:@"F1F1F1"]];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -94,14 +209,22 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"showPointList"]) {
+        PointListTableViewController *controller = (PointListTableViewController *)[segue destinationViewController];
+        [controller setCartopartyId:[self.detailCartoparty objectId]];
+    }
+    else if ([[segue identifier] isEqualToString:@"showUserList"]) {
+        UserListTableViewController *controller = (UserListTableViewController *)[segue destinationViewController];
+        [controller setCartopartyId:[self.detailCartoparty objectId]];
+    }
 }
-*/
+
 
 @end
