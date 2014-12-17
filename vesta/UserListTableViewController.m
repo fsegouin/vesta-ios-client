@@ -160,6 +160,11 @@
     cityIconLabel.textColor = [UIColor colorFromHexCode:@"d7d1cd"];
     cityIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAMapMarker];
     
+    UIButton *contactButton = (UIButton *)[cell viewWithTag:30];
+    [contactButton addTarget:self action:@selector(showEmail:) forControlEvents:UIControlEventTouchUpInside];
+    contactButton.clipsToBounds = YES;
+    contactButton.layer.cornerRadius = 15;
+    
 //    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [user firstname], [user lastname]];
 //    cell.detailTextLabel.text = [user username];
     
@@ -179,6 +184,70 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 63;
+}
+
+#pragma mark - Email
+
+- (IBAction)showEmail:(id)sender {
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    SJCartopartyUser *selectedUser = [self.tableData objectAtIndex:indexPath.row];
+    
+    if ( [MFMailComposeViewController canSendMail] )
+    {
+        
+        // Email Subject
+        NSString *emailTitle = [NSString stringWithFormat:@"Contact pour une cartopartie"] ;
+        [APP.globalMailComposer setSubject:emailTitle];
+        //    // Email Content
+        NSString *messageBody = @"iOS programming is so fun!";
+        [APP.globalMailComposer setMessageBody:messageBody isHTML:NO];
+
+        // To address
+        NSArray *toRecipents = [NSArray arrayWithObject:[selectedUser email]];
+        [APP.globalMailComposer setToRecipients:toRecipents];
+        
+//        [APP.globalMailComposer setToRecipients:
+//         [NSArray arrayWithObjects: emailAddressNSString, nil] ];
+//        [APP.globalMailComposer setSubject:subject];
+//        [APP.globalMailComposer setMessageBody:msg isHTML:NO];
+        APP.globalMailComposer.mailComposeDelegate = self;
+        [self presentViewController:APP.globalMailComposer
+                           animated:YES completion:nil];
+    }
+    else
+    {
+        NSLog(@"Unable to mail. No email on this device?");
+        [APP cycleTheGlobalMailComposer];
+    }
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [controller dismissViewControllerAnimated:YES completion:^
+     { [APP cycleTheGlobalMailComposer]; }
+     ];
 }
 
 //- (UIColor *)randomCircleColor {

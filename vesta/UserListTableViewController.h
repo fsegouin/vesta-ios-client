@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface UserListTableViewController : UITableViewController
+@interface UserListTableViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) NSNumber *cartopartyId;
 

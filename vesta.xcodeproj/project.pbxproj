@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60BC51C1A41A31B00F303C6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60BC51B1A41A31B00F303C6 /* MessageUI.framework */; };
 		B64D669D1A2FC5D6006C9189 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D669C1A2FC5D6006C9189 /* main.m */; };
 		B64D66A01A2FC5D6006C9189 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D669F1A2FC5D6006C9189 /* AppDelegate.m */; };
 		B64D66A31A2FC5D6006C9189 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B64D66A21A2FC5D6006C9189 /* MasterViewController.m */; };
@@ -57,6 +58,8 @@
 /* Begin PBXFileReference section */
 		021384AC38D269427C962DE8 /* Pods-vesta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vesta.release.xcconfig"; path = "Pods/Target Support Files/Pods-vesta/Pods-vesta.release.xcconfig"; sourceTree = "<group>"; };
 		890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vesta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60BC51B1A41A31B00F303C6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B60BC51D1A41A64400F303C6 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B64D66971A2FC5D6006C9189 /* vesta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vesta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64D669B1A2FC5D6006C9189 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B64D669C1A2FC5D6006C9189 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60BC51C1A41A31B00F303C6 /* MessageUI.framework in Frameworks */,
 				B6ED1D6B1A322DC800673A5B /* QuartzCore.framework in Frameworks */,
 				B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */,
 				E2D60ECEA24849B4AAE8CF92 /* libPods-vesta.a in Frameworks */,
@@ -195,6 +199,7 @@
 			children = (
 				B64D669B1A2FC5D6006C9189 /* Info.plist */,
 				B64D669C1A2FC5D6006C9189 /* main.m */,
+				B60BC51D1A41A64400F303C6 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				B656632A1A3F66C6004686A6 /* FlatUI Colors */,
+				B60BC51B1A41A31B00F303C6 /* MessageUI.framework */,
 				B65B0C0D1A38E04500E17893 /* LoopBack.framework */,
 				B6ED1D6A1A322DC800673A5B /* QuartzCore.framework */,
 				890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */,
@@ -600,6 +606,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/vesta/PrefixHeader.pch";
 				INFOPLIST_FILE = vesta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -617,6 +624,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/vesta/PrefixHeader.pch";
 				INFOPLIST_FILE = vesta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

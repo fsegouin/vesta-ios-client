@@ -53,7 +53,17 @@ static LBRESTAdapter * _adapter = nil;
     FlickrKit *fk = [FlickrKit sharedFlickrKit];
     [fk initializeWithAPIKey:@"225b171188afd87d71b8fdfddb58a92c" sharedSecret:@"72dd0915bafad010"];
     
+//    We need to initialize our MailComposerViewController and hold it into one static variable (thank you Apple)
+      [self cycleTheGlobalMailComposer];
+    
     return YES;
+}
+
+-(void)cycleTheGlobalMailComposer
+{
+    // we are cycling the damned GlobalMailComposer... due to horrible iOS issue
+    self.globalMailComposer = nil;
+    self.globalMailComposer = [[MFMailComposeViewController alloc] init];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
