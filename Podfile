@@ -11,8 +11,8 @@ target 'vesta' do
     pod 'FlickrKit'
     pod 'SDWebImage'
     pod 'DateTools'
-    pod 'AYVibrantButton'
-    pod 'THProgressView'
+    pod 'THProgressView', :git => 'https://github.com/tiagomnh/THProgressView.git'
+    pod 'GBFlatButton'
 end
 
 target 'vestaTests' do
