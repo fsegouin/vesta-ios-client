@@ -20,11 +20,12 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AXWireButton (0.1.9)
   - AYVibrantButton (1.0.3)
+  - BMInitialsPlaceholderView (1.0.1)
   - DateTools (1.4.3)
   - FlickrKit (1.0.4)
   - FontAwesome+iOS (0.0.1)
+  - GBFlatButton (2.1.0)
   - HexColors (2.2.1)
   - MBProgressHUD (0.9)
   - SDWebImage (3.7.1):
@@ -34,30 +35,39 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
-  - AXWireButton
   - AYVibrantButton
+  - BMInitialsPlaceholderView
   - DateTools
   - FlickrKit
   - FontAwesome+iOS (from `https://github.com/alexdrone/ios-fontawesome.git`)
+  - GBFlatButton
   - HexColors
   - MBProgressHUD (~> 0.8)
   - SDWebImage
-  - THProgressView
+  - THProgressView (from `https://github.com/tiagomnh/THProgressView.git`)
 
 EXTERNAL SOURCES:
   FontAwesome+iOS:
     :git: https://github.com/alexdrone/ios-fontawesome.git
+  THProgressView:
+    :git: https://github.com/tiagomnh/THProgressView.git
+
+CHECKOUT OPTIONS:
+  THProgressView:
+    :commit: ea1dca3a8bd3379d9bb2c1c49156e10d2ac80ac1
+    :git: https://github.com/tiagomnh/THProgressView.git
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  AXWireButton: 62cd4dae76b8f3cd6121f4f4420d2e33b008a4be
   AYVibrantButton: 6ef08db44395e9b819560191a048297be2e8b727
+  BMInitialsPlaceholderView: dc36cf14ac0f877dab2036d3d15bb8a9ebb97faa
   DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   FlickrKit: 1bbc5c91f065fa0d7ce4119c5d5c63a9241eea73
   FontAwesome+iOS: 2aa702396e80d0f9a553a8110fc6de660ad2c8e3
+  GBFlatButton: 30bf30c2594129ffeac1e6dce531022a4759c904
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  THProgressView: 083589a96d15ee94329a27cab1d1a79111722efa
+  THProgressView: 2e19cf950671bb6d5d562433d5b04be93e6ffd35
 
 COCOAPODS: 0.35.0

@@ -23,7 +23,15 @@ static LBRESTAdapter * _adapter = nil;
     if ( !_adapter) {
         
 //        API root path
-        _adapter = [LBRESTAdapter adapterWithURL:[NSURL URLWithString:@"http://localhost:3000/api/"]];
+//        
+//        DEBUG -- LOCAL
+//        
+//        _adapter = [LBRESTAdapter adapterWithURL:[NSURL URLWithString:@"http://localhost:3000/api/"]];
+        
+//        
+//        PROD -- HEROKU
+//        
+        _adapter = [LBRESTAdapter adapterWithURL:[NSURL URLWithString:@"http://vesta-api.herokuapp.com/api/"]];
         
 //        Add custom routes (static methods)
         [[_adapter contract] addItem:[SLRESTContractItem itemWithPattern:@"/Cartoparties" verb:@"GET"] forMethod:@"Cartoparties.filter"];
