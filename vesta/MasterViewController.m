@@ -38,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self listenToNotifications];
     // Do any additional setup after loading the view, typically from a nib.
 //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 //
@@ -62,10 +63,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     SJUser *loggedUser = [SJUser sharedManager];
-
     if ([loggedUser accessToken] != nil && self.firstLaunch) {
-        //        Download cartoparties I already suscribed to
+        // Download cartoparties I already suscribed to
         self.firstLaunch = FALSE;
         [self getModels];
     }
@@ -74,6 +75,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)listenToNotifications {
+    //    Notifications we need to listen to
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(getModels)
+                                                 name:@"updateFromSubscribedCartopartiesList"
+                                               object:nil];
+    
 }
 
 //- (void)insertNewObject:(id)sender {
@@ -115,29 +125,38 @@
             [cartoparty set_description:[model valueForKey:@"description"]];
             [cartoparty setObjectId:[model valueForKey:@"id"]];
             
-            [self.subscribedCartoparties addObject:[cartoparty objectId]];
-            
-//        Flickr API
+//            [self.subscribedCartoparties addObject:[cartoparty objectId]];
+            [self.tableData addObject:cartoparty];
+
+        }
+        
+        [self.subscribedCartoparties setArray:self.tableData];
+
+        for (SJCartoparty *cartoparty in self.tableData) {
+        
+            //        Flickr API
             FlickrKit *fk = [FlickrKit sharedFlickrKit];
             NSDictionary *cartopartyCity = [[cartoparty cities] firstObject];
-
+            
             [fk call:@"flickr.photos.search" args:@{@"text": [cartopartyCity valueForKey:@"cityname"], @"sort": @"relevance"} completion:^(NSDictionary *response, NSError *error) {
                 // Note this is not the main thread!
                 if (response) {
-                    NSDictionary *photoData = [[response valueForKeyPath:@"photos.photo"] objectAtIndex:arc4random_uniform(10)];
+//                    NSDictionary *photoData = [[response valueForKeyPath:@"photos.photo"] objectAtIndex:arc4random_uniform(10)];
+                    NSDictionary *photoData = [[response valueForKeyPath:@"photos.photo"] objectAtIndex:0];
                     NSURL *url = [fk photoURLForSize:FKPhotoSizeLarge1024 fromPhotoDictionary:photoData];
                     NSLog(@"URL: %@", url);
                     [cartoparty setImageUrl:url];
-                    [self.tableData addObject:cartoparty];
+//                    [self.tableData addObject:cartoparty];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         // Any GUI related operations here
                         [self.tableView reloadData];
                     });
                 }
             }];
+            
         }
         
-        NSLog(@"Fini de traiter les URL!");
+//        NSLog(@"Fini de traiter les URL!");
         
         // [self showGuideMessage:@"Great! you just pulled code from node"];
     };//end selfSuccessBlock
