@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SJCartoparty.h"
 #import "THProgressView.h"
+#import "SJMedalView.h"
 
 @interface CartopartyDetailTableViewController : UITableViewController
 
@@ -24,5 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointsNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *meetupsNumberLabel;
 @property (weak, nonatomic) IBOutlet THProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIImageView *leaderImage;
+@property (weak, nonatomic) IBOutlet SJMedalView *medalView;
+@property (weak, nonatomic) IBOutlet UILabel *medalIcon;
 
 @end

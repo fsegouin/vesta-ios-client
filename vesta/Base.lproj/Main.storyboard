@@ -102,33 +102,45 @@
                                                     </constraints>
                                                     <blurEffect style="light"/>
                                                 </visualEffectView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5V-sg-eX4" customClass="SJCheckButton">
-                                                    <rect key="frame" x="548" y="20" width="32" height="32"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bmk-Os-29B">
+                                                    <rect key="frame" x="525" y="147" width="55" height="55"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="HuD-Ab-Y3f"/>
-                                                        <constraint firstAttribute="height" constant="32" id="TZ5-le-M6X"/>
+                                                        <constraint firstAttribute="height" constant="55" id="FkD-vA-8a2"/>
+                                                        <constraint firstAttribute="width" constant="55" id="H09-Mh-kg0"/>
                                                     </constraints>
-                                                    <state key="normal">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="subscribeButtonAction:" destination="3ru-IG-W8y" eventType="touchUpInside" id="tkY-op-PNG"/>
-                                                    </connections>
-                                                </button>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfo-pc-4ym" customClass="SJMedalView">
+                                                    <rect key="frame" x="564" y="185" width="20" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="bIw-ex-63u"/>
+                                                        <constraint firstAttribute="width" constant="20" id="f0c-h8-L0g"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyi-qk-Lcw">
+                                                    <rect key="frame" x="568" y="185" width="10" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="Dkr-zN-UYJ"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Vb0-jH-Lyh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tfo-pc-4ym" secondAttribute="trailing" constant="8" id="3Ta-5A-kmI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="G3D-fd-Cdb" secondAttribute="trailing" constant="-8" id="78P-9T-1Yu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bmk-Os-29B" secondAttribute="trailing" constant="12" id="Bz7-Cj-yOL"/>
                                                 <constraint firstItem="G3D-fd-Cdb" firstAttribute="top" secondItem="z8z-yb-1Jb" secondAttribute="topMargin" constant="-8" id="E8D-jp-6MZ"/>
                                                 <constraint firstItem="G3D-fd-Cdb" firstAttribute="leading" secondItem="z8z-yb-1Jb" secondAttribute="leadingMargin" constant="-8" id="IS4-Th-qME"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="EEr-h8-DsW" secondAttribute="bottom" constant="-9" id="NAQ-2r-5Di"/>
-                                                <constraint firstItem="S5V-sg-eX4" firstAttribute="top" secondItem="z8z-yb-1Jb" secondAttribute="topMargin" constant="12" id="YIs-R4-pdX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Vyi-qk-Lcw" secondAttribute="bottom" constant="22" id="WR1-1m-qDm"/>
                                                 <constraint firstItem="EEr-h8-DsW" firstAttribute="leading" secondItem="z8z-yb-1Jb" secondAttribute="leadingMargin" constant="-8" id="d7J-J2-jh4"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="S5V-sg-eX4" secondAttribute="trailing" constant="12" id="jBS-c8-edv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bmk-Os-29B" secondAttribute="bottom" constant="26" id="nQD-Ct-2IE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tfo-pc-4ym" secondAttribute="bottom" constant="22" id="nRi-nr-yeu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="EEr-h8-DsW" secondAttribute="trailing" constant="-8" id="nfH-BX-Bcw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Vyi-qk-Lcw" secondAttribute="trailing" constant="14" id="zaG-Rb-GJs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -460,6 +472,9 @@
                         <outlet property="cartopartyDateLabel" destination="xOa-nc-Bah" id="Jo3-od-uti"/>
                         <outlet property="cartopartyDescriptionLabel" destination="o0I-fc-FD2" id="BbN-2d-tsL"/>
                         <outlet property="cartopartyImage" destination="G3D-fd-Cdb" id="95v-Ed-JIq"/>
+                        <outlet property="leaderImage" destination="bmk-Os-29B" id="SAV-qK-TOo"/>
+                        <outlet property="medalIcon" destination="Vyi-qk-Lcw" id="IEf-gn-aaK"/>
+                        <outlet property="medalView" destination="tfo-pc-4ym" id="wCB-GF-bmw"/>
                         <outlet property="meetupsIconLabel" destination="ITV-R7-CMb" id="esZ-tY-iko"/>
                         <outlet property="meetupsNumberLabel" destination="BRV-Mm-tjp" id="jrF-og-Bq1"/>
                         <outlet property="pointsIconLabel" destination="h44-7B-oMr" id="AzK-PV-dEL"/>

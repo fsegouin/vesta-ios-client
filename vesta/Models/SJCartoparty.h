@@ -7,6 +7,7 @@
 //
 
 #import <LoopBack/LoopBack.h>
+#import "SJCartopartyUser.h"
 
 @interface SJCartoparty : LBModel
 
@@ -17,6 +18,7 @@
 @property (nonatomic, copy) NSString *to;
 @property (nonatomic, copy) NSString *fullDate;
 @property (nonatomic, copy) NSArray *cities;
+@property (nonatomic, retain) SJCartopartyUser *leader;
 @property (nonatomic, copy) id ownerId;
 @property BOOL isUserAMember;
 

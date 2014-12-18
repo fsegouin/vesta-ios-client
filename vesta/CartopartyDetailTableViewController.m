@@ -42,21 +42,42 @@
 //    SJUser *loggedUser = [SJUser sharedManager];
 //    if ([loggedUser accessToken] != nil && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
     
-        [self.cartopartyImage sd_setImageWithURL:[_detailCartoparty imageUrl] placeholderImage:nil];
-        self.cartopartyDescriptionLabel.text = [[NSString alloc] initWithFormat:@"%@", [_detailCartoparty _description]];
-        self.cartopartyDateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [_detailCartoparty from], [_detailCartoparty to] ];
-        
-        self.subscribersIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:32];
-        self.pointsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
-        self.meetupsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
+    [self.cartopartyImage sd_setImageWithURL:[self.detailCartoparty imageUrl] placeholderImage:nil];
+    [self.leaderImage sd_setImageWithURL:[NSURL URLWithString:[[self.detailCartoparty leader] picture]] placeholderImage:nil];
+    self.leaderImage.layer.cornerRadius = self.leaderImage.frame.size.width / 2;
+    self.leaderImage.layer.borderWidth = 2.0f;
+    self.leaderImage.layer.borderColor = [UIColor colorFromHexCode:@"ecf0f1"].CGColor;
+    
+    self.medalIcon.font = [UIFont fontWithName:kFontAwesomeFamilyName size:10];
+    if ([[self.detailCartoparty leader] expert]) {
+        self.medalIcon.text = [NSString fontAwesomeIconStringForEnum:FARocket];
+        [self.medalView setExpert:YES];
+    }
+    else if ([[self.detailCartoparty leader] moderator]) {
+        self.medalIcon.text = [NSString fontAwesomeIconStringForEnum:FAThumbsUp];
+        [self.medalView setModerator:YES];
+    }
+    else if ([[self.detailCartoparty leader] elder]) {
+        self.medalIcon.text = [NSString fontAwesomeIconStringForEnum:FAStar];
+        [self.medalView setElder:YES];
+    }
+    else
+        self.medalIcon.text = @"";
 
-        self.subscribersIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAUsers];
-        self.pointsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAThumbTack];
-        self.meetupsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FACalendar];
+    self.cartopartyDescriptionLabel.text = [[NSString alloc] initWithFormat:@"%@", [self.detailCartoparty _description]];
+    self.cartopartyDateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [self.detailCartoparty from], [self.detailCartoparty to] ];
+    
+    self.subscribersIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:32];
+    self.pointsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
+    self.meetupsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
+
+    self.subscribersIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAUsers];
+    self.pointsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAThumbTack];
+    self.meetupsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FACalendar];
     
     [self.progressView setProgress:0.5f animated:YES];
         
-        [self getUsersCount];
+    [self getUsersCount];
     [self getRecordsCount];
     
 //    }

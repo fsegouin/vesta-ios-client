@@ -15,6 +15,7 @@
 #import "CartopartiesListTableViewController.h"
 #import "SJUser.h"
 #import "SJCartoparty.h"
+#import "SJCartopartyUser.h"
 #import "FlickrKit.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -88,15 +89,6 @@
     
 }
 
-//- (void)insertNewObject:(id)sender {
-//    if (!self.objects) {
-//        self.objects = [[NSMutableArray alloc] init];
-//    }
-//    [self.objects insertObject:[NSDate date] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//}
-
 #pragma mark - API calls
 
 - (void)getModels
@@ -126,6 +118,23 @@
             [cartoparty setCities:[model valueForKey:@"cities"]];
             [cartoparty set_description:[model valueForKey:@"description"]];
             [cartoparty setObjectId:[model valueForKey:@"id"]];
+
+            NSDictionary *leaderProperties = [model objectForKey:@"leader"];
+            SJCartopartyUser *cartopartyLeader = [[SJCartopartyUser alloc] init];
+            
+            [cartopartyLeader setUserId:[leaderProperties valueForKey:@"id"]];
+            [cartopartyLeader setLastname:[leaderProperties valueForKey:@"lastname"]];
+            [cartopartyLeader setFirstname:[leaderProperties valueForKey:@"firstname"]];
+            [cartopartyLeader setBirthDate:[leaderProperties valueForKey:@"birthDate"]];
+            [cartopartyLeader setUsername:[leaderProperties valueForKey:@"username"]];
+            [cartopartyLeader setEmail:[leaderProperties valueForKey:@"email"]];
+            [cartopartyLeader setCity:[leaderProperties valueForKey:@"city"]];
+            [cartopartyLeader setPicture:[leaderProperties valueForKey:@"picture"]];
+            [cartopartyLeader setExpert:[[leaderProperties valueForKey:@"expert"] boolValue]];
+            [cartopartyLeader setModerator:[[leaderProperties valueForKey:@"moderator"] boolValue]];
+            [cartopartyLeader setElder:[[leaderProperties valueForKey:@"elder"] boolValue]];
+            
+            [cartoparty setLeader:cartopartyLeader];
             
 //            [self.subscribedCartoparties addObject:[cartoparty objectId]];
             [self.tableData addObject:cartoparty];
@@ -173,7 +182,7 @@
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/users/:id/Cartoparties
 
-    [objectB invokeStaticMethod:@"cartoparties" parameters:@{@"filter":@{@"include":@"cities"}} success:loadSuccessBlock failure:loadErrorBlock];
+    [objectB invokeStaticMethod:@"cartoparties" parameters:@{@"filter":@{@"include":@[@"cities", @"leader"]}} success:loadSuccessBlock failure:loadErrorBlock];
 
 };
 
