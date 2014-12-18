@@ -38,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self listenToNotifications];
     // Do any additional setup after loading the view, typically from a nib.
 //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -66,6 +67,7 @@
     [super viewWillAppear:animated];
     SJUser *loggedUser = [SJUser sharedManager];
     if ([loggedUser accessToken] != nil && self.firstLaunch) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         // Download cartoparties I already suscribed to
         self.firstLaunch = FALSE;
         [self getModels];
