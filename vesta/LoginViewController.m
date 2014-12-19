@@ -72,9 +72,6 @@
     // Define the load error functional block
     void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
         
-        // Dismiss progress HUD
-        [KVNProgress dismiss];
-        
         NSLog(@"Error %@", error.description);
         NSLog(@"userInfo error : %@", error.userInfo);
         
@@ -87,12 +84,9 @@
             errorMessage = @"Vérifiez vos informations de connexion";
         }
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur"
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        // Show error HUD - auto dismiss
+        [KVNProgress showErrorWithStatus:errorMessage];
+        
     };//end selfFailblock
     
     //Get a local representation of the 'user' model type
