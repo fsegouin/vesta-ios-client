@@ -11,7 +11,6 @@
 #import "SJCartopartyUser.h"
 #import "SJCartoparty.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "BMInitialsPlaceholderView.h"
 #import "UIColor+FlatUI.h"
 #import "SJMedalView.h"
 #import "NSString+FontAwesome.h"

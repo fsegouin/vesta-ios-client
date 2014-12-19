@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 utt. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
+//#import <QuartzCore/QuartzCore.h>
+#import <KVNProgress/KVNProgress.h>
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "SJUser.h"
@@ -57,6 +58,10 @@
     
     // Define the load success block for the SJUser loginWithEmail message
     void (^loadSuccessBlock)(LBAccessToken *) = ^(LBAccessToken *token) {
+        
+        // Dismiss progress HUD
+        [KVNProgress dismiss];
+        
         NSLog(@"Successfully logged in for user %@ with accessToken: %@", [token userId], [token _id]);
         SJUser *loggedUser = [SJUser sharedManager];
         [loggedUser setAccessToken:[token _id]];
@@ -66,6 +71,10 @@
     
     // Define the load error functional block
     void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
+        
+        // Dismiss progress HUD
+        [KVNProgress dismiss];
+        
         NSLog(@"Error %@", error.description);
         NSLog(@"userInfo error : %@", error.userInfo);
         
@@ -93,6 +102,9 @@
     // Equivalent http JSON endpoint request : http://localhost:3000/users/login
     
     [userRepository loginWithEmail:self.loginTextField.text password:self.passwordTextField.text success:loadSuccessBlock failure:loadErrorBlock];
+    
+    // Show a progress HUD
+    [KVNProgress show];
     
 }
 
