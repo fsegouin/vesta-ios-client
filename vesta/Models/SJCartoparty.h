@@ -11,7 +11,7 @@
 
 @interface SJCartoparty : LBModel
 
-@property (nonatomic, copy) id objectId;
+@property (nonatomic, copy) NSString *objectId;
 @property (nonatomic, copy) NSString *_description;
 @property (nonatomic, copy) NSURL *imageUrl;
 @property (nonatomic, copy) NSString *from;
@@ -19,8 +19,8 @@
 @property (nonatomic, copy) NSString *fullDate;
 @property (nonatomic, copy) NSArray *cities;
 @property (nonatomic, retain) SJCartopartyUser *leader;
-@property (nonatomic, copy) id ownerId;
-@property BOOL isUserAMember;
+@property (nonatomic, copy) NSString *ownerId;
+@property (nonatomic, assign) BOOL isUserAMember;
 
 @end
 

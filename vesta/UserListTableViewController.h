@@ -11,6 +11,6 @@
 
 @interface UserListTableViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
-@property (strong, nonatomic) NSNumber *cartopartyId;
+@property (strong, nonatomic) NSString *cartopartyId;
 
 @end

@@ -132,7 +132,7 @@
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties/:id/records/count
     
-    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%d/records/count", [[_detailCartoparty objectId] intValue]] verb:@"GET"] forMethod:@"Cartoparties.countRecords"];
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%@/records/count", [_detailCartoparty objectId]] verb:@"GET"] forMethod:@"Cartoparties.countRecords"];
     
     [cartopartyRepository invokeStaticMethod:@"countRecords" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
     
@@ -163,7 +163,7 @@
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties/:id/users/count
     
-    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%d/users/count", [[_detailCartoparty objectId] intValue]] verb:@"GET"] forMethod:@"Cartoparties.countUsers"];
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%@/users/count", [_detailCartoparty objectId]] verb:@"GET"] forMethod:@"Cartoparties.countUsers"];
     
     [cartopartyRepository invokeStaticMethod:@"countUsers" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
     

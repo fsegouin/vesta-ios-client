@@ -10,7 +10,7 @@
 
 @interface SJRecord : LBModel
 
-@property (nonatomic, copy) id objectId;
+@property (nonatomic, copy) NSString *objectId;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSURL *imageUrl;
 @property (nonatomic, copy) NSString *note;

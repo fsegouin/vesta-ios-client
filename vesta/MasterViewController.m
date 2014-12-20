@@ -17,6 +17,7 @@
 #import "SJCartoparty.h"
 #import "SJCartopartyUser.h"
 #import "FlickrKit.h"
+#import "KVNProgress.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MasterViewController ()
@@ -167,7 +168,8 @@
             
         }
         
-//        NSLog(@"Fini de traiter les URL!");
+        // Dismiss progress HUD
+        [KVNProgress dismiss];
         
         // [self showGuideMessage:@"Great! you just pulled code from node"];
     };//end selfSuccessBlock
@@ -183,6 +185,9 @@
     // Equivalent http JSON endpoint request : http://localhost:3000/api/users/:id/Cartoparties
 
     [objectB invokeStaticMethod:@"cartoparties" parameters:@{@"filter":@{@"include":@[@"cities", @"leader"]}} success:loadSuccessBlock failure:loadErrorBlock];
+    
+    // Show a progress HUD
+    [KVNProgress show];
 
 };
 

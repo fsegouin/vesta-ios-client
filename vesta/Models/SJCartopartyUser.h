@@ -10,7 +10,7 @@
 
 @interface SJCartopartyUser : LBModel
 
-@property (strong, nonatomic) id userId;
+@property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *firstname;
 @property (strong, nonatomic) NSString *lastname;
 @property (strong, nonatomic) NSString *birthDate;

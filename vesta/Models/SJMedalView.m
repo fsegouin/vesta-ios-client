@@ -26,11 +26,12 @@
     [self setNeedsDisplay];
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    
     //// Color Declarations
+    
+    //// If no mode is set, the whole badge will be blank (not visible)
     UIColor* color = [UIColor clearColor];
     
     if (self.expert)
@@ -42,13 +43,15 @@
     
     //// Bezier Drawing
     UIBezierPath* bezierPath = UIBezierPath.bezierPath;
-    [bezierPath moveToPoint: CGPointMake(9.66, 1)];
-    [bezierPath addLineToPoint: CGPointMake(1, 5.26)];
-    [bezierPath addLineToPoint: CGPointMake(1, 17.07)];
-    [bezierPath addLineToPoint: CGPointMake(9.66, 21)];
-    [bezierPath addLineToPoint: CGPointMake(18, 17.07)];
-    [bezierPath addLineToPoint: CGPointMake(18, 5.26)];
-    [bezierPath addLineToPoint: CGPointMake(9.66, 1)];
+    
+    [bezierPath moveToPoint:CGPointMake(self.bounds.size.width/2, 0)];
+    [bezierPath addLineToPoint: CGPointMake(self.bounds.size.width, self.bounds.size.height/4)];
+    [bezierPath addLineToPoint: CGPointMake(self.bounds.size.width, self.bounds.size.height-self.bounds.size.height/4)];
+    [bezierPath addLineToPoint: CGPointMake(self.bounds.size.width/2, self.bounds.size.height)];
+    [bezierPath addLineToPoint: CGPointMake(0, self.bounds.size.height-self.bounds.size.height/4)];
+    [bezierPath addLineToPoint: CGPointMake(0, self.bounds.size.height/4)];
+    [bezierPath addLineToPoint: CGPointMake(self.bounds.size.width/2, 0)];
+    
     [color setFill];
     [bezierPath fill];
 }

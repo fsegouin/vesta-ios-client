@@ -7,7 +7,7 @@
 //
 
 #import "SJCheckButton.h"
-#import "HexColor.h"
+#import "UIColor+FlatUI.h"
 
 @implementation SJCheckButton
 
@@ -28,7 +28,7 @@
     UIColor *ovalFillColor = [UIColor whiteColor];
     
     if (self.emphasized)
-        ovalFillColor = [UIColor colorWithHexString:@"#2ecc71"];
+        ovalFillColor = [UIColor colorFromHexCode:@"#2ecc71"];
     
     [ovalFillColor setFill];
     [ovalPath fill];
@@ -44,7 +44,7 @@
     [bezier2Path addLineToPoint: CGPointMake(23, 10)];
     bezier2Path.lineCapStyle = kCGLineCapRound;
     
-    UIColor *bezierStrokeColor = [UIColor colorWithHexString:@"#2ecc71"];
+    UIColor *bezierStrokeColor = [UIColor colorFromHexCode:@"#2ecc71"];
     
     if (self.emphasized)
         bezierStrokeColor = [UIColor whiteColor];

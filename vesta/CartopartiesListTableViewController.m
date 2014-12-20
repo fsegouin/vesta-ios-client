@@ -14,6 +14,7 @@
 #import "FlickrKit.h"
 #import "SJCheckButton.h"
 #import "SJCartopartyTableViewCell.h"
+#import "KVNProgress.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface CartopartiesListTableViewController ()
@@ -90,13 +91,8 @@
     
             for (SJCartoparty *subscribedCartoparty in self.subscribedCartoparties) {
                 for (SJCartoparty *cartoparty in self.tableData) {
-                    if ([[subscribedCartoparty objectId] isEqual:[cartoparty objectId]]) {
+                    if ([[subscribedCartoparty objectId] isEqualToString:[cartoparty objectId]])
                         [cartoparty setIsUserAMember:YES];
-//                        [self.checkedButtons addObject:[NSNumber numberWithBool:YES]];
-                    }
-//                    else {
-//                        [self.checkedButtons addObject:[NSNumber numberWithBool:NO]];
-//                    }
                 }
             }
         
@@ -124,10 +120,8 @@
             }
         }
         
-
-//        }
-        
-        //        NSLog(@"Fini de traiter les URL!");
+        // Dismiss progress HUD
+        [KVNProgress dismiss];
         
         // [self showGuideMessage:@"Great! you just pulled code from node"];
     };//end selfSuccessBlock
@@ -140,9 +134,12 @@
     
     [cartopartyRepository invokeStaticMethod:@"filter" parameters:@{@"filter":@{@"include":@"cities",@"order":@"to ASC"}} success:loadSuccessBlock failure:loadErrorBlock];
     
+    // Show a progress HUD
+    [KVNProgress show];
+    
 };
 
-- (void)shouldSubscribe:(BOOL)subscribe ForCartopartyId:(int)cartopartyId  {
+- (void)shouldSubscribe:(BOOL)subscribe ForCartopartyId:(NSString *)cartopartyId  {
     
     // +++++++++++++++++++++++++++++++++++++++++++
     // Post a new link between cartoparty and user
@@ -160,7 +157,7 @@
         NSLog(@"Response for subscribe (%d): %@", subscribe, model);
         self.change = YES;
         for (SJCartoparty *cartoparty in self.tableData) {
-            if ([[cartoparty objectId] intValue] == cartopartyId)
+            if ([[cartoparty objectId] isEqualToString:cartopartyId])
                 [cartoparty setIsUserAMember:subscribe];
         }
         
@@ -173,8 +170,8 @@
     
     NSString *userId = [[SJUser sharedManager] userId];
     
-    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/users/%@/cartoparties/rel/%d", userId, cartopartyId] verb:@"PUT"] forMethod:@"users.subscribe"];
-    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/users/%@/cartoparties/rel/%d", userId, cartopartyId] verb:@"DELETE"] forMethod:@"users.unsubscribe"];
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/users/%@/cartoparties/rel/%@", userId, cartopartyId] verb:@"PUT"] forMethod:@"users.subscribe"];
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/users/%@/cartoparties/rel/%@", userId, cartopartyId] verb:@"DELETE"] forMethod:@"users.unsubscribe"];
     
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/users/:id/cartoparties/rel/:fk
@@ -326,7 +323,7 @@
     {
         NSLog(@"Is button selected? %d", sender.isSelected);
         SJCartoparty *model = (SJCartoparty *)[self.tableData objectAtIndex:indexPath.row];
-        [self shouldSubscribe:!sender.isSelected ForCartopartyId:[[model objectId] intValue]];
+        [self shouldSubscribe:!sender.isSelected ForCartopartyId:[model objectId]];
         sender.selected = !sender.isSelected;
         
 //        if([sender isSelected]) //if the button is selected, deselect it, and then replace the "YES" in the array with "NO"
