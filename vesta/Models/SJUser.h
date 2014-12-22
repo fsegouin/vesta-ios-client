@@ -21,5 +21,6 @@
 @interface SJUserRepository : LBUserRepository
 
 + (instancetype)repository;
+- (void)storeAccessTokenInAdapter:(NSString *)accessToken;
 
 @end

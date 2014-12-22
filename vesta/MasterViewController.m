@@ -26,6 +26,8 @@
 @property (strong, nonatomic) NSMutableArray *tableData;
 @property (strong, nonatomic) NSMutableArray *subscribedCartoparties;
 @property BOOL firstLaunch;
+@property BOOL tokenExpired;
+
 @end
 
 @implementation MasterViewController
@@ -51,27 +53,29 @@
     self.subscribedCartoparties = [NSMutableArray array];
     self.tableData = [NSMutableArray array];
     self.firstLaunch = YES;
-    
+    self.tokenExpired = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     SJUser *loggedUser = [SJUser sharedManager];
+
     if ([loggedUser accessToken] == nil && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *dummy = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         [self presentViewController:dummy animated:NO completion:nil];
-//        call cartoparty download method
-//        [self getModels];
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     SJUser *loggedUser = [SJUser sharedManager];
-    if ([loggedUser accessToken] != nil && self.firstLaunch) {
+    
+    if ([loggedUser accessToken] != nil && (self.firstLaunch || self.tokenExpired)) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         // Download cartoparties I already suscribed to
-        self.firstLaunch = FALSE;
+        self.firstLaunch = NO;
+        self.tokenExpired = NO;
         [self getModels];
     }
 }
@@ -101,6 +105,23 @@
     // Define the load error functional block
     void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
         NSLog( @"Error %@", error.description);
+        
+        NSString *localizedDescriptionError = [[error userInfo] valueForKey:@"NSLocalizedDescription"];
+        
+        if ([localizedDescriptionError rangeOfString:@"401"].location != NSNotFound) {
+            self.tokenExpired = YES;
+            NSLog(@"Token expired!");
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            LoginViewController *dummy = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            [self presentViewController:dummy animated:NO completion:nil];
+            // Dismiss progress HUD
+            [KVNProgress showErrorWithStatus:@"Votre session a expiré.\nVeuillez vous identifier à nouveau."];
+        }
+        else {
+            // Dismiss progress HUD
+            [KVNProgress showError];
+        }
+
     };//end selfFailblock
     
     // Define the load success block for the LBModelRepository allWithSuccess message

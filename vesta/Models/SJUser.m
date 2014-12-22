@@ -36,4 +36,9 @@
     return [self repositoryWithClassName:@"users"];
 }
 
+- (void)storeAccessTokenInAdapter:(NSString *)accessToken {
+    LBRESTAdapter* adapter = (LBRESTAdapter*)self.adapter;
+    adapter.accessToken = accessToken;
+}
+
 @end

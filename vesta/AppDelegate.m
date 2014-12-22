@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "CartopartyDetailTableViewController.h"
 #import "FlickrKit.h"
+#import "SJUser.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -52,6 +53,22 @@ static LBRESTAdapter * _adapter = nil;
     
     FlickrKit *fk = [FlickrKit sharedFlickrKit];
     [fk initializeWithAPIKey:@"225b171188afd87d71b8fdfddb58a92c" sharedSecret:@"72dd0915bafad010"];
+    
+//    Check for existing user access token
+    
+    SJUser *loggedUser = [SJUser sharedManager];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([loggedUser accessToken] == nil) {
+        [loggedUser setUserId:[defaults valueForKey:@"userId"]];
+        [loggedUser setAccessToken:[defaults valueForKey:@"accessToken"]];
+    }
+
+    if ([loggedUser accessToken] != nil) {
+        // Set the old access token we got to our adapter
+        SJUserRepository *userRepository = (SJUserRepository *)[[AppDelegate adapter] repositoryWithClass:[SJUserRepository class]];
+        [userRepository storeAccessTokenInAdapter:[defaults valueForKey:@"accessToken"]];
+    }
     
 //    We need to initialize our MailComposerViewController and hold it into one static variable (thank you Apple)
       [self cycleTheGlobalMailComposer];

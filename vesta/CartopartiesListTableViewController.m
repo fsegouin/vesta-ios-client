@@ -61,6 +61,10 @@
     
     // Define the load error functional block
     void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
+        
+        // Dismiss progress HUD
+        [KVNProgress showError];
+        
         NSLog( @"Error %@", error.description);
     };//end selfFailblock
     

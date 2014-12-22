@@ -63,9 +63,18 @@
         [KVNProgress dismiss];
         
         NSLog(@"Successfully logged in for user %@ with accessToken: %@", [token userId], [token _id]);
+        
         SJUser *loggedUser = [SJUser sharedManager];
         [loggedUser setAccessToken:[token _id]];
         [loggedUser setUserId:[token userId]];
+        
+        // Store this token so we can use it later
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[token _id] forKey:@"accessToken"];
+        [defaults setObject:[token userId] forKey:@"userId"];
+        [defaults synchronize];
+        
         [self dismissViewControllerAnimated:NO completion:nil];
     };//end selfSuccessBlock
     
