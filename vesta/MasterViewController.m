@@ -212,6 +212,63 @@
 
 };
 
+- (IBAction)actionLogout:(id)sender {
+    
+    // Define the load success block for the SJUser loginWithEmail message
+    void (^loadSuccessBlock)() = ^() {
+        
+        // Dismiss progress HUD
+        [KVNProgress showSuccess];
+        self.tokenExpired = YES;
+        
+        NSLog(@"Successfully logged out");
+        
+        // Delete our stored token
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:nil forKey:@"accessToken"];
+        [defaults setObject:nil forKey:@"userId"];
+        [defaults synchronize];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *dummy = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self presentViewController:dummy animated:NO completion:nil];
+    };//end selfSuccessBlock
+    
+    // Define the load error functional block
+    void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
+        
+        NSLog(@"Error %@", error.description);
+        NSLog(@"userInfo error : %@", error.userInfo);
+        
+        NSString *localizedDescriptionError = [[error userInfo] valueForKey:@"NSLocalizedDescription"];
+        
+        // Show error HUD - auto dismiss
+        [KVNProgress showErrorWithStatus:localizedDescriptionError];
+        
+    };//end selfFailblock
+    
+    //Get a local representation of the 'user' model type
+    SJUserRepository *userRepository = (SJUserRepository *)[[AppDelegate adapter] repositoryWithClass:[SJUserRepository class]];
+    
+    // Invoke the logoutWithSuccess message for the 'user' SJUser
+    // Equivalent http JSON endpoint request : http://localhost:3000/users/logout
+    
+    SJUser *loggedUser = [SJUser sharedManager];
+    
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/users/logout?access_token=%@", [loggedUser accessToken]] verb:@"POST"] forMethod:@"users.logout"];
+    
+//    ?access_token=hSNEufcyDAptx0HsFIA9Z7tW9ao8v7fkYKKRZ8nWdJS32SRC5Nvjy6DMZOecer1r
+    
+    [userRepository invokeStaticMethod:@"logout" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
+    
+//    [userRepository logoutWithSuccess:loadSuccessBlock failure:loadErrorBlock];
+    
+    // Show a progress HUD
+    [KVNProgress show];
+    
+}
+
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

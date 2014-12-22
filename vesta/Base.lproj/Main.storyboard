@@ -1000,6 +1000,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Mes cartoparties" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" title="Déconnexion" id="XTE-gp-aCx">
+                            <connections>
+                                <action selector="actionLogout:" destination="7bK-jq-Zjz" id="nQj-80-sHQ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UP1-89-YjZ">
                             <connections>
                                 <segue destination="Fps-Xx-ELb" kind="show" identifier="showActiveCartoparties" id="rrf-w4-44u"/>
@@ -1134,6 +1139,6 @@
         <image name="user_icon.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

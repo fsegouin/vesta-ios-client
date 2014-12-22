@@ -14,5 +14,7 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+- (IBAction)actionLogout:(id)sender;
+
 @end
 
