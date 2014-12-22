@@ -10,6 +10,7 @@
 #import "CartopartyDetailTableViewController.h"
 #import "FlickrKit.h"
 #import "SJUser.h"
+#import "SSKeychain.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -44,6 +45,7 @@ static LBRESTAdapter * _adapter = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
@@ -55,19 +57,20 @@ static LBRESTAdapter * _adapter = nil;
     [fk initializeWithAPIKey:@"225b171188afd87d71b8fdfddb58a92c" sharedSecret:@"72dd0915bafad010"];
     
 //    Check for existing user access token
-    
     SJUser *loggedUser = [SJUser sharedManager];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([loggedUser accessToken] == nil) {
-        [loggedUser setUserId:[defaults valueForKey:@"userId"]];
-        [loggedUser setAccessToken:[defaults valueForKey:@"accessToken"]];
-    }
+    NSArray *accounts = [SSKeychain accountsForService:@"vesta"];
+    NSDictionary *mainAccount = [accounts firstObject];
+    NSString *accountName = [mainAccount valueForKey:kSSKeychainAccountKey];
+    NSString *userAccessTokenStored = [SSKeychain passwordForService:@"vesta" account:accountName];
 
-    if ([loggedUser accessToken] != nil) {
+    if (accounts != nil) {
         // Set the old access token we got to our adapter
         SJUserRepository *userRepository = (SJUserRepository *)[[AppDelegate adapter] repositoryWithClass:[SJUserRepository class]];
-        [userRepository storeAccessTokenInAdapter:[defaults valueForKey:@"accessToken"]];
+        [userRepository storeAccessTokenInAdapter:userAccessTokenStored];
+        // Set values to our SJUser instance
+        [loggedUser setUserId:accountName];
+        [loggedUser setAccessToken:userAccessTokenStored];
     }
     
 //    We need to initialize our MailComposerViewController and hold it into one static variable (thank you Apple)
