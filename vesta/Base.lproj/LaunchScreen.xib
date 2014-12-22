@@ -60,6 +60,7 @@ Bastien Jorge</string>
                 <constraint firstItem="pBJ-c5-mil" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="110" id="tEb-ST-4Tm"/>
                 <constraint firstItem="gTa-eA-WVI" firstAttribute="top" secondItem="qXi-Cl-17Q" secondAttribute="bottom" constant="44" id="uZl-ps-oLe"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">

@@ -13,7 +13,6 @@ target 'vesta' do
     pod 'GBFlatButton'
     pod 'KVNProgress'
     pod 'NullSafe'
-    pod 'SSKeychain'
 end
 
 target 'vestaTests' do

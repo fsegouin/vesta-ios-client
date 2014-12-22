@@ -12,7 +12,6 @@
 #import "AppDelegate.h"
 #import "SJUser.h"
 #import "NSString+FontAwesome.h"
-#import "SSKeychain.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 
@@ -22,7 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
 //    DEBUG
     
     self.loginTextField.text = @"test0@test.fr";
@@ -67,8 +68,12 @@
         [loggedUser setAccessToken:[token _id]];
         [loggedUser setUserId:[token userId]];
         
-        // Store this token so we can use it later, using system Keychain
-        [SSKeychain setPassword:[loggedUser accessToken] forService:@"vesta" account:[loggedUser userId]];
+        // Store this token so we can use it later
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:[token _id] forKey:@"accessToken"];
+        [defaults setObject:[token userId] forKey:@"userId"];
+        [defaults synchronize];
         
         [self dismissViewControllerAnimated:NO completion:nil];
     };//end selfSuccessBlock
