@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSMutableArray *subscribedCartoparties;
 @property BOOL firstLaunch;
 @property BOOL tokenExpired;
+@property int cartopartiesCounter;
 
 @end
 
@@ -119,7 +120,7 @@
             LoginViewController *dummy = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
             [self presentViewController:dummy animated:NO completion:nil];
             // Dismiss progress HUD
-            [KVNProgress showErrorWithStatus:@"Votre session a expiré.\nVeuillez vous identifier à nouveau."];
+            [KVNProgress showErrorWithStatus:@"Votre session a expiré\nVeuillez vous identifier à nouveau"];
         }
         else {
             // Dismiss progress HUD
@@ -131,7 +132,6 @@
     // Define the load success block for the LBModelRepository allWithSuccess message
     void (^loadSuccessBlock)(NSArray *) = ^(NSArray *models) {
         NSLog( @"selfSuccessBlock %lu", (unsigned long)[models count]);
-//        self.tableData = models;
         
         [self.tableData removeAllObjects];
         
@@ -162,10 +162,10 @@
             
             [cartoparty setLeader:cartopartyLeader];
             
-//            [self.subscribedCartoparties addObject:[cartoparty objectId]];
             [self.tableData addObject:cartoparty];
         }
         
+        self.cartopartiesCounter = (int)[self.tableData count];
         [self.tableView reloadData];
         
         [self.subscribedCartoparties setArray:self.tableData];
@@ -300,33 +300,47 @@
 #pragma mark - Table View
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.tableData count];
+    if (self.cartopartiesCounter == 0)
+        return 1;
+    else
+        return [self.tableData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    if (self.cartopartiesCounter == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EmptyCell" forIndexPath:indexPath];
+        return cell;
+    }
+    else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    SJCartoparty *model = (SJCartoparty *)[self.tableData objectAtIndex:indexPath.row];
-    
-    UIImageView *backgroundImage = (UIImageView*)[cell viewWithTag:10];
-    [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-    [backgroundImage setClipsToBounds:YES];
-    [backgroundImage sd_setImageWithURL:[model imageUrl]
-                       placeholderImage:nil];
-    
-    UILabel *descriptionLabel = (UILabel*)[cell viewWithTag:20];
-    descriptionLabel.text = [[NSString alloc] initWithFormat:@"%@",
-                               [model _description] ];
-    
-    UILabel *dateLabel = (UILabel*)[cell viewWithTag:21];
-    dateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@",
-                      [model from], [model to] ];
+        SJCartoparty *model = (SJCartoparty *)[self.tableData objectAtIndex:indexPath.row];
+        
+        UIImageView *backgroundImage = (UIImageView*)[cell viewWithTag:10];
+        [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
+        [backgroundImage setClipsToBounds:YES];
+        [backgroundImage sd_setImageWithURL:[model imageUrl]
+                           placeholderImage:nil];
+        
+        UILabel *descriptionLabel = (UILabel*)[cell viewWithTag:20];
+        descriptionLabel.text = [[NSString alloc] initWithFormat:@"%@",
+                                   [model _description] ];
+        
+        UILabel *dateLabel = (UILabel*)[cell viewWithTag:21];
+        dateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@",
+                          [model from], [model to] ];
+        
+        return cell;
+    }
 
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 160;
+    if (self.cartopartiesCounter == 0)
+        return 250;
+    else
+        return 160;
 }
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
