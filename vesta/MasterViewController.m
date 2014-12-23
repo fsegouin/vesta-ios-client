@@ -55,6 +55,7 @@
     self.tableData = [NSMutableArray array];
     self.firstLaunch = YES;
     self.tokenExpired = NO;
+    self.cartopartiesCounter = -1;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -79,6 +80,7 @@
         self.tokenExpired = NO;
         [self getModels];
         if ([self.tableData count] > 0) {
+            self.cartopartiesCounter = -1;
             [self.tableData removeAllObjects];
             [self.tableView reloadData];
         }
