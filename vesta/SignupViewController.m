@@ -28,6 +28,19 @@
     self.takeController = [[FDTakeController alloc] init];
     self.takeController.delegate = self;
     self.takeController.allowsEditingPhoto = YES;
+    
+    // Make sure the keyboard is dismissed when we tap outside
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
+    // Same thing when we hit the 'return' key
+    [self.emailTextField setDelegate:self];
+    [self.passwordTextField setDelegate:self];
+    [self.firstnameTextField setDelegate:self];
+    [self.lastnameTextField setDelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
