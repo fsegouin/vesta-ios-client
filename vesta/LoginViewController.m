@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissAllViewControllers:) name:@"dismissAllViewControllers" object:nil];
     
 //    DEBUG
     
@@ -128,5 +129,11 @@
 ////     Pass the selected object to the new view controller.
 //}
 
+// this method gets called whenever a notification is posted to dismiss all view controllers
+- (void)dismissAllViewControllers:(NSNotification *)notification {
+    // dismiss all view controllers in the navigation stack
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

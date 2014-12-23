@@ -13,6 +13,8 @@ target 'vesta' do
     pod 'GBFlatButton'
     pod 'KVNProgress'
     pod 'NullSafe'
+    pod 'FDTake'
+    pod 'NYXImagesKit'
 end
 
 target 'vestaTests' do
