@@ -77,6 +77,10 @@
         self.firstLaunch = NO;
         self.tokenExpired = NO;
         [self getModels];
+        if ([self.tableData count] > 0) {
+            [self.tableData removeAllObjects];
+            [self.tableView reloadData];
+        }
     }
 }
 
@@ -160,8 +164,9 @@
             
 //            [self.subscribedCartoparties addObject:[cartoparty objectId]];
             [self.tableData addObject:cartoparty];
-
         }
+        
+        [self.tableView reloadData];
         
         [self.subscribedCartoparties setArray:self.tableData];
 
@@ -218,7 +223,7 @@
     void (^loadSuccessBlock)() = ^() {
         
         // Dismiss progress HUD
-        [KVNProgress showSuccess];
+        [KVNProgress showSuccessWithStatus:@"Déconnecté"];
         self.tokenExpired = YES;
         
         NSLog(@"Successfully logged out");
