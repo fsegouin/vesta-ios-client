@@ -27,6 +27,9 @@
 		B656B3271A31E77500A07F5F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B3261A31E77500A07F5F /* LoginViewController.m */; };
 		B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B3291A31EA7800A07F5F /* SJUser.m */; };
 		B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */ = {isa = PBXBuildFile; fileRef = B656B32D1A31FAF800A07F5F /* SJCartoparty.m */; };
+		B65A6E1D1A4B04F50082D680 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B65A6E1A1A4B04F50082D680 /* placeholder.jpg */; };
+		B65A6E1E1A4B04F50082D680 /* placeholder@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B65A6E1B1A4B04F50082D680 /* placeholder@2x.jpg */; };
+		B65A6E1F1A4B04F50082D680 /* placeholder@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B65A6E1C1A4B04F50082D680 /* placeholder@3x.jpg */; };
 		B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B0C0D1A38E04500E17893 /* LoopBack.framework */; };
 		B66827B71A45D8970098C23B /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = B66827B61A45D8970098C23B /* UIColor+FlatUI.m */; };
 		B68A79D01A3F24D4006919B1 /* SJCheckButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B68A79CF1A3F24D4006919B1 /* SJCheckButton.m */; };
@@ -99,6 +102,9 @@
 		B656B3291A31EA7800A07F5F /* SJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJUser.m; path = Models/SJUser.m; sourceTree = "<group>"; };
 		B656B32C1A31FAF800A07F5F /* SJCartoparty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJCartoparty.h; path = Models/SJCartoparty.h; sourceTree = "<group>"; };
 		B656B32D1A31FAF800A07F5F /* SJCartoparty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJCartoparty.m; path = Models/SJCartoparty.m; sourceTree = "<group>"; };
+		B65A6E1A1A4B04F50082D680 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = placeholder.jpg; path = Assets/placeholder.jpg; sourceTree = "<group>"; };
+		B65A6E1B1A4B04F50082D680 /* placeholder@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "placeholder@2x.jpg"; path = "Assets/placeholder@2x.jpg"; sourceTree = "<group>"; };
+		B65A6E1C1A4B04F50082D680 /* placeholder@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "placeholder@3x.jpg"; path = "Assets/placeholder@3x.jpg"; sourceTree = "<group>"; };
 		B65B0C0D1A38E04500E17893 /* LoopBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopBack.framework; path = Frameworks/LoopBack.framework; sourceTree = "<group>"; };
 		B66827B51A45D8970098C23B /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatUI.h"; path = "Frameworks/UIColor+FlatUI.h"; sourceTree = "<group>"; };
 		B66827B61A45D8970098C23B /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatUI.m"; path = "Frameworks/UIColor+FlatUI.m"; sourceTree = "<group>"; };
@@ -317,6 +323,9 @@
 				B6A2D0721A4A30BC00082F46 /* sad_icon.png */,
 				B6A2D0731A4A30BC00082F46 /* sad_icon@2x.png */,
 				B6A2D0741A4A30BC00082F46 /* sad_icon@3x.png */,
+				B65A6E1A1A4B04F50082D680 /* placeholder.jpg */,
+				B65A6E1B1A4B04F50082D680 /* placeholder@2x.jpg */,
+				B65A6E1C1A4B04F50082D680 /* placeholder@3x.jpg */,
 				B63333A41A49A24100B6F0C6 /* email-icon.png */,
 				B63333A51A49A24100B6F0C6 /* email-icon@2x.png */,
 				B63333A61A49A24100B6F0C6 /* email-icon@3x.png */,
@@ -423,14 +432,17 @@
 				B6A2D0771A4A30BC00082F46 /* sad_icon@3x.png in Resources */,
 				B6A2D0761A4A30BC00082F46 /* sad_icon@2x.png in Resources */,
 				B6A63EC51A499F470065FAA1 /* camera-icon@3x.png in Resources */,
+				B65A6E1F1A4B04F50082D680 /* placeholder@3x.jpg in Resources */,
 				B64D66A91A2FC5D6006C9189 /* Main.storyboard in Resources */,
 				B63333A81A49A24100B6F0C6 /* email-icon@2x.png in Resources */,
+				B65A6E1D1A4B04F50082D680 /* placeholder.jpg in Resources */,
 				B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */,
 				B6518E3C1A399E7700DD43CC /* Montserrat-Light.otf in Resources */,
 				B6518E391A399E7700DD43CC /* Montserrat-Black.otf in Resources */,
 				B64D66AE1A2FC5D6006C9189 /* LaunchScreen.xib in Resources */,
 				B6948DAF1A45D0B3005DB50D /* Entitlements.plist in Resources */,
 				B6A2D0751A4A30BC00082F46 /* sad_icon.png in Resources */,
+				B65A6E1E1A4B04F50082D680 /* placeholder@2x.jpg in Resources */,
 				B64D66AB1A2FC5D6006C9189 /* Images.xcassets in Resources */,
 				B6C9E1541A3247A400E69A9A /* lock_icon@2x.png in Resources */,
 				B6C9E1551A3247A400E69A9A /* map_logo.png in Resources */,

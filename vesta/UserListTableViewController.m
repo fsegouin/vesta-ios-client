@@ -134,7 +134,9 @@
         [medalView setElder:YES];
     
     UIImageView *profilePicture = (UIImageView*)[cell viewWithTag:11];
-    [profilePicture sd_setImageWithURL:[NSURL URLWithString:[user picture]] placeholderImage:nil];
+    
+    [profilePicture sd_setImageWithURL:[NSURL URLWithString:[user picture]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
+    
     profilePicture.layer.cornerRadius = profilePicture.frame.size.width / 2;
     profilePicture.clipsToBounds = YES;
     

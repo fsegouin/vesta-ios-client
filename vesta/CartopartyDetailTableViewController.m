@@ -43,7 +43,8 @@
 //    if ([loggedUser accessToken] != nil && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
     
     [self.cartopartyImage sd_setImageWithURL:[self.detailCartoparty imageUrl] placeholderImage:nil];
-    [self.leaderImage sd_setImageWithURL:[NSURL URLWithString:[[self.detailCartoparty leader] picture]] placeholderImage:nil];
+    
+    [self.leaderImage sd_setImageWithURL:[NSURL URLWithString:[[self.detailCartoparty leader] picture]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     self.leaderImage.layer.cornerRadius = self.leaderImage.frame.size.width / 2;
     self.leaderImage.layer.borderWidth = 2.0f;
     self.leaderImage.layer.borderColor = [UIColor colorFromHexCode:@"ecf0f1"].CGColor;

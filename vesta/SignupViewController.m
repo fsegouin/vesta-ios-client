@@ -83,7 +83,7 @@
     }
     else {
         [KVNProgress show];
-        if (self.cameraImageView.image != nil) {
+        if (self.cameraImageView.alpha == 1) { // Check if the user took a picture
             NSString *fileName = @"profile_.jpg";
             
             AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
