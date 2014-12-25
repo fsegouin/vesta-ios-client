@@ -24,7 +24,7 @@ Important : if you don't have Ruby installed:
 
 	$ curl -sSL https://get.rvm.io | bash -s stable --ruby
 	$ rvm install ruby
-	
+
 In your clone directory, run the following:
 
 	$ gem install cocoapods
@@ -61,5 +61,14 @@ Tell Xcode to run app on iPhone. At this point, Xcode will put app on your iDevi
 To enable debugging: In your project select File > New File > Property List and create a file called “Entitlements.plist”.
 Add a boolean value called "Can be debugged" and set the value to YES.
 Now change your Project and Target Code Signing Entitlements (In Build Settings) to “Entitlements.plist” (you have to type it in).
+
+### Step 6
+To use system Keychain while using Ad Hoc Code Sign, you need to add the following key to your Entitlements.plist:
+
+	<key>application-identifier</key>
+	<string>com.utt.vesta</string>
+
+Please notice that any app using a wildcard instead of its own application-identifier could grant itself access to every other app’s keychain data which is a real security breach.
+Once again, do not install apps from sources outside of the App Store for your own security!
 
 Thanks to [Graeme Robinson] (http://www.grobinson.me/developing-and-debugging-my-own-apps-on-jailbroken-ios8-1-using-xcode-6-1-without-paying-apple/)

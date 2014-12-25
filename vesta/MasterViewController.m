@@ -18,6 +18,7 @@
 #import "SJCartopartyUser.h"
 #import "FlickrKit.h"
 #import "KVNProgress.h"
+#import "Lockbox.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MasterViewController ()
@@ -231,10 +232,7 @@
         NSLog(@"Successfully logged out");
         
         // Delete our stored token
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:nil forKey:@"accessToken"];
-        [defaults setObject:nil forKey:@"userId"];
-        [defaults synchronize];
+        [Lockbox setDictionary:nil forKey:@"userCredentials"];
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *dummy = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
