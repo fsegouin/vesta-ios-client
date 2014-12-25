@@ -4,5 +4,7 @@
 <dict>
 	<key>get-task-allow</key>
 	<true/>
+	<key>application-identifier</key>
+	<string>com.utt.vesta</string>
 </dict>
 </plist>

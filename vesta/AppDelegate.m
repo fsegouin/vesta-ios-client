@@ -10,6 +10,7 @@
 #import "CartopartyDetailTableViewController.h"
 #import "FlickrKit.h"
 #import "SJUser.h"
+#import "Lockbox.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -49,6 +50,10 @@ static LBRESTAdapter * _adapter = nil;
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
     
+//#warning delete this asap
+    
+//    [Lockbox setDictionary:nil forKey:@"userCredentials"];
+    
 //    Flickr API Wraper
     
     FlickrKit *fk = [FlickrKit sharedFlickrKit];
@@ -57,17 +62,17 @@ static LBRESTAdapter * _adapter = nil;
 //    Check for existing user access token
     
     SJUser *loggedUser = [SJUser sharedManager];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([loggedUser accessToken] == nil) {
-        [loggedUser setUserId:[defaults valueForKey:@"userId"]];
-        [loggedUser setAccessToken:[defaults valueForKey:@"accessToken"]];
-    }
-
-    if ([loggedUser accessToken] != nil) {
-        // Set the old access token we got to our adapter
+    NSDictionary *credentials = [Lockbox dictionaryForKey:@"userCredentials"];
+    if (credentials != nil) {
+        NSLog(@"Credentials found in keychain!");
+        [loggedUser setUserId:[credentials valueForKey:@"userId"]];
+        [loggedUser setAccessToken:[credentials valueForKey:@"accessToken"]];
         SJUserRepository *userRepository = (SJUserRepository *)[[AppDelegate adapter] repositoryWithClass:[SJUserRepository class]];
-        [userRepository storeAccessTokenInAdapter:[defaults valueForKey:@"accessToken"]];
+        [userRepository storeAccessTokenInAdapter:[credentials valueForKey:@"accessToken"]];
+    }
+    else {
+        NSLog(@"No credentials in keychain..");
     }
     
 //    We need to initialize our MailComposerViewController and hold it into one static variable (thank you Apple)

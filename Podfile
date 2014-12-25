@@ -15,6 +15,7 @@ target 'vesta' do
     pod 'NullSafe'
     pod 'FDTake'
     pod 'NYXImagesKit'
+    pod 'Lockbox'
 end
 
 target 'vestaTests' do
