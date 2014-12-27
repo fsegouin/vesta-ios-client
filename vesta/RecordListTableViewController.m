@@ -1,5 +1,5 @@
 //
-//  PointListTableViewController.m
+//  RecordListTableViewController.m
 //  vesta
 //
 //  Created by Florent Segouin on 16/12/14.
@@ -7,22 +7,22 @@
 //
 
 #import "AppDelegate.h"
-#import "PointListTableViewController.h"
+#import "RecordListTableViewController.h"
 #import "SJCartoparty.h"
 #import "SJRecord.h"
 
-@interface PointListTableViewController ()
+@interface RecordListTableViewController ()
 
 @property (strong, nonatomic) NSMutableArray *tableData;
 
 @end
 
-@implementation PointListTableViewController
+@implementation RecordListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Points collectés";
+    self.title = @"Points enregistrés";
     
     self.tableData = [NSMutableArray array];
 

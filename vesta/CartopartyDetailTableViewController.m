@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "CartopartyDetailTableViewController.h"
-#import "PointListTableViewController.h"
+#import "RecordListTableViewController.h"
 #import "UserListTableViewController.h"
 #import "SJUser.h"
 #import "SJCheckButton.h"
@@ -238,8 +238,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"showPointList"]) {
-        PointListTableViewController *controller = (PointListTableViewController *)[segue destinationViewController];
+    if ([[segue identifier] isEqualToString:@"showRecordList"]) {
+        RecordListTableViewController *controller = (RecordListTableViewController *)[segue destinationViewController];
         [controller setCartopartyId:[self.detailCartoparty objectId]];
     }
     else if ([[segue identifier] isEqualToString:@"showUserList"]) {

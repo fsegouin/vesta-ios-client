@@ -1,5 +1,5 @@
 //
-//  PointListTableViewController.h
+//  RecordListTableViewController.h
 //  vesta
 //
 //  Created by Florent Segouin on 16/12/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PointListTableViewController : UITableViewController
+@interface RecordListTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *cartopartyId;
 

@@ -51,7 +51,7 @@
 		B6C9E1541A3247A400E69A9A /* lock_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */; };
 		B6C9E1551A3247A400E69A9A /* map_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14F1A3247A400E69A9A /* map_logo.png */; };
 		B6C9E1561A3247A400E69A9A /* map_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E1501A3247A400E69A9A /* map_logo@2x.png */; };
-		B6E41E401A40638200C512C1 /* PointListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E3F1A40638200C512C1 /* PointListTableViewController.m */; };
+		B6E41E401A40638200C512C1 /* RecordListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */; };
 		B6E41E431A406D5600C512C1 /* SJRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E421A406D5600C512C1 /* SJRecord.m */; };
 		B6E41E461A40732B00C512C1 /* UserListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E451A40732B00C512C1 /* UserListTableViewController.m */; };
 		B6E41E491A40790E00C512C1 /* SJCartopartyUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E481A40790E00C512C1 /* SJCartopartyUser.m */; };
@@ -133,8 +133,8 @@
 		B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lock_icon@2x.png"; path = "Assets/lock_icon@2x.png"; sourceTree = "<group>"; };
 		B6C9E14F1A3247A400E69A9A /* map_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_logo.png; path = Assets/map_logo.png; sourceTree = "<group>"; };
 		B6C9E1501A3247A400E69A9A /* map_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_logo@2x.png"; path = "Assets/map_logo@2x.png"; sourceTree = "<group>"; };
-		B6E41E3E1A40638200C512C1 /* PointListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointListTableViewController.h; sourceTree = "<group>"; };
-		B6E41E3F1A40638200C512C1 /* PointListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointListTableViewController.m; sourceTree = "<group>"; };
+		B6E41E3E1A40638200C512C1 /* RecordListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListTableViewController.h; sourceTree = "<group>"; };
+		B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListTableViewController.m; sourceTree = "<group>"; };
 		B6E41E411A406D5600C512C1 /* SJRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJRecord.h; path = Models/SJRecord.h; sourceTree = "<group>"; };
 		B6E41E421A406D5600C512C1 /* SJRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJRecord.m; path = Models/SJRecord.m; sourceTree = "<group>"; };
 		B6E41E441A40732B00C512C1 /* UserListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListTableViewController.h; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 				B692B3141A39ADC40082030E /* CartopartyDetailTableViewController.m */,
 				B6BB46CE1A3746A9005FB96D /* CartopartiesListTableViewController.h */,
 				B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */,
-				B6E41E3E1A40638200C512C1 /* PointListTableViewController.h */,
-				B6E41E3F1A40638200C512C1 /* PointListTableViewController.m */,
+				B6E41E3E1A40638200C512C1 /* RecordListTableViewController.h */,
+				B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */,
 				B6E41E441A40732B00C512C1 /* UserListTableViewController.h */,
 				B6E41E451A40732B00C512C1 /* UserListTableViewController.m */,
 				B64D66A71A2FC5D6006C9189 /* Main.storyboard */,
@@ -526,7 +526,7 @@
 				B6E41E461A40732B00C512C1 /* UserListTableViewController.m in Sources */,
 				B64D669D1A2FC5D6006C9189 /* main.m in Sources */,
 				B66827B71A45D8970098C23B /* UIColor+FlatUI.m in Sources */,
-				B6E41E401A40638200C512C1 /* PointListTableViewController.m in Sources */,
+				B6E41E401A40638200C512C1 /* RecordListTableViewController.m in Sources */,
 				B692B3151A39ADC40082030E /* CartopartyDetailTableViewController.m in Sources */,
 				B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */,
 				B6E41E491A40790E00C512C1 /* SJCartopartyUser.m in Sources */,
