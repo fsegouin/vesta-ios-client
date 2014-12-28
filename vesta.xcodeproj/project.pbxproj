@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B8737C01A50A4AF00AAA65B /* PointListeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8737BF1A50A4AF00AAA65B /* PointListeTableViewController.m */; };
 		B60BC51C1A41A31B00F303C6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60BC51B1A41A31B00F303C6 /* MessageUI.framework */; };
 		B63333A71A49A24100B6F0C6 /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B63333A41A49A24100B6F0C6 /* email-icon.png */; };
 		B63333A81A49A24100B6F0C6 /* email-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B63333A51A49A24100B6F0C6 /* email-icon@2x.png */; };
@@ -71,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		021384AC38D269427C962DE8 /* Pods-vesta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vesta.release.xcconfig"; path = "Pods/Target Support Files/Pods-vesta/Pods-vesta.release.xcconfig"; sourceTree = "<group>"; };
+		0B8737BE1A50A4AF00AAA65B /* PointListeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointListeTableViewController.h; sourceTree = "<group>"; };
+		0B8737BF1A50A4AF00AAA65B /* PointListeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointListeTableViewController.m; sourceTree = "<group>"; };
 		890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vesta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60BC51B1A41A31B00F303C6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B60BC51D1A41A64400F303C6 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -215,6 +218,8 @@
 				B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */,
 				B6E41E3E1A40638200C512C1 /* RecordListTableViewController.h */,
 				B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */,
+				0B8737BE1A50A4AF00AAA65B /* PointListeTableViewController.h */,
+				0B8737BF1A50A4AF00AAA65B /* PointListeTableViewController.m */,
 				B6E41E441A40732B00C512C1 /* UserListTableViewController.h */,
 				B6E41E451A40732B00C512C1 /* UserListTableViewController.m */,
 				B64D66A71A2FC5D6006C9189 /* Main.storyboard */,
@@ -516,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8737C01A50A4AF00AAA65B /* PointListeTableViewController.m in Sources */,
 				B64D66A01A2FC5D6006C9189 /* AppDelegate.m in Sources */,
 				B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */,
 				B6B362331A409D4700EB9DE5 /* SJMedalView.m in Sources */,
