@@ -1,18 +1,18 @@
 //
-//  PointListeTableViewController.m
+//  PointListTableViewController.m
 //  vesta
 //
 //  Created by Bastien on 28/12/2014.
 //  Copyright (c) 2014 utt. All rights reserved.
 //
 
-#import "PointListeTableViewController.h"
+#import "PointListTableViewController.h"
 
-@interface PointListeTableViewController ()
+@interface PointListTableViewController ()
 
 @end
 
-@implementation PointListeTableViewController
+@implementation PointListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

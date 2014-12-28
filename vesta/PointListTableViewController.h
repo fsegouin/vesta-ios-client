@@ -1,5 +1,5 @@
 //
-//  PointListeTableViewController.h
+//  PointListTableViewController.h
 //  vesta
 //
 //  Created by Bastien on 28/12/2014.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PointListeTableViewController : UITableViewController
+@interface PointListTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *recordId;
 

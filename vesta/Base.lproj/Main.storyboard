@@ -519,10 +519,10 @@
             </objects>
             <point key="canvasLocation" x="1410" y="129"/>
         </scene>
-        <!--Point Liste Table View Controller-->
+        <!--Point List Table View Controller-->
         <scene sceneID="xCT-di-eg1">
             <objects>
-                <tableViewController id="qXF-rG-H9K" customClass="PointListeTableViewController" sceneMemberID="viewController">
+                <tableViewController id="qXF-rG-H9K" customClass="PointListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Iqx-Fk-z97">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
