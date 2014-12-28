@@ -294,7 +294,7 @@
     [backgroundImage setContentMode:UIViewContentModeScaleAspectFill];
     [backgroundImage setClipsToBounds:YES];
     [backgroundImage sd_setImageWithURL:[model imageUrl]
-                       placeholderImage:nil];
+                       placeholderImage:[UIImage imageNamed:@"cartoparty-placeholder-master"]];
     
     UILabel *descriptionLabel = (UILabel*)[cell viewWithTag:20];
     descriptionLabel.text = [[NSString alloc] initWithFormat:@"%@",
