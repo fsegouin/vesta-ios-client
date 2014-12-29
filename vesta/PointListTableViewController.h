@@ -11,5 +11,6 @@
 @interface PointListTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *recordId;
+@property (strong, nonatomic) NSString *recordName;
 
 @end

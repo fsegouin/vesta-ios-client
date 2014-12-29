@@ -165,6 +165,7 @@
         PointListTableViewController *controller = [segue destinationViewController];
         SJRecord *selectedRecord = [self.tableData objectAtIndex:selectedIndex];
         [controller setRecordId: [NSString stringWithFormat:@"%@", [selectedRecord objectId]]];
+        [controller setRecordName: [selectedRecord name]];
         
         
     }

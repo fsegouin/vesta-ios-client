@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"POI";
+    self.title = self.recordName;
     self.record = [[SJRecord alloc] init];
     self.tableData = [NSMutableArray array];
     
@@ -64,8 +64,6 @@
         [self.record setObjectId:[model valueForKey:@"id"]];
         [self.record setPoints:[model objectForKey:@"points"]];
         
-        
-        self.title = [self.record name];
         [self.tableView reloadData];
         
     };//end selfSuccessBlock
@@ -114,7 +112,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GeopointCell" forIndexPath:indexPath];
     
     // Configure the cell...
     
