@@ -29,6 +29,7 @@ PODS:
   - Lockbox (2.1.0)
   - NullSafe (1.2.1)
   - NYXImagesKit (2.3)
+  - RBStoryboardLink (0.1.0)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - Lockbox
   - NullSafe
   - NYXImagesKit
+  - RBStoryboardLink
   - SDWebImage
   - THProgressView (from `https://github.com/tiagomnh/THProgressView.git`)
 
@@ -70,6 +72,7 @@ SPEC CHECKSUMS:
   Lockbox: 3168f08cb26680b05a0702b8c0cc6da32788059d
   NullSafe: b429950c4289455a135075fd4c52e4d88b2d03fa
   NYXImagesKit: 1c9f228ae78fab475d267b3b3a1308e0fba11731
+  RBStoryboardLink: 2abe4697a7dd6137482590b044f6e4f1c2b05837
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   THProgressView: 2e19cf950671bb6d5d562433d5b04be93e6ffd35
 

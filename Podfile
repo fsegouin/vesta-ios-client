@@ -16,6 +16,7 @@ target 'vesta' do
     pod 'FDTake'
     pod 'NYXImagesKit'
     pod 'Lockbox'
+    pod 'RBStoryboardLink'
 end
 
 target 'vestaTests' do

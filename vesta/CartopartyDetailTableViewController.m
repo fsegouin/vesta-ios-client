@@ -18,8 +18,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NSString+FontAwesome.h"
 #import "UIColor+FlatUI.h"
+#import "SphereMenu.h"
 
-@interface CartopartyDetailTableViewController ()
+@interface CartopartyDetailTableViewController () <SphereMenuDelegate>
+
+//@property (nonatomic, retain) SphereMenu* sphereMenu;
 
 @end
 
@@ -41,6 +44,18 @@
     
 //    SJUser *loggedUser = [SJUser sharedManager];
 //    if ([loggedUser accessToken] != nil && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    
+    UIImage *startImage = [UIImage imageNamed:@"start"];
+    UIImage *image1 = [UIImage imageNamed:@"icon-map-marker"];
+    UIImage *image2 = [UIImage imageNamed:@"icon-building"];
+    UIImage *image3 = [UIImage imageNamed:@"icon-compass"];
+    UIImage *image4 = [UIImage imageNamed:@"icon-pencil"];
+    NSArray *images = @[image1, image2, image3, image4];
+    SphereMenu *sphereMenu = [[SphereMenu alloc] initWithStartPoint:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height-120)
+                                                         startImage:startImage
+                                                      submenuImages:images];
+    sphereMenu.delegate = self;
+    [self.view addSubview:sphereMenu];
     
     [self.cartopartyImage sd_setImageWithURL:[self.detailCartoparty imageUrl] placeholderImage:nil];
     
@@ -73,7 +88,7 @@
     self.meetupsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
 
     self.subscribersIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAUsers];
-    self.pointsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAThumbTack];
+    self.pointsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAMapMarker];
     self.meetupsIconLabel.text = [NSString fontAwesomeIconStringForEnum:FACalendar];
     
     [self.progressView setProgress:0.5f animated:YES];
@@ -171,11 +186,11 @@
 };
 
 
-#pragma mark - Buttons actions
-
-- (IBAction)subscribeButtonAction:(SJCheckButton *)sender {
-    sender.selected = !sender.isSelected;
-}
+//#pragma mark - Buttons actions
+//
+//- (IBAction)subscribeButtonAction:(SJCheckButton *)sender {
+//    sender.selected = !sender.isSelected;
+//}
 
 
 #pragma mark - Table view data source
@@ -231,8 +246,37 @@
 }
 */
 
+#pragma mark - SphereMenu delegate methods
+
+
+- (void)sphereDidSelected:(int)index
+{
+    NSLog(@"sphere %d selected", index);
+    
+    switch (index) {
+        case 0:
+            [self performSegueWithIdentifier:@"showAddRecordView" sender:self];
+            break;
+        case 1:
+            [self performSegueWithIdentifier:@"showAddRecordView" sender:self];
+            break;
+        case 2:
+            [self performSegueWithIdentifier:@"showAddRecordView" sender:self];
+            break;
+        case 3:
+            [self performSegueWithIdentifier:@"showEditRecordView" sender:self];
+            break;
+        default:
+            break;
+    }
+}
+
 
 #pragma mark - Navigation
+
+//- (IBAction)test:(id)sender {
+//    [self performSegueWithIdentifier:@"showEditRecordView" sender:sender];
+//}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -247,6 +291,5 @@
         [controller setCartopartyId:[self.detailCartoparty objectId]];
     }
 }
-
 
 @end

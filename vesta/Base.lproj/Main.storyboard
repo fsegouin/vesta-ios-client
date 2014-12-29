@@ -26,7 +26,6 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
-            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -373,13 +372,13 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Cartostats" id="H8o-aA-M90">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="8Bn-BL-JV1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="8Bn-BL-JV1">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Bn-BL-JV1" id="2aq-xg-BVT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVM-Nq-qWb">
-                                                    <rect key="frame" x="280" y="28" width="41" height="22"/>
+                                                    <rect key="frame" x="280" y="15" width="41" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="RjY-ir-Yxk"/>
                                                     </constraints>
@@ -388,7 +387,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVANCEMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzo-uu-ON9">
-                                                    <rect key="frame" x="254" y="48" width="93" height="22"/>
+                                                    <rect key="frame" x="254" y="35" width="93" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="3BR-El-4wc"/>
                                                     </constraints>
@@ -397,7 +396,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ui5-WP-pLn" customClass="THProgressView">
-                                                    <rect key="frame" x="198" y="78" width="204" height="26"/>
+                                                    <rect key="frame" x="198" y="65" width="204" height="26"/>
                                                     <color key="backgroundColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="26" id="EmU-lb-X7M"/>
@@ -419,46 +418,19 @@
                                             <constraints>
                                                 <constraint firstAttribute="centerX" secondItem="tzo-uu-ON9" secondAttribute="centerX" constant="-0.5" id="9ej-Zo-0Jz"/>
                                                 <constraint firstItem="Ui5-WP-pLn" firstAttribute="top" secondItem="cVM-Nq-qWb" secondAttribute="bottom" constant="28" id="DZF-QI-5zO"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Ui5-WP-pLn" secondAttribute="bottom" constant="-6" id="KPT-rz-DGk"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ui5-WP-pLn" secondAttribute="bottom" constant="7" id="KPT-rz-DGk"/>
                                                 <constraint firstAttribute="centerX" secondItem="Ui5-WP-pLn" secondAttribute="centerX" id="Lut-LN-mP7"/>
                                                 <constraint firstItem="Ui5-WP-pLn" firstAttribute="top" secondItem="tzo-uu-ON9" secondAttribute="bottom" constant="8" id="MS2-dw-xdk"/>
-                                                <constraint firstItem="tzo-uu-ON9" firstAttribute="top" secondItem="2aq-xg-BVT" secondAttribute="topMargin" constant="40" id="P6j-RV-gPJ"/>
+                                                <constraint firstItem="tzo-uu-ON9" firstAttribute="top" secondItem="2aq-xg-BVT" secondAttribute="topMargin" constant="27" id="P6j-RV-gPJ"/>
                                                 <constraint firstAttribute="centerX" secondItem="cVM-Nq-qWb" secondAttribute="centerX" id="Z9Z-BL-S0c"/>
-                                                <constraint firstItem="cVM-Nq-qWb" firstAttribute="top" secondItem="2aq-xg-BVT" secondAttribute="topMargin" constant="20" id="d9a-dm-IFh"/>
+                                                <constraint firstItem="cVM-Nq-qWb" firstAttribute="top" secondItem="2aq-xg-BVT" secondAttribute="topMargin" constant="7" id="d9a-dm-IFh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="0wd-gz-iga">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="0wd-gz-iga">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0wd-gz-iga" id="92X-3E-nLP">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKA-we-Fo9" customClass="GBFlatButton">
-                                                    <rect key="frame" x="182" y="8" width="236" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="fbl-7J-WIp"/>
-                                                        <constraint firstAttribute="width" constant="236" id="qN3-Dj-ChJ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
-                                                    <state key="normal" title="Enregistrer un point">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                                            <color key="value" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="nKA-we-Fo9" firstAttribute="top" secondItem="92X-3E-nLP" secondAttribute="topMargin" id="KAU-VD-Szn"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="nKA-we-Fo9" secondAttribute="bottom" constant="140" id="fY9-Gb-HEx"/>
-                                                <constraint firstAttribute="centerX" secondItem="nKA-we-Fo9" secondAttribute="centerX" id="xX2-YB-Z6r"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -484,6 +456,8 @@
                         <outlet property="progressView" destination="Ui5-WP-pLn" id="IFP-94-8LQ"/>
                         <outlet property="subscribersIconLabel" destination="AHP-fL-kQK" id="sFr-BS-gbP"/>
                         <outlet property="subscribersNumberLabel" destination="LBE-wh-TWv" id="ZWF-ov-aDI"/>
+                        <segue destination="PPi-sL-dHe" kind="custom" identifier="showEditRecordView" customClass="RBStoryboardModalSegue" id="Sh6-c9-nge"/>
+                        <segue destination="CCu-9O-UqN" kind="custom" identifier="showAddRecordView" customClass="RBStoryboardModalSegue" id="LJD-1G-2e5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73U-U8-IBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -515,6 +489,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVS-iu-eGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1410" y="129"/>
+        </scene>
+        <!--Storyboard Link-->
+        <scene sceneID="rjC-0Z-tqr">
+            <objects>
+                <viewController id="CCu-9O-UqN" customClass="RBStoryboardLink" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tIl-Av-pUn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Df1-wd-iDS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F37-iV-pih">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="RecordsStoryboard"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="addRecordView"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhR-Nc-vt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="918"/>
+        </scene>
+        <!--Storyboard Link-->
+        <scene sceneID="upq-Kj-mkl">
+            <objects>
+                <viewController id="PPi-sL-dHe" customClass="RBStoryboardLink" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Zj-Ho-PYw"/>
+                        <viewControllerLayoutGuide type="bottom" id="IP0-21-Z2K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aPX-4m-iZZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="RecordsStoryboard"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sceneIdentifier" value="editRecordView"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGu-fq-CMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="918"/>
         </scene>
         <!--User List Table View Controller-->
         <scene sceneID="4dU-iJ-HVl">
@@ -632,7 +650,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIo-MG-8ob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="873"/>
+            <point key="canvasLocation" x="1410" y="918"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="bSG-cW-1Pd">
