@@ -6,9 +6,15 @@
 //  Copyright (c) 2014 utt. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "PointListTableViewController.h"
+#import "SJRecord.h"
 
 @interface PointListTableViewController ()
+
+@property (strong, nonatomic) SJRecord *record;
+@property (strong, nonatomic) NSMutableArray *tableData;
+
 
 @end
 
@@ -17,12 +23,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"POI";
+    self.record = [[SJRecord alloc] init];
+    self.tableData = [NSMutableArray array];
+    
+    
+    [self getModels];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSLog(@"L'id est : %@", self.recordId);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,19 +41,64 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - API calls
+
+- (void)getModels
+{
+    // +++++++++++++++++++++++++++++++++++++++++
+    // Get the model instances on the server
+    // +++++++++++++++++++++++++++++++++++++++++
+    
+    // Define the load error functional block
+    void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
+        NSLog( @"Error %@", error.description);
+    };//end selfFailblock
+    
+    // Define the load success block for the LBModelRepository allWithSuccess message
+    void (^loadSuccessBlock)(NSDictionary *) = ^(NSDictionary *model) {
+        
+        [self.record setName:[model valueForKey:@"name"]];
+        [self.record setNote:[model valueForKey:@"note"]];
+        [self.record setUserId:[model valueForKey:@"userId"]];
+        [self.record setCartopartyId:[model valueForKey:@"cartopartyId"]];
+        [self.record setObjectId:[model valueForKey:@"id"]];
+        [self.record setPoints:[model objectForKey:@"points"]];
+        
+        
+        self.title = [self.record name];
+        [self.tableView reloadData];
+        
+    };//end selfSuccessBlock
+    
+    //Get a local representation of the model type
+    SJRecordRepository *recordRepository = (SJRecordRepository *)[[AppDelegate adapter] repositoryWithClass:[SJRecordRepository class]];
+    
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Records/%@", self.recordId] verb:@"GET"] forMethod:@"Records.findById"];
+    
+    // Invoke the allWithSuccess message for the LBModelRepository
+    // Equivalent http JSON endpoint request : http://localhost:3000/api/Records/:id
+    
+    [recordRepository invokeStaticMethod:@"findById" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
+    
+};
+
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
+*/
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+    //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[self.record points] count];
 }
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,6 +109,20 @@
     return cell;
 }
 */
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    NSDictionary *point = [[self.record points] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"lat : %@, long : %@", [point valueForKey:@"lat"], [point valueForKey:@"lng"]];
+    
+    return cell;
+}
 
 /*
 // Override to support conditional editing of the table view.
