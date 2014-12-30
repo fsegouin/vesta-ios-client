@@ -55,6 +55,9 @@ EXTERNAL SOURCES:
     :git: https://github.com/tiagomnh/THProgressView.git
 
 CHECKOUT OPTIONS:
+  FontAwesome+iOS:
+    :commit: 84868e11f47939325f421256a6234b1433fa3d65
+    :git: https://github.com/alexdrone/ios-fontawesome.git
   THProgressView:
     :commit: ea1dca3a8bd3379d9bb2c1c49156e10d2ac80ac1
     :git: https://github.com/tiagomnh/THProgressView.git
