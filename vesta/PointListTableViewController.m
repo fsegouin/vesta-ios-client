@@ -64,6 +64,7 @@
         [self.record setCartopartyId:[model valueForKey:@"cartopartyId"]];
         [self.record setObjectId:[model valueForKey:@"id"]];
         [self.record setPoints:[model objectForKey:@"points"]];
+        [self.record setImageUrl:[model valueForKey:@"picture"]];
         
         [self.tableView reloadData];
         
@@ -135,22 +136,19 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             UIImageView *recordPicture = (UIImageView *)[cell viewWithTag:10];
-            //            serverIcon.alpha = 0.5;
-            //            [serverIcon setImage:[UIImage imageNamed:@"camera-icon"]];
-            
-            
-            //            NSData *data = [NSData dataWithContentsOfURL : [NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"]];
-            
-            //            [recordPicture setImage:[UIImage imageWithData: data]];
-            
-            
-            [recordPicture sd_setImageWithURL:[NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"] placeholderImage:nil];
+//            NSString *imageUrlString = [[self.record imageUrl] absoluteString];
+//            NSURL *emptyUrl = [NSURL URLWithString:@"<null>"];
+            if([self.record imageUrl] == nil)
+                [recordPicture setImage:[UIImage imageNamed:@"record-nopicture-master"]];
+            else
+                [recordPicture sd_setImageWithURL:[self.record imageUrl] placeholderImage:[UIImage imageNamed:@"record-placeholder-master"]];
+            //            [recordPicture sd_setImageWithURL:[NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"] placeholderImage:nil];
         }
         else if (indexPath.row == 1) {
             //            UILabel *label = (UILabel *)[cell viewWithTag:20];
             cell.textLabel.text = ([self.record note] == nil) ? @"Pas de description." : [self.record note];
             [cell.textLabel setTextColor:[UIColor grayColor]];
-            
+            [cell.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
             
         }
     }
@@ -161,6 +159,7 @@
         }
         else
             cell.textLabel.text = @"Aucun point enregistré pour ce POI.";
+        [cell.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
     }
     
     return cell;

@@ -113,6 +113,7 @@
     SJRecord *record = [self.tableData objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [record name];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     
     return cell;
 }

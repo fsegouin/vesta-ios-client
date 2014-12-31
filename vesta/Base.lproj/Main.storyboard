@@ -534,7 +534,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c7h-Ro-6oI" id="KHF-KW-Ip2">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-zt-Qmz">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record-placeholder-master@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-zt-Qmz">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
                                         </imageView>
                                     </subviews>
@@ -1296,6 +1296,7 @@
         <image name="email-icon.png" width="64" height="42"/>
         <image name="lock_icon.png" width="32" height="32"/>
         <image name="map_logo.png" width="64" height="64"/>
+        <image name="record-placeholder-master@3x.png" width="1125" height="480"/>
         <image name="sad_icon.png" width="170" height="170"/>
         <image name="user_icon.png" width="32" height="32"/>
     </resources>
