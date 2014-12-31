@@ -2,13 +2,14 @@
 //  PointListTableViewController.m
 //  vesta
 //
-//  Created by Bastien on 28/12/2014.
+//  Created by Bastien Jorge on 28/12/2014.
 //  Copyright (c) 2014 utt. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "PointListTableViewController.h"
 #import "SJRecord.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface PointListTableViewController ()
 
@@ -82,88 +83,152 @@
 
 #pragma mark - Table view data source
 
-/*
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+    //#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 2;
 }
-*/
+
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [[self.record points] count];
+    switch (section) {
+        case 0:
+            return 2;
+            break;
+        case 1:
+            return ([[self.record points] count] > 0) ? [[self.record points] count] : 1;
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    static NSString *cellIdentifier = nil;
     
     // Configure the cell...
     
+    switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0)
+                cellIdentifier = @"PictureCell";
+            else if (indexPath.row == 1)
+                cellIdentifier = @"NoteCell";
+            break;
+        case 1:
+            cellIdentifier = @"GeopointCell";
+            break;
+        default:
+            break;
+    }
+    
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            UIImageView *recordPicture = (UIImageView *)[cell viewWithTag:10];
+            //            serverIcon.alpha = 0.5;
+            //            [serverIcon setImage:[UIImage imageNamed:@"camera-icon"]];
+            
+            
+            //            NSData *data = [NSData dataWithContentsOfURL : [NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"]];
+            
+            //            [recordPicture setImage:[UIImage imageWithData: data]];
+            
+            
+            [recordPicture sd_setImageWithURL:[NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"] placeholderImage:nil];
+        }
+        else if (indexPath.row == 1) {
+            //            UILabel *label = (UILabel *)[cell viewWithTag:20];
+            cell.textLabel.text = ([self.record note] == nil) ? @"Pas de description." : [self.record note];
+            [cell.textLabel setTextColor:[UIColor grayColor]];
+            
+            
+        }
+    }
+    else {
+        if ([[self.record points] count] > 0) {
+            NSDictionary *point = [[self.record points] objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"lat : %@, long : %@", [point valueForKey:@"lat"], [point valueForKey:@"lng"]];
+        }
+        else
+            cell.textLabel.text = @"Aucun point enregistré pour ce POI.";
+    }
+    
     return cell;
 }
-*/
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GeopointCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    NSDictionary *point = [[self.record points] objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"lat : %@, long : %@", [point valueForKey:@"lat"], [point valueForKey:@"lng"]];
-    
-    return cell;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat height = 0;
+    switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0)
+                height = 236;
+            else if (indexPath.row == 1)
+                height = 44;
+            break;
+        case 1:
+            height = 44;
+            break;
+        default:
+            height = 44;
+            break;
+    }
+    return height;
 }
+
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

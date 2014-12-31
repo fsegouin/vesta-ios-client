@@ -528,6 +528,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PictureCell" rowHeight="236" id="c7h-Ro-6oI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c7h-Ro-6oI" id="KHF-KW-Ip2">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-zt-Qmz">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Lop-zt-Qmz" firstAttribute="top" secondItem="KHF-KW-Ip2" secondAttribute="topMargin" constant="-8" id="N9M-dm-Xe6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Lop-zt-Qmz" secondAttribute="bottom" constant="-8" id="Pvk-oN-hBt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Lop-zt-Qmz" secondAttribute="trailing" constant="-8" id="f8M-a5-ygN"/>
+                                        <constraint firstItem="Lop-zt-Qmz" firstAttribute="leading" secondItem="KHF-KW-Ip2" secondAttribute="leadingMargin" constant="-8" id="hxA-ul-LbZ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="FWO-Lh-lCl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FWO-Lh-lCl" id="RWq-E4-TY1">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeopointCell" id="5sa-Po-JQ8">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5sa-Po-JQ8" id="UL1-61-3RR">
