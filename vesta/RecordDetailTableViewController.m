@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "PointListTableViewController.h"
+#import "RecordDetailTableViewController.h"
 #import "SJRecord.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface PointListTableViewController ()
+@interface RecordDetailTableViewController ()
 
 @property (strong, nonatomic) SJRecord *record;
 @property (strong, nonatomic) NSMutableArray *tableData;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation PointListTableViewController
+@implementation RecordDetailTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RecordListTableViewController.h"
-#import "PointListTableViewController.h"
+#import "RecordDetailTableViewController.h"
 #import "SJCartoparty.h"
 #import "SJRecord.h"
 
@@ -160,10 +160,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([[segue identifier] isEqualToString:@"showPointList"])
+    if([[segue identifier] isEqualToString:@"showRecordDetailList"])
     {
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
-        PointListTableViewController *controller = [segue destinationViewController];
+        RecordDetailTableViewController *controller = [segue destinationViewController];
         SJRecord *selectedRecord = [self.tableData objectAtIndex:selectedIndex];
         [controller setRecordId: [NSString stringWithFormat:@"%@", [selectedRecord objectId]]];
         [controller setRecordName: [selectedRecord name]];

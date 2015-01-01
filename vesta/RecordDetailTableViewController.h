@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PointListTableViewController : UITableViewController
+@interface RecordDetailTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *recordId;
 @property (strong, nonatomic) NSString *recordName;
