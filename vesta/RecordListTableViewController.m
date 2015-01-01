@@ -80,7 +80,7 @@
     //Get a local representation of the model type
     SJCartopartyRepository *cartopartyRepository = (SJCartopartyRepository *)[[AppDelegate adapter] repositoryWithClass:[SJCartopartyRepository class]];
     
-    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%@/records", self.cartopartyId] verb:@"GET"] forMethod:@"Cartoparties.records"];
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%@/records?filter[fields][id]=true&filter[fields][name]=true", self.cartopartyId] verb:@"GET"] forMethod:@"Cartoparties.records"];
     
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties/:id/records
