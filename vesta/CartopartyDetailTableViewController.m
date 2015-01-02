@@ -22,7 +22,7 @@
 
 @interface CartopartyDetailTableViewController () <SphereMenuDelegate>
 
-//@property (nonatomic, retain) SphereMenu* sphereMenu;
+@property (nonatomic, retain) SphereMenu* sphereMenu;
 
 @end
 
@@ -42,20 +42,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    SJUser *loggedUser = [SJUser sharedManager];
-//    if ([loggedUser accessToken] != nil && [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-    
     UIImage *startImage = [UIImage imageNamed:@"start"];
     UIImage *image1 = [UIImage imageNamed:@"icon-map-marker"];
     UIImage *image2 = [UIImage imageNamed:@"icon-building"];
     UIImage *image3 = [UIImage imageNamed:@"icon-compass"];
     UIImage *image4 = [UIImage imageNamed:@"icon-pencil"];
     NSArray *images = @[image1, image2, image3, image4];
-    SphereMenu *sphereMenu = [[SphereMenu alloc] initWithStartPoint:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height-120)
+    self.sphereMenu = [[SphereMenu alloc] initWithStartPoint:CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height-50)
                                                          startImage:startImage
                                                       submenuImages:images];
-    sphereMenu.delegate = self;
-    [self.view addSubview:sphereMenu];
+    self.sphereMenu.delegate = self;
+    [self.navigationController.view addSubview:self.sphereMenu];
+    [self.navigationController.view bringSubviewToFront:self.sphereMenu];
     
     [self.cartopartyImage sd_setImageWithURL:[self.detailCartoparty imageUrl] placeholderImage:nil];
     
