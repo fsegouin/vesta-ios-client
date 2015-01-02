@@ -138,15 +138,16 @@
             UIImageView *recordPicture = (UIImageView *)[cell viewWithTag:10];
 //            NSString *imageUrlString = [[self.record imageUrl] absoluteString];
 //            NSURL *emptyUrl = [NSURL URLWithString:@"<null>"];
-            if([self.record imageUrl] == nil)
+//            NSLog(@"imageUrl : %@", [self.record imageUrl]);
+            if([[self.record imageUrl] isKindOfClass:[NSNull class]])
                 [recordPicture setImage:[UIImage imageNamed:@"record-nopicture-master"]];
             else
-                [recordPicture sd_setImageWithURL:[self.record imageUrl] placeholderImage:[UIImage imageNamed:@"record-placeholder-master"]];
-            //            [recordPicture sd_setImageWithURL:[NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"] placeholderImage:nil];
+                [recordPicture sd_setImageWithURL:[NSURL URLWithString:[self.record imageUrl]] placeholderImage:[UIImage imageNamed:@"record-placeholder-master"]];
+//                        [recordPicture sd_setImageWithURL:[NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"] placeholderImage:nil];
         }
         else if (indexPath.row == 1) {
             //            UILabel *label = (UILabel *)[cell viewWithTag:20];
-            cell.textLabel.text = ([self.record note] == nil) ? @"Pas de description." : [self.record note];
+            cell.textLabel.text = ([[self.record note] isKindOfClass:[NSNull class]]) ? @"Pas de description." : [self.record note];
             [cell.textLabel setTextColor:[UIColor grayColor]];
             [cell.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
             
