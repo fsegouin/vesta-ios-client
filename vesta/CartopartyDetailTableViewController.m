@@ -114,6 +114,10 @@
     }
 }
 
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [self.sphereMenu removeFromSuperview];
+//}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

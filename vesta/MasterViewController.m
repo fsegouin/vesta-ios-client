@@ -19,6 +19,9 @@
 #import "FlickrKit.h"
 #import "KVNProgress.h"
 #import "Lockbox.h"
+#import "BFPaperButton.h"
+#import "UIColor+FlatUI.h"
+#import "NSString+FontAwesome.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MasterViewController ()
@@ -26,6 +29,7 @@
 @property NSMutableArray *objects;
 @property (strong, nonatomic) NSMutableArray *tableData;
 @property (strong, nonatomic) NSMutableArray *subscribedCartoparties;
+@property (nonatomic, retain) BFPaperButton *allRecordsButton;
 @property BOOL firstLaunch;
 @property BOOL tokenExpired;
 @property int cartopartiesCounter;
@@ -42,6 +46,27 @@
     }
 }
 
+- (void)showAllRecordsButton {
+    self.allRecordsButton = [[BFPaperButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2-32, self.view.bounds.size.height-82, 65, 65) raised:NO];
+    [self.allRecordsButton addTarget:self action:@selector(allRecordsbuttonWasPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.allRecordsButton.backgroundColor = [UIColor nephritisColor];
+    self.allRecordsButton.tapCircleColor = [UIColor emerlandColor];
+    self.allRecordsButton.cornerRadius = self.allRecordsButton.frame.size.width / 2;
+    self.allRecordsButton.rippleFromTapLocation = NO;
+    self.allRecordsButton.rippleBeyondBounds = YES;
+    self.allRecordsButton.tapCircleDiameter = MAX(self.allRecordsButton.frame.size.width, self.allRecordsButton.frame.size.height) * 1.3;
+    
+    UILabel *allRecordsButtonIcon = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.allRecordsButton.frame.size.width, self.allRecordsButton.frame.size.height)];
+    [allRecordsButtonIcon setText:[NSString fontAwesomeIconStringForEnum:FAMapMarker]];
+    [allRecordsButtonIcon setTextColor:[UIColor whiteColor]];
+    [allRecordsButtonIcon setTextAlignment:NSTextAlignmentCenter];
+    [allRecordsButtonIcon setFont:[UIFont fontWithName:kFontAwesomeFamilyName size:38]];
+    [self.allRecordsButton addSubview:allRecordsButtonIcon];
+    
+    [self.navigationController.view addSubview:self.allRecordsButton];
+    [self.navigationController.view bringSubviewToFront:self.allRecordsButton];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,6 +76,7 @@
 //
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
+    
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     self.subscribedCartoparties = [NSMutableArray array];
     self.tableData = [NSMutableArray array];
@@ -71,6 +97,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self showAllRecordsButton];
     
     SJUser *loggedUser = [SJUser sharedManager];
     
@@ -86,6 +113,10 @@
             [self.tableView reloadData];
         }
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.allRecordsButton removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -295,6 +326,12 @@
 //        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
 //        controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
+}
+
+#pragma mark - UIButton actions
+
+- (void)allRecordsbuttonWasPressed:(id)sender {
+    [self performSegueWithIdentifier:@"showAllRecordsView" sender:self];
 }
 
 #pragma mark - Table View

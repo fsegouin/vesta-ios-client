@@ -456,8 +456,8 @@
                         <outlet property="progressView" destination="Ui5-WP-pLn" id="IFP-94-8LQ"/>
                         <outlet property="subscribersIconLabel" destination="AHP-fL-kQK" id="sFr-BS-gbP"/>
                         <outlet property="subscribersNumberLabel" destination="LBE-wh-TWv" id="ZWF-ov-aDI"/>
-                        <segue destination="PPi-sL-dHe" kind="custom" identifier="showEditRecordView" customClass="RBStoryboardModalSegue" id="Sh6-c9-nge"/>
-                        <segue destination="CCu-9O-UqN" kind="custom" identifier="showAddRecordView" customClass="RBStoryboardModalSegue" id="LJD-1G-2e5"/>
+                        <segue destination="PPi-sL-dHe" kind="custom" identifier="showEditRecordView" customClass="RBStoryboardPushSegue" id="Sh6-c9-nge"/>
+                        <segue destination="CCu-9O-UqN" kind="custom" identifier="showAddRecordView" customClass="RBStoryboardPushSegue" id="LJD-1G-2e5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73U-U8-IBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1006,6 +1006,38 @@
             </objects>
             <point key="canvasLocation" x="-857" y="-307.5"/>
         </scene>
+        <!--Records Around Me View Controller-->
+        <scene sceneID="nIj-Vt-2fM">
+            <objects>
+                <viewController id="oh6-UM-OuX" customClass="RecordsAroundMeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tqg-2C-AVc"/>
+                        <viewControllerLayoutGuide type="bottom" id="pjn-qq-YSG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o7I-YX-KPR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mcl-8t-XFP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="mcl-8t-XFP" secondAttribute="trailing" constant="-16" id="4Dd-iD-l7J"/>
+                            <constraint firstItem="mcl-8t-XFP" firstAttribute="top" secondItem="o7I-YX-KPR" secondAttribute="topMargin" id="Gd6-mt-2qp"/>
+                            <constraint firstItem="pjn-qq-YSG" firstAttribute="top" secondItem="mcl-8t-XFP" secondAttribute="bottom" id="GeY-dP-H2g"/>
+                            <constraint firstItem="mcl-8t-XFP" firstAttribute="leading" secondItem="o7I-YX-KPR" secondAttribute="leadingMargin" constant="-16" id="ssv-9E-VeH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="mcl-8t-XFP" id="GEk-DE-vnm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b18-O2-NPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="-1349"/>
+        </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
@@ -1131,6 +1163,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="oh6-UM-OuX" kind="show" identifier="showAllRecordsView" id="gXm-9s-DPj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
