@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3557F11A580651008651A5 /* record-nopicture-master.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3557EB1A580651008651A5 /* record-nopicture-master.png */; };
+		0B3557F21A580651008651A5 /* record-nopicture-master@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3557EC1A580651008651A5 /* record-nopicture-master@2x.png */; };
+		0B3557F31A580651008651A5 /* record-nopicture-master@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3557ED1A580651008651A5 /* record-nopicture-master@3x.png */; };
+		0B3557F41A580651008651A5 /* record-placeholder-master.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3557EE1A580651008651A5 /* record-placeholder-master.png */; };
+		0B3557F51A580651008651A5 /* record-placeholder-master@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3557EF1A580651008651A5 /* record-placeholder-master@2x.png */; };
+		0B3557F61A580651008651A5 /* record-placeholder-master@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B3557F01A580651008651A5 /* record-placeholder-master@3x.png */; };
+		0B3557F91A58067A008651A5 /* RecordDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3557F81A58067A008651A5 /* RecordDetailTableViewController.m */; };
 		B6045AE81A5745AB003A170B /* SJLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B6045AE71A5745AB003A170B /* SJLocation.m */; };
 		B60BC51C1A41A31B00F303C6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60BC51B1A41A31B00F303C6 /* MessageUI.framework */; };
 		B61375BA1A57202B00FA58BA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61375B91A57202B00FA58BA /* MapKit.framework */; };
@@ -85,6 +92,14 @@
 
 /* Begin PBXFileReference section */
 		021384AC38D269427C962DE8 /* Pods-vesta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vesta.release.xcconfig"; path = "Pods/Target Support Files/Pods-vesta/Pods-vesta.release.xcconfig"; sourceTree = "<group>"; };
+		0B3557EB1A580651008651A5 /* record-nopicture-master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-nopicture-master.png"; path = "Assets/record-nopicture-master.png"; sourceTree = "<group>"; };
+		0B3557EC1A580651008651A5 /* record-nopicture-master@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-nopicture-master@2x.png"; path = "Assets/record-nopicture-master@2x.png"; sourceTree = "<group>"; };
+		0B3557ED1A580651008651A5 /* record-nopicture-master@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-nopicture-master@3x.png"; path = "Assets/record-nopicture-master@3x.png"; sourceTree = "<group>"; };
+		0B3557EE1A580651008651A5 /* record-placeholder-master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-placeholder-master.png"; path = "Assets/record-placeholder-master.png"; sourceTree = "<group>"; };
+		0B3557EF1A580651008651A5 /* record-placeholder-master@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-placeholder-master@2x.png"; path = "Assets/record-placeholder-master@2x.png"; sourceTree = "<group>"; };
+		0B3557F01A580651008651A5 /* record-placeholder-master@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-placeholder-master@3x.png"; path = "Assets/record-placeholder-master@3x.png"; sourceTree = "<group>"; };
+		0B3557F71A58067A008651A5 /* RecordDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailTableViewController.h; sourceTree = "<group>"; };
+		0B3557F81A58067A008651A5 /* RecordDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailTableViewController.m; sourceTree = "<group>"; };
 		890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vesta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6045AE61A5745AB003A170B /* SJLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJLocation.h; path = Models/SJLocation.h; sourceTree = "<group>"; };
 		B6045AE71A5745AB003A170B /* SJLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJLocation.m; path = Models/SJLocation.m; sourceTree = "<group>"; };
@@ -249,6 +264,8 @@
 				B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */,
 				B6E41E3E1A40638200C512C1 /* RecordListTableViewController.h */,
 				B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */,
+				0B3557F71A58067A008651A5 /* RecordDetailTableViewController.h */,
+				0B3557F81A58067A008651A5 /* RecordDetailTableViewController.m */,
 				B6E41E441A40732B00C512C1 /* UserListTableViewController.h */,
 				B6E41E451A40732B00C512C1 /* UserListTableViewController.m */,
 				B61375BD1A5720D200FA58BA /* RecordsAroundMeViewController.h */,
@@ -405,6 +422,12 @@
 				B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */,
 				B6C9E14F1A3247A400E69A9A /* map_logo.png */,
 				B6C9E1501A3247A400E69A9A /* map_logo@2x.png */,
+				0B3557EB1A580651008651A5 /* record-nopicture-master.png */,
+				0B3557EC1A580651008651A5 /* record-nopicture-master@2x.png */,
+				0B3557ED1A580651008651A5 /* record-nopicture-master@3x.png */,
+				0B3557EE1A580651008651A5 /* record-placeholder-master.png */,
+				0B3557EF1A580651008651A5 /* record-placeholder-master@2x.png */,
+				0B3557F01A580651008651A5 /* record-placeholder-master@3x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -494,6 +517,7 @@
 			files = (
 				B6C9E1561A3247A400E69A9A /* map_logo@2x.png in Resources */,
 				B6518E321A399D2200DD43CC /* FontAwesome.ttf in Resources */,
+				0B3557F31A580651008651A5 /* record-nopicture-master@3x.png in Resources */,
 				B6473DC61A50DDB900AA0E94 /* icon-map-marker@2x.png in Resources */,
 				B6A63EC31A499F470065FAA1 /* camera-icon.png in Resources */,
 				B6518E3B1A399E7700DD43CC /* Montserrat-Hairline.otf in Resources */,
@@ -506,6 +530,7 @@
 				B63333A81A49A24100B6F0C6 /* email-icon@2x.png in Resources */,
 				B65A6E1D1A4B04F50082D680 /* placeholder.jpg in Resources */,
 				B6473DC11A50DAF400AA0E94 /* icon-building@2x.png in Resources */,
+				0B3557F11A580651008651A5 /* record-nopicture-master.png in Resources */,
 				B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */,
 				B6518E3C1A399E7700DD43CC /* Montserrat-Light.otf in Resources */,
 				B6518E391A399E7700DD43CC /* Montserrat-Black.otf in Resources */,
@@ -519,12 +544,16 @@
 				B6C9E1541A3247A400E69A9A /* lock_icon@2x.png in Resources */,
 				B6C9E1551A3247A400E69A9A /* map_logo.png in Resources */,
 				B6518E381A399E7700DD43CC /* Montserrat-Regular.otf in Resources */,
+				0B3557F21A580651008651A5 /* record-nopicture-master@2x.png in Resources */,
 				B67CFDB51A50181700A97CDF /* cartoparty-placeholder-master@2x.png in Resources */,
 				B63333A71A49A24100B6F0C6 /* email-icon.png in Resources */,
+				0B3557F51A580651008651A5 /* record-placeholder-master@2x.png in Resources */,
 				B67CFDB61A50181700A97CDF /* cartoparty-placeholder-master@3x.png in Resources */,
+				0B3557F61A580651008651A5 /* record-placeholder-master@3x.png in Resources */,
 				B6518E3A1A399E7700DD43CC /* Montserrat-Bold.otf in Resources */,
 				B6473DC71A50DDB900AA0E94 /* icon-pencil@2x.png in Resources */,
 				B6C9E1531A3247A400E69A9A /* user_icon@2x.png in Resources */,
+				0B3557F41A580651008651A5 /* record-placeholder-master.png in Resources */,
 				B63333A91A49A24100B6F0C6 /* email-icon@3x.png in Resources */,
 				B6A63EC41A499F470065FAA1 /* camera-icon@2x.png in Resources */,
 				B6473DC01A50DAF400AA0E94 /* icon-thumbtack@2x.png in Resources */,
@@ -611,6 +640,7 @@
 				B656B32E1A31FAF800A07F5F /* SJCartoparty.m in Sources */,
 				B68A79D01A3F24D4006919B1 /* SJCheckButton.m in Sources */,
 				B656B3271A31E77500A07F5F /* LoginViewController.m in Sources */,
+				0B3557F91A58067A008651A5 /* RecordDetailTableViewController.m in Sources */,
 				B61375BF1A5720D200FA58BA /* RecordsAroundMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
