@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy) NSString *objectId;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSURL *imageUrl;
+@property (nonatomic, copy) NSString *imageUrl;
 @property (nonatomic, copy) NSString *note;
 @property (nonatomic, copy) NSArray *points;
 @property (nonatomic, copy) id userId;
