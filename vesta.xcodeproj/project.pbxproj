@@ -85,6 +85,14 @@
 
 /* Begin PBXFileReference section */
 		021384AC38D269427C962DE8 /* Pods-vesta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vesta.release.xcconfig"; path = "Pods/Target Support Files/Pods-vesta/Pods-vesta.release.xcconfig"; sourceTree = "<group>"; };
+		0B1ECA921A53EE2B00946B03 /* record-placeholder-master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-placeholder-master.png"; path = "Assets/record-placeholder-master.png"; sourceTree = "<group>"; };
+		0B1ECA931A53EE2B00946B03 /* record-placeholder-master@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-placeholder-master@2x.png"; path = "Assets/record-placeholder-master@2x.png"; sourceTree = "<group>"; };
+		0B1ECA941A53EE2B00946B03 /* record-placeholder-master@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-placeholder-master@3x.png"; path = "Assets/record-placeholder-master@3x.png"; sourceTree = "<group>"; };
+		0B1ECA981A53F5FB00946B03 /* record-nopicture-master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-nopicture-master.png"; path = "Assets/record-nopicture-master.png"; sourceTree = "<group>"; };
+		0B1ECA991A53F5FB00946B03 /* record-nopicture-master@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-nopicture-master@2x.png"; path = "Assets/record-nopicture-master@2x.png"; sourceTree = "<group>"; };
+		0B1ECA9A1A53F5FB00946B03 /* record-nopicture-master@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "record-nopicture-master@3x.png"; path = "Assets/record-nopicture-master@3x.png"; sourceTree = "<group>"; };
+		0B8737BE1A50A4AF00AAA65B /* RecordDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordDetailTableViewController.h; sourceTree = "<group>"; };
+		0B8737BF1A50A4AF00AAA65B /* RecordDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordDetailTableViewController.m; sourceTree = "<group>"; };
 		890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-vesta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6045AE61A5745AB003A170B /* SJLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJLocation.h; path = Models/SJLocation.h; sourceTree = "<group>"; };
 		B6045AE71A5745AB003A170B /* SJLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJLocation.m; path = Models/SJLocation.m; sourceTree = "<group>"; };
@@ -249,6 +257,8 @@
 				B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */,
 				B6E41E3E1A40638200C512C1 /* RecordListTableViewController.h */,
 				B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */,
+				0B8737BE1A50A4AF00AAA65B /* RecordDetailTableViewController.h */,
+				0B8737BF1A50A4AF00AAA65B /* RecordDetailTableViewController.m */,
 				B6E41E441A40732B00C512C1 /* UserListTableViewController.h */,
 				B6E41E451A40732B00C512C1 /* UserListTableViewController.m */,
 				B61375BD1A5720D200FA58BA /* RecordsAroundMeViewController.h */,
@@ -405,6 +415,12 @@
 				B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */,
 				B6C9E14F1A3247A400E69A9A /* map_logo.png */,
 				B6C9E1501A3247A400E69A9A /* map_logo@2x.png */,
+				0B1ECA981A53F5FB00946B03 /* record-nopicture-master.png */,
+				0B1ECA991A53F5FB00946B03 /* record-nopicture-master@2x.png */,
+				0B1ECA9A1A53F5FB00946B03 /* record-nopicture-master@3x.png */,
+				0B1ECA921A53EE2B00946B03 /* record-placeholder-master.png */,
+				0B1ECA931A53EE2B00946B03 /* record-placeholder-master@2x.png */,
+				0B1ECA941A53EE2B00946B03 /* record-placeholder-master@3x.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -501,12 +517,14 @@
 				B6A2D0771A4A30BC00082F46 /* sad_icon@3x.png in Resources */,
 				B6A2D0761A4A30BC00082F46 /* sad_icon@2x.png in Resources */,
 				B6A63EC51A499F470065FAA1 /* camera-icon@3x.png in Resources */,
+				0B1ECA9C1A53F5FC00946B03 /* record-nopicture-master@2x.png in Resources */,
 				B65A6E1F1A4B04F50082D680 /* placeholder@3x.jpg in Resources */,
 				B64D66A91A2FC5D6006C9189 /* Main.storyboard in Resources */,
 				B63333A81A49A24100B6F0C6 /* email-icon@2x.png in Resources */,
 				B65A6E1D1A4B04F50082D680 /* placeholder.jpg in Resources */,
 				B6473DC11A50DAF400AA0E94 /* icon-building@2x.png in Resources */,
 				B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */,
+				0B1ECA9B1A53F5FC00946B03 /* record-nopicture-master.png in Resources */,
 				B6518E3C1A399E7700DD43CC /* Montserrat-Light.otf in Resources */,
 				B6518E391A399E7700DD43CC /* Montserrat-Black.otf in Resources */,
 				B68223301A50BBF30038375C /* RecordsStoryboard.storyboard in Resources */,
@@ -517,10 +535,14 @@
 				B65A6E1E1A4B04F50082D680 /* placeholder@2x.jpg in Resources */,
 				B64D66AB1A2FC5D6006C9189 /* Images.xcassets in Resources */,
 				B6C9E1541A3247A400E69A9A /* lock_icon@2x.png in Resources */,
+				0B1ECA971A53EE2B00946B03 /* record-placeholder-master@3x.png in Resources */,
+				0B1ECA961A53EE2B00946B03 /* record-placeholder-master@2x.png in Resources */,
 				B6C9E1551A3247A400E69A9A /* map_logo.png in Resources */,
 				B6518E381A399E7700DD43CC /* Montserrat-Regular.otf in Resources */,
+				0B1ECA9D1A53F5FC00946B03 /* record-nopicture-master@3x.png in Resources */,
 				B67CFDB51A50181700A97CDF /* cartoparty-placeholder-master@2x.png in Resources */,
 				B63333A71A49A24100B6F0C6 /* email-icon.png in Resources */,
+				0B1ECA951A53EE2B00946B03 /* record-placeholder-master.png in Resources */,
 				B67CFDB61A50181700A97CDF /* cartoparty-placeholder-master@3x.png in Resources */,
 				B6518E3A1A399E7700DD43CC /* Montserrat-Bold.otf in Resources */,
 				B6473DC71A50DDB900AA0E94 /* icon-pencil@2x.png in Resources */,
@@ -592,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B8737C01A50A4AF00AAA65B /* RecordDetailTableViewController.m in Sources */,
 				B64D66A01A2FC5D6006C9189 /* AppDelegate.m in Sources */,
 				B68223341A50C5C60038375C /* SphereMenu.m in Sources */,
 				B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */,

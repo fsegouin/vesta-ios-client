@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RecordListTableViewController.h"
+#import "RecordDetailTableViewController.h"
 #import "SJCartoparty.h"
 #import "SJRecord.h"
 
@@ -79,7 +80,7 @@
     //Get a local representation of the model type
     SJCartopartyRepository *cartopartyRepository = (SJCartopartyRepository *)[[AppDelegate adapter] repositoryWithClass:[SJCartopartyRepository class]];
     
-    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%@/records", self.cartopartyId] verb:@"GET"] forMethod:@"Cartoparties.records"];
+    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Cartoparties/%@/records?filter[fields][id]=true&filter[fields][name]=true", self.cartopartyId] verb:@"GET"] forMethod:@"Cartoparties.records"];
     
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties/:id/records
@@ -112,6 +113,7 @@
     SJRecord *record = [self.tableData objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [record name];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:14]];
     
     return cell;
 }
@@ -151,14 +153,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqualToString:@"showRecordDetailList"])
+    {
+        NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
+        RecordDetailTableViewController *controller = [segue destinationViewController];
+        SJRecord *selectedRecord = [self.tableData objectAtIndex:selectedIndex];
+        [controller setRecordId: [NSString stringWithFormat:@"%@", [selectedRecord objectId]]];
+        [controller setRecordName: [selectedRecord name]];
+        
+        
+    }
 }
-*/
+
 
 @end
