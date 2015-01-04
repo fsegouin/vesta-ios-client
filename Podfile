@@ -18,6 +18,8 @@ target 'vesta' do
     pod 'RBStoryboardLink'
     pod 'BFPaperButton'
     pod 'SZTextView'
+    pod 'FCUUID'
+    pod 'RNCryptor'
 end
 
 target 'vestaTests' do

@@ -14,6 +14,7 @@
 #import "AFNetworking.h"
 #import "KVNProgress.h"
 #import "UIImage+Resizing.h"
+#import "SJCryptorWrapper.h"
 
 @interface SignupViewController () <FDTakeDelegate, UITextFieldDelegate>
 
@@ -155,11 +156,7 @@
         [loggedUser setUserId:[token userId]];
         
         // Store this token so we can use it later
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:[token _id] forKey:@"accessToken"];
-        [defaults setObject:[token userId] forKey:@"userId"];
-        [defaults synchronize];
+        [SJCryptorWrapper encryptCredentialsWithAccessToken:[token _id] AndUserId:[token userId]];
         
         [KVNProgress showSuccessWithStatus:@"Inscription réussie"];
         [self dismissToMasterView];

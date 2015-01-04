@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 #import "SJUser.h"
 #import "NSString+FontAwesome.h"
-#import "Lockbox.h"
+#import "SJCryptorWrapper.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 
@@ -71,14 +71,7 @@
         [loggedUser setUserId:[token userId]];
         
         // Store this token so we can use it later
-        
-        BOOL successfullySetToKeychain = [Lockbox setDictionary:@{@"accessToken":[token _id],@"userId":[token userId]} forKey:@"userCredentials"];
-        if (successfullySetToKeychain) {
-            NSLog(@"Access token successfully set to Keychain!");
-        }
-        else {
-            NSLog(@"Error while setting token to Keychain");
-        }
+        [SJCryptorWrapper encryptCredentialsWithAccessToken:[token _id] AndUserId:[token userId]];
         
         [self dismissViewControllerAnimated:NO completion:nil];
     };//end selfSuccessBlock

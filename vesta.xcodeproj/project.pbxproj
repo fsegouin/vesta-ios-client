@@ -22,6 +22,7 @@
 		B63333A71A49A24100B6F0C6 /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B63333A41A49A24100B6F0C6 /* email-icon.png */; };
 		B63333A81A49A24100B6F0C6 /* email-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B63333A51A49A24100B6F0C6 /* email-icon@2x.png */; };
 		B63333A91A49A24100B6F0C6 /* email-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B63333A61A49A24100B6F0C6 /* email-icon@3x.png */; };
+		B6412B531A59837100854CBD /* SJCryptorWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B6412B521A59837100854CBD /* SJCryptorWrapper.m */; };
 		B6473DC01A50DAF400AA0E94 /* icon-thumbtack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6473DBE1A50DAF400AA0E94 /* icon-thumbtack@2x.png */; };
 		B6473DC11A50DAF400AA0E94 /* icon-building@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6473DBF1A50DAF400AA0E94 /* icon-building@2x.png */; };
 		B6473DC51A50DDB900AA0E94 /* icon-compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6473DC21A50DDB900AA0E94 /* icon-compass@2x.png */; };
@@ -113,6 +114,8 @@
 		B63333A41A49A24100B6F0C6 /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "email-icon.png"; path = "Assets/email-icon.png"; sourceTree = "<group>"; };
 		B63333A51A49A24100B6F0C6 /* email-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "email-icon@2x.png"; path = "Assets/email-icon@2x.png"; sourceTree = "<group>"; };
 		B63333A61A49A24100B6F0C6 /* email-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "email-icon@3x.png"; path = "Assets/email-icon@3x.png"; sourceTree = "<group>"; };
+		B6412B511A59837100854CBD /* SJCryptorWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJCryptorWrapper.h; path = Models/SJCryptorWrapper.h; sourceTree = "<group>"; };
+		B6412B521A59837100854CBD /* SJCryptorWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJCryptorWrapper.m; path = Models/SJCryptorWrapper.m; sourceTree = "<group>"; };
 		B6473DBE1A50DAF400AA0E94 /* icon-thumbtack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-thumbtack@2x.png"; path = "Assets/icon-thumbtack@2x.png"; sourceTree = "<group>"; };
 		B6473DBF1A50DAF400AA0E94 /* icon-building@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-building@2x.png"; path = "Assets/icon-building@2x.png"; sourceTree = "<group>"; };
 		B6473DC21A50DDB900AA0E94 /* icon-compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-compass@2x.png"; path = "Assets/icon-compass@2x.png"; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 				B6B362321A409D4700EB9DE5 /* SJMedalView.m */,
 				B6045AE61A5745AB003A170B /* SJLocation.h */,
 				B6045AE71A5745AB003A170B /* SJLocation.m */,
+				B6412B511A59837100854CBD /* SJCryptorWrapper.h */,
+				B6412B521A59837100854CBD /* SJCryptorWrapper.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 				B6E41E431A406D5600C512C1 /* SJRecord.m in Sources */,
 				B64D66A31A2FC5D6006C9189 /* MasterViewController.m in Sources */,
 				B6E41E461A40732B00C512C1 /* UserListTableViewController.m in Sources */,
+				B6412B531A59837100854CBD /* SJCryptorWrapper.m in Sources */,
 				B64D669D1A2FC5D6006C9189 /* main.m in Sources */,
 				B66827B71A45D8970098C23B /* UIColor+FlatUI.m in Sources */,
 				B6E41E401A40638200C512C1 /* RecordListTableViewController.m in Sources */,
