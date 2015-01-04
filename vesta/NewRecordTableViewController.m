@@ -54,7 +54,7 @@
     
     self.navigationItem.leftBarButtonItem = cancelItem;
     self.navigationItem.rightBarButtonItem = addItem;
-    [self.navigationItem.leftBarButtonItem setEnabled:NO];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
     
     self.recordNotesTextView.font = [UIFont systemFontOfSize:16.0];
     self.recordTypeLabel.text = [self recordTypeStringFromEnum];
@@ -124,8 +124,8 @@
     [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
     NSLog(@"Current user location : lat: %f - lng: %f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
     
-    if (![self.navigationItem.leftBarButtonItem isEnabled])
-        [self.navigationItem.leftBarButtonItem setEnabled:YES];
+    if (![self.navigationItem.rightBarButtonItem isEnabled])
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
 }
 
 #pragma mark - API methods
