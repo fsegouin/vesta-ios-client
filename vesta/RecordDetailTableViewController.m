@@ -139,7 +139,7 @@
 //            NSString *imageUrlString = [[self.record imageUrl] absoluteString];
 //            NSURL *emptyUrl = [NSURL URLWithString:@"<null>"];
 //            NSLog(@"imageUrl : %@", [self.record imageUrl]);
-            if([[self.record imageUrl] isKindOfClass:[NSNull class]])
+            if([[self.record imageUrl] isKindOfClass:[NSNull class]] || [[self.record imageUrl] isEqualToString:@""])
                 [recordPicture setImage:[UIImage imageNamed:@"record-nopicture-master"]];
             else
                 [recordPicture sd_setImageWithURL:[NSURL URLWithString:[self.record imageUrl]] placeholderImage:[UIImage imageNamed:@"record-placeholder-master"]];
