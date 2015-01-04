@@ -8,7 +8,6 @@ target 'vesta' do
     pod 'AFNetworking', '~> 2.5.0'
     pod 'FlickrKit'
     pod 'SDWebImage'
-    pod 'DateTools'
     pod 'THProgressView', :git => 'https://github.com/tiagomnh/THProgressView.git'
     pod 'GBFlatButton'
     pod 'KVNProgress'
@@ -18,6 +17,7 @@ target 'vesta' do
     pod 'Lockbox'
     pod 'RBStoryboardLink'
     pod 'BFPaperButton'
+    pod 'SZTextView'
 end
 
 target 'vestaTests' do

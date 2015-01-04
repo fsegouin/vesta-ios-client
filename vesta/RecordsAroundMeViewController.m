@@ -51,7 +51,7 @@
     [self.locationManager setDelegate:self];
     
     //Set some parameters for the location object.
-    [self.locationManager setDistanceFilter:50.0f]; // Only updated each 50 meters
+    [self.locationManager setDistanceFilter:10.0f]; // Only updated each 50 meters
     [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     
     [self.locationManager requestWhenInUseAuthorization];
@@ -66,15 +66,43 @@
 
 #pragma mark - MKMapViewDelegate methods
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-    self.currentLocation = userLocation;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 5*METERS_PER_MILE, 5*METERS_PER_MILE);
-    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
-    if (self.dataAlreadyDownloaded == FALSE)
-        [self getModels];
+//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+//{
+//    self.currentLocation = userLocation;
+//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 2*METERS_PER_MILE, 2*METERS_PER_MILE);
+//    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+////    if (self.dataAlreadyDownloaded == FALSE)
+//    [self getModels];
+//}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    MKUserLocation *lastLocation = [locations lastObject];
+    
+    if (self.currentLocation == nil) { // first launch
+        self.currentLocation = lastLocation;
+        [self updateMapRegionWithLocation:lastLocation];
+    }
+    
+    else { // for each update
+        CLLocation *startLocation = [[CLLocation alloc] initWithLatitude:self.currentLocation.coordinate.latitude longitude:self.currentLocation.coordinate.longitude];
+        CLLocation *endLocation = [[CLLocation alloc] initWithLatitude:lastLocation.coordinate.latitude longitude:lastLocation.coordinate.longitude];
+        CLLocationDistance distance = [startLocation distanceFromLocation:endLocation]; // aka double
+        NSLog(@"Distance since last location : %f", distance);
+        
+        if (distance > 10.0f) { // need to update region
+            self.currentLocation = lastLocation;
+            [self updateMapRegionWithLocation:lastLocation];
+        } // else, do nothing
+        
+    }
+    
 }
 
+- (void)updateMapRegionWithLocation:(MKUserLocation *)location {
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, METERS_PER_MILE, METERS_PER_MILE);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    [self getModels];
+}
 
 #pragma mark - API calls
 
