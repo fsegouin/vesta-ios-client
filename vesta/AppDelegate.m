@@ -10,7 +10,7 @@
 #import "CartopartyDetailTableViewController.h"
 #import "FlickrKit.h"
 #import "SJUser.h"
-#import "Lockbox.h"
+#import "SJCryptorWrapper.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -50,33 +50,19 @@ static LBRESTAdapter * _adapter = nil;
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
     
-//#warning delete this asap
+    // Uncomment this line if you already have data for vesta in your keychain and need to reset it
+    // Then kill the app, comment this line again and rebuild the app
+//    [SJCryptorWrapper clearKeychainData];
     
-//    [Lockbox setDictionary:nil forKey:@"userCredentials"];
-    
-//    Flickr API Wraper
-    
+    // Flickr API Wraper
     FlickrKit *fk = [FlickrKit sharedFlickrKit];
     [fk initializeWithAPIKey:@"225b171188afd87d71b8fdfddb58a92c" sharedSecret:@"72dd0915bafad010"];
     
-//    Check for existing user access token
+    // Check for credentials in Keychain, decrypt them and store them in RESTAdapter
+    [SJCryptorWrapper decryptCredentials];
     
-    SJUser *loggedUser = [SJUser sharedManager];
-    
-    NSDictionary *credentials = [Lockbox dictionaryForKey:@"userCredentials"];
-    if (credentials != nil) {
-        NSLog(@"Credentials found in keychain!");
-        [loggedUser setUserId:[credentials valueForKey:@"userId"]];
-        [loggedUser setAccessToken:[credentials valueForKey:@"accessToken"]];
-        SJUserRepository *userRepository = (SJUserRepository *)[[AppDelegate adapter] repositoryWithClass:[SJUserRepository class]];
-        [userRepository storeAccessTokenInAdapter:[credentials valueForKey:@"accessToken"]];
-    }
-    else {
-        NSLog(@"No credentials in keychain..");
-    }
-    
-//    We need to initialize our MailComposerViewController and hold it into one static variable (thank you Apple)
-      [self cycleTheGlobalMailComposer];
+    // We need to initialize our MailComposerViewController and hold it into one static variable (thank you Apple)
+    [self cycleTheGlobalMailComposer];
     
     return YES;
 }
