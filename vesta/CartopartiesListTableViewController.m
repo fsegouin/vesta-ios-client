@@ -317,6 +317,14 @@
     return 160;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SJCartopartyTableViewCell *cell = (SJCartopartyTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"Is button selected? %d", cell.checkButton.isSelected);
+    SJCartoparty *model = (SJCartoparty *)[self.tableData objectAtIndex:indexPath.row];
+    [self shouldSubscribe:!cell.checkButton.isSelected ForCartopartyId:[model objectId]];
+    cell.checkButton.selected = !cell.checkButton.isSelected;
+}
+
 #pragma mark - Buttons actions
 
 - (void)checkButtonTapped:(SJCheckButton *)sender
