@@ -149,6 +149,8 @@
         medalIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAThumbsUp];
     else if ([user elder])
         medalIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAStar];
+    else
+        medalIconLabel.text = [NSString fontAwesomeIconStringForEnum:FAchild];
     
     UILabel *fullnameLabel = (UILabel*)[cell viewWithTag:20];
     fullnameLabel.text = [NSString stringWithFormat:@"%@ %@", [user firstname], [user lastname]];

@@ -35,11 +35,13 @@
     UIColor* color = [UIColor clearColor];
     
     if (self.expert)
-        color = [UIColor colorFromHexCode:@"91b5e5"];
+        color = [UIColor colorFromHexCode:@"dc322f"];
     else if (self.moderator)
-        color = [UIColor colorFromHexCode:@"8dd7d6"];
+        color = [UIColor colorFromHexCode:@"268bd2"];
     else if (self.elder)
-        color = [UIColor colorFromHexCode:@"e0b57c"];
+        color = [UIColor colorFromHexCode:@"b58900"];
+    else
+        color = [UIColor colorFromHexCode:@"859900"];
     
     //// Bezier Drawing
     UIBezierPath* bezierPath = UIBezierPath.bezierPath;
