@@ -61,9 +61,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G3D-fd-Cdb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="236"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="235" id="vJY-7o-q2C"/>
+                                                        <constraint firstAttribute="height" constant="236" id="vJY-7o-q2C"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" tag="23" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-private" translatesAutoresizingMaskIntoConstraints="NO" id="P9u-hw-Mxy">
+                                                    <rect key="frame" x="10" y="10" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="JmD-5z-Xaa"/>
+                                                        <constraint firstAttribute="height" constant="35" id="vB2-pF-L0V"/>
                                                     </constraints>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEr-h8-DsW">
@@ -132,12 +139,14 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="tfo-pc-4ym" secondAttribute="trailing" constant="11" id="3Ta-5A-kmI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="G3D-fd-Cdb" secondAttribute="trailing" constant="-8" id="78P-9T-1Yu"/>
+                                                <constraint firstItem="P9u-hw-Mxy" firstAttribute="top" secondItem="z8z-yb-1Jb" secondAttribute="topMargin" constant="2" id="7Sp-4d-maG"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="bmk-Os-29B" secondAttribute="trailing" constant="13" id="Bz7-Cj-yOL"/>
                                                 <constraint firstItem="G3D-fd-Cdb" firstAttribute="top" secondItem="z8z-yb-1Jb" secondAttribute="topMargin" constant="-8" id="E8D-jp-6MZ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Vyi-qk-Lcw" secondAttribute="bottom" constant="10" id="GKP-ZZ-BUU"/>
                                                 <constraint firstItem="G3D-fd-Cdb" firstAttribute="leading" secondItem="z8z-yb-1Jb" secondAttribute="leadingMargin" constant="-8" id="IS4-Th-qME"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="EEr-h8-DsW" secondAttribute="bottom" constant="-9" id="NAQ-2r-5Di"/>
                                                 <constraint firstItem="EEr-h8-DsW" firstAttribute="leading" secondItem="z8z-yb-1Jb" secondAttribute="leadingMargin" constant="-8" id="d7J-J2-jh4"/>
+                                                <constraint firstItem="P9u-hw-Mxy" firstAttribute="leading" secondItem="z8z-yb-1Jb" secondAttribute="leadingMargin" constant="2" id="dXb-Cd-rGe"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="bmk-Os-29B" secondAttribute="bottom" constant="18" id="nQD-Ct-2IE"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tfo-pc-4ym" secondAttribute="bottom" constant="10" id="nRi-nr-yeu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="EEr-h8-DsW" secondAttribute="trailing" constant="-8" id="nfH-BX-Bcw"/>
@@ -453,6 +462,7 @@
                         <outlet property="meetupsNumberLabel" destination="BRV-Mm-tjp" id="jrF-og-Bq1"/>
                         <outlet property="pointsIconLabel" destination="h44-7B-oMr" id="AzK-PV-dEL"/>
                         <outlet property="pointsNumberLabel" destination="Hxk-cU-AHp" id="dkg-zl-21U"/>
+                        <outlet property="privateIcon" destination="P9u-hw-Mxy" id="aDy-Xo-uLL"/>
                         <outlet property="progressView" destination="Ui5-WP-pLn" id="IFP-94-8LQ"/>
                         <outlet property="subscribersIconLabel" destination="AHP-fL-kQK" id="sFr-BS-gbP"/>
                         <outlet property="subscribersNumberLabel" destination="LBE-wh-TWv" id="ZWF-ov-aDI"/>
@@ -1149,6 +1159,9 @@
                                             </constraints>
                                             <blurEffect style="light"/>
                                         </visualEffectView>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" tag="23" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-private" translatesAutoresizingMaskIntoConstraints="NO" id="Q7t-gO-E6q">
+                                            <rect key="frame" x="17" y="15" width="35" height="35"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="9Ov-gj-hUk" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" constant="-8" id="7n6-05-ZnG"/>
@@ -1384,6 +1397,7 @@
     <resources>
         <image name="camera-icon.png" width="85" height="68"/>
         <image name="email-icon.png" width="64" height="42"/>
+        <image name="icon-private" width="47" height="47"/>
         <image name="lock_icon.png" width="32" height="32"/>
         <image name="map_logo.png" width="64" height="64"/>
         <image name="record-placeholder-master@3x.png" width="1125" height="480"/>

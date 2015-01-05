@@ -21,6 +21,7 @@
 @property (nonatomic, retain) SJCartopartyUser *leader;
 @property (nonatomic, copy) NSString *ownerId;
 @property (nonatomic, assign) BOOL isUserAMember;
+@property (nonatomic, assign) BOOL isPrivate;
 
 @end
 

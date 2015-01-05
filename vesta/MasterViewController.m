@@ -203,6 +203,7 @@
             [cartoparty setCities:[model valueForKey:@"cities"]];
             [cartoparty set_description:[model valueForKey:@"description"]];
             [cartoparty setObjectId:[model valueForKey:@"id"]];
+            [cartoparty setIsPrivate:[[model valueForKey:@"private"] boolValue]];
 
             NSDictionary *leaderProperties = [model objectForKey:@"leader"];
             SJCartopartyUser *cartopartyLeader = [[SJCartopartyUser alloc] init];
@@ -396,6 +397,12 @@
         UILabel *dateLabel = (UILabel*)[cell viewWithTag:21];
         dateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@",
                           [model from], [model to] ];
+        
+        UIImageView *privateImage = (UIImageView*)[cell viewWithTag:23];
+        if ([model isPrivate])
+            [privateImage setHidden:NO];
+        else
+            [privateImage setHidden:YES];
         
         return cell;
     }

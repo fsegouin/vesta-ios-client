@@ -28,5 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *leaderImage;
 @property (weak, nonatomic) IBOutlet SJMedalView *medalView;
 @property (weak, nonatomic) IBOutlet UILabel *medalIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *privateIcon;
 
 @end

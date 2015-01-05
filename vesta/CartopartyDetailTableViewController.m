@@ -44,6 +44,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if ([self.detailCartoparty isPrivate])
+        [self.privateIcon setHidden:NO];
+    else
+        [self.privateIcon setHidden:YES];
+    
     [self.cartopartyImage sd_setImageWithURL:[self.detailCartoparty imageUrl] placeholderImage:nil];
     
     [self.leaderImage sd_setImageWithURL:[NSURL URLWithString:[[self.detailCartoparty leader] picture]] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
@@ -51,7 +56,7 @@
     self.leaderImage.layer.borderWidth = 2.0f;
     self.leaderImage.layer.borderColor = [UIColor colorFromHexCode:@"ecf0f1"].CGColor;
     
-    self.medalIcon.font = [UIFont fontWithName:kFontAwesomeFamilyName size:10];
+    self.medalIcon.font = [UIFont fontWithName:kFontAwesomeFamilyName size:12];
     if ([[self.detailCartoparty leader] expert]) {
         self.medalIcon.text = [NSString fontAwesomeIconStringForEnum:FARocket];
         [self.medalView setExpert:YES];
@@ -65,10 +70,10 @@
         [self.medalView setElder:YES];
     }
     else
-        self.medalIcon.text = @"";
+        self.medalIcon.text = [NSString fontAwesomeIconStringForEnum:FAchild];
 
     self.cartopartyDescriptionLabel.text = [[NSString alloc] initWithFormat:@"%@", [self.detailCartoparty _description]];
-    self.cartopartyDateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [self.detailCartoparty from], [self.detailCartoparty to] ];
+    self.cartopartyDateLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [self.detailCartoparty from], [self.detailCartoparty to]];
     
     self.subscribersIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:32];
     self.pointsIconLabel.font = [UIFont fontWithName:kFontAwesomeFamilyName size:36];
@@ -80,8 +85,8 @@
     
     [self.progressView setProgress:0.5f animated:YES];
         
-    [self getUsersCount];
-    [self getRecordsCount];
+//    [self getUsersCount];
+//    [self getRecordsCount];
     
 //    }
 
@@ -94,6 +99,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self showSphereMenu];
+    [self getUsersCount];
+    [self getRecordsCount];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
