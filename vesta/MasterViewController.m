@@ -77,6 +77,29 @@
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
     
+//    Custom UIBarButtonItems
+    
+    UIImage *leftBarButtonItemImage = [UIImage imageNamed:@"icon-exit-app"];
+    CGRect leftBarButtonItemFrame = CGRectMake(0, 0, 25, 25);
+    
+    UIImage *rightBarButtonItemImage = [UIImage imageNamed:@"icon-add-cartoparty"];
+    CGRect rightBarButtonItemFrame = CGRectMake(0, 0, 30, 30);
+    
+    UIButton* leftBarButton = [[UIButton alloc] initWithFrame:leftBarButtonItemFrame];
+    [leftBarButton setBackgroundImage:leftBarButtonItemImage forState:UIControlStateNormal];
+    
+    UIButton* rightBarButton = [[UIButton alloc] initWithFrame:rightBarButtonItemFrame];
+    [rightBarButton setBackgroundImage:rightBarButtonItemImage forState:UIControlStateNormal];
+    
+    [leftBarButton addTarget:self action:@selector(actionLogout:) forControlEvents:UIControlEventTouchDown];
+    [rightBarButton addTarget:self action:@selector(showActiveCartoparties:) forControlEvents:UIControlEventTouchDown];
+
+    UIBarButtonItem* leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBarButton];
+    UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButton];
+    
+    [self.navigationItem setLeftBarButtonItem:leftBarButtonItem];
+    [self.navigationItem setRightBarButtonItem:rightBarButtonItem];
+    
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     self.subscribedCartoparties = [NSMutableArray array];
     self.tableData = [NSMutableArray array];
@@ -332,6 +355,10 @@
 
 - (void)allRecordsbuttonWasPressed:(id)sender {
     [self performSegueWithIdentifier:@"showAllRecordsView" sender:self];
+}
+
+- (void)showActiveCartoparties:(id)sender {
+    [self performSegueWithIdentifier:@"showActiveCartoparties" sender:self];
 }
 
 #pragma mark - Table View

@@ -1205,20 +1205,10 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mes cartoparties" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" title="Déconnexion" id="XTE-gp-aCx">
-                            <connections>
-                                <action selector="actionLogout:" destination="7bK-jq-Zjz" id="nQj-80-sHQ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UP1-89-YjZ">
-                            <connections>
-                                <segue destination="Fps-Xx-ELb" kind="show" identifier="showActiveCartoparties" id="rrf-w4-44u"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Mes cartoparties" id="Zdf-7t-Un8"/>
                     <connections>
                         <segue destination="oh6-UM-OuX" kind="show" identifier="showAllRecordsView" id="gXm-9s-DPj"/>
+                        <segue destination="Fps-Xx-ELb" kind="show" identifier="showActiveCartoparties" id="vtR-39-4Zq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
