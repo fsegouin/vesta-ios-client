@@ -47,8 +47,6 @@
 		B65A6E1D1A4B04F50082D680 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B65A6E1A1A4B04F50082D680 /* placeholder.jpg */; };
 		B65A6E1E1A4B04F50082D680 /* placeholder@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B65A6E1B1A4B04F50082D680 /* placeholder@2x.jpg */; };
 		B65A6E1F1A4B04F50082D680 /* placeholder@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B65A6E1C1A4B04F50082D680 /* placeholder@3x.jpg */; };
-		B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B0C0D1A38E04500E17893 /* LoopBack.framework */; };
-		B66827B71A45D8970098C23B /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = B66827B61A45D8970098C23B /* UIColor+FlatUI.m */; };
 		B67CFDB41A50181700A97CDF /* cartoparty-placeholder-master.png in Resources */ = {isa = PBXBuildFile; fileRef = B67CFDB11A50181700A97CDF /* cartoparty-placeholder-master.png */; };
 		B67CFDB51A50181700A97CDF /* cartoparty-placeholder-master@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67CFDB21A50181700A97CDF /* cartoparty-placeholder-master@2x.png */; };
 		B67CFDB61A50181700A97CDF /* cartoparty-placeholder-master@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B67CFDB31A50181700A97CDF /* cartoparty-placeholder-master@3x.png */; };
@@ -67,6 +65,7 @@
 		B6A63EC51A499F470065FAA1 /* camera-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A63EC21A499F470065FAA1 /* camera-icon@3x.png */; };
 		B6AE917E1A40403C006CE4F8 /* SJCartopartyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AE917D1A40403C006CE4F8 /* SJCartopartyTableViewCell.m */; };
 		B6B362331A409D4700EB9DE5 /* SJMedalView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B362321A409D4700EB9DE5 /* SJMedalView.m */; };
+		B6B481871A5B2422006EFF00 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B481861A5B2422006EFF00 /* UIColor+FlatUI.m */; };
 		B6BB46D01A3746A9005FB96D /* CartopartiesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */; };
 		B6C9E1511A3247A400E69A9A /* lock_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14B1A3247A400E69A9A /* lock_icon.png */; };
 		B6C9E1521A3247A400E69A9A /* user_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14C1A3247A400E69A9A /* user_icon.png */; };
@@ -74,6 +73,7 @@
 		B6C9E1541A3247A400E69A9A /* lock_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */; };
 		B6C9E1551A3247A400E69A9A /* map_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E14F1A3247A400E69A9A /* map_logo.png */; };
 		B6C9E1561A3247A400E69A9A /* map_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9E1501A3247A400E69A9A /* map_logo@2x.png */; };
+		B6CCF4421A5B2670002CA206 /* LoopBack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CCF4411A5B2670002CA206 /* LoopBack.framework */; };
 		B6E41E401A40638200C512C1 /* RecordListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */; };
 		B6E41E431A406D5600C512C1 /* SJRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E421A406D5600C512C1 /* SJRecord.m */; };
 		B6E41E461A40732B00C512C1 /* UserListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E41E451A40732B00C512C1 /* UserListTableViewController.m */; };
@@ -149,9 +149,6 @@
 		B65A6E1A1A4B04F50082D680 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = placeholder.jpg; path = Assets/placeholder.jpg; sourceTree = "<group>"; };
 		B65A6E1B1A4B04F50082D680 /* placeholder@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "placeholder@2x.jpg"; path = "Assets/placeholder@2x.jpg"; sourceTree = "<group>"; };
 		B65A6E1C1A4B04F50082D680 /* placeholder@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "placeholder@3x.jpg"; path = "Assets/placeholder@3x.jpg"; sourceTree = "<group>"; };
-		B65B0C0D1A38E04500E17893 /* LoopBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopBack.framework; path = Frameworks/LoopBack.framework; sourceTree = "<group>"; };
-		B66827B51A45D8970098C23B /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+FlatUI.h"; path = "Frameworks/UIColor+FlatUI.h"; sourceTree = "<group>"; };
-		B66827B61A45D8970098C23B /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+FlatUI.m"; path = "Frameworks/UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		B67CFDB11A50181700A97CDF /* cartoparty-placeholder-master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cartoparty-placeholder-master.png"; path = "Assets/cartoparty-placeholder-master.png"; sourceTree = "<group>"; };
 		B67CFDB21A50181700A97CDF /* cartoparty-placeholder-master@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cartoparty-placeholder-master@2x.png"; path = "Assets/cartoparty-placeholder-master@2x.png"; sourceTree = "<group>"; };
 		B67CFDB31A50181700A97CDF /* cartoparty-placeholder-master@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cartoparty-placeholder-master@3x.png"; path = "Assets/cartoparty-placeholder-master@3x.png"; sourceTree = "<group>"; };
@@ -177,6 +174,8 @@
 		B6AE917D1A40403C006CE4F8 /* SJCartopartyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJCartopartyTableViewCell.m; path = Models/SJCartopartyTableViewCell.m; sourceTree = "<group>"; };
 		B6B362311A409D4700EB9DE5 /* SJMedalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJMedalView.h; path = Models/SJMedalView.h; sourceTree = "<group>"; };
 		B6B362321A409D4700EB9DE5 /* SJMedalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SJMedalView.m; path = Models/SJMedalView.m; sourceTree = "<group>"; };
+		B6B481851A5B2422006EFF00 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		B6B481861A5B2422006EFF00 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		B6BB46CE1A3746A9005FB96D /* CartopartiesListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartopartiesListTableViewController.h; sourceTree = "<group>"; };
 		B6BB46CF1A3746A9005FB96D /* CartopartiesListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartopartiesListTableViewController.m; sourceTree = "<group>"; };
 		B6C9E14B1A3247A400E69A9A /* lock_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lock_icon.png; path = Assets/lock_icon.png; sourceTree = "<group>"; };
@@ -185,6 +184,7 @@
 		B6C9E14E1A3247A400E69A9A /* lock_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lock_icon@2x.png"; path = "Assets/lock_icon@2x.png"; sourceTree = "<group>"; };
 		B6C9E14F1A3247A400E69A9A /* map_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_logo.png; path = Assets/map_logo.png; sourceTree = "<group>"; };
 		B6C9E1501A3247A400E69A9A /* map_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_logo@2x.png"; path = "Assets/map_logo@2x.png"; sourceTree = "<group>"; };
+		B6CCF4411A5B2670002CA206 /* LoopBack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopBack.framework; path = Frameworks/LoopBack.framework; sourceTree = "<group>"; };
 		B6E41E3E1A40638200C512C1 /* RecordListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListTableViewController.h; sourceTree = "<group>"; };
 		B6E41E3F1A40638200C512C1 /* RecordListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListTableViewController.m; sourceTree = "<group>"; };
 		B6E41E411A406D5600C512C1 /* SJRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SJRecord.h; path = Models/SJRecord.h; sourceTree = "<group>"; };
@@ -203,10 +203,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61375BC1A57202F00FA58BA /* CoreLocation.framework in Frameworks */,
+				B6CCF4421A5B2670002CA206 /* LoopBack.framework in Frameworks */,
 				B61375BA1A57202B00FA58BA /* MapKit.framework in Frameworks */,
 				B60BC51C1A41A31B00F303C6 /* MessageUI.framework in Frameworks */,
 				B6ED1D6B1A322DC800673A5B /* QuartzCore.framework in Frameworks */,
-				B65B0C0E1A38E04500E17893 /* LoopBack.framework in Frameworks */,
 				E2D60ECEA24849B4AAE8CF92 /* libPods-vesta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,24 +326,15 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		B656632A1A3F66C6004686A6 /* FlatUI Colors */ = {
-			isa = PBXGroup;
-			children = (
-				B66827B51A45D8970098C23B /* UIColor+FlatUI.h */,
-				B66827B61A45D8970098C23B /* UIColor+FlatUI.m */,
-			);
-			name = "FlatUI Colors";
-			sourceTree = "<group>";
-		};
 		B656B3221A31E5B700A07F5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6CCF4411A5B2670002CA206 /* LoopBack.framework */,
 				B61375BB1A57202F00FA58BA /* CoreLocation.framework */,
 				B61375B91A57202B00FA58BA /* MapKit.framework */,
 				B68223311A50C5C60038375C /* SphereMenu */,
-				B656632A1A3F66C6004686A6 /* FlatUI Colors */,
+				B6B481841A5B2422006EFF00 /* UIColor+FlatUI */,
 				B60BC51B1A41A31B00F303C6 /* MessageUI.framework */,
-				B65B0C0D1A38E04500E17893 /* LoopBack.framework */,
 				B6ED1D6A1A322DC800673A5B /* QuartzCore.framework */,
 				890D3EDBB390BC416B2A3BA6 /* libPods-vesta.a */,
 			);
@@ -400,6 +391,16 @@
 				B68A79CF1A3F24D4006919B1 /* SJCheckButton.m */,
 			);
 			name = SJCheckButton;
+			sourceTree = "<group>";
+		};
+		B6B481841A5B2422006EFF00 /* UIColor+FlatUI */ = {
+			isa = PBXGroup;
+			children = (
+				B6B481851A5B2422006EFF00 /* UIColor+FlatUI.h */,
+				B6B481861A5B2422006EFF00 /* UIColor+FlatUI.m */,
+			);
+			name = "UIColor+FlatUI";
+			path = "Frameworks/UIColor+FlatUI";
 			sourceTree = "<group>";
 		};
 		B6F39EFB1A323AFC00B110E3 /* Assets */ = {
@@ -633,6 +634,7 @@
 			files = (
 				B64D66A01A2FC5D6006C9189 /* AppDelegate.m in Sources */,
 				B68223341A50C5C60038375C /* SphereMenu.m in Sources */,
+				B6B481871A5B2422006EFF00 /* UIColor+FlatUI.m in Sources */,
 				B656B32A1A31EA7800A07F5F /* SJUser.m in Sources */,
 				B6B362331A409D4700EB9DE5 /* SJMedalView.m in Sources */,
 				B68D4DB71A48E4DE002C0A47 /* SignupViewController.m in Sources */,
@@ -642,7 +644,6 @@
 				B6E41E461A40732B00C512C1 /* UserListTableViewController.m in Sources */,
 				B6412B531A59837100854CBD /* SJCryptorWrapper.m in Sources */,
 				B64D669D1A2FC5D6006C9189 /* main.m in Sources */,
-				B66827B71A45D8970098C23B /* UIColor+FlatUI.m in Sources */,
 				B6E41E401A40638200C512C1 /* RecordListTableViewController.m in Sources */,
 				B692B3151A39ADC40082030E /* CartopartyDetailTableViewController.m in Sources */,
 				B6045AE81A5745AB003A170B /* SJLocation.m in Sources */,

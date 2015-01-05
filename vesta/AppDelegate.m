@@ -11,6 +11,7 @@
 #import "FlickrKit.h"
 #import "SJUser.h"
 #import "SJCryptorWrapper.h"
+#import "UIColor+FlatUI.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -49,7 +50,7 @@ static LBRESTAdapter * _adapter = nil;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
-    
+        
     // Uncomment this line if you already have data for vesta in your keychain and need to reset it
     // Then kill the app, comment this line again and rebuild the app
 //    [SJCryptorWrapper clearKeychainData];

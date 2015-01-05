@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "icon-exit-cartoparty.png"
+      "filename" : "icon-exit2-app.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "icon-exit-cartoparty@2x.png"
+      "filename" : "icon-exit2-app@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "icon-exit-cartoparty@3x.png"
+      "filename" : "icon-exit2-app@3x.png"
     }
   ],
   "info" : {
