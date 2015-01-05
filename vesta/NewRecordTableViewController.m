@@ -139,7 +139,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = serializerRequest;
 
-    NSString *urlString = [NSString stringWithFormat:@"http://vesta-api.herokuapp.com/api/Cartoparties/%@/records?access_token=%@", self.cartopartyId, [[SJUser sharedManager] accessToken]];
+    NSString *urlString = [NSString stringWithFormat:@"https://vesta-api.herokuapp.com/api/Cartoparties/%@/records?access_token=%@", self.cartopartyId, [[SJUser sharedManager] accessToken]];
     
     [manager POST:urlString
        parameters:@{
@@ -249,14 +249,14 @@
             //        PROD URL
             NSString *urlString = @"http://188.166.54.59:3000/api/photo/";
             
-            UIImage *scaledImage  = [self.recordPicture scaleToFitSize:CGSizeMake(720, 480)];
+            UIImage *scaledImage  = [self.recordPicture scaleToFitSize:CGSizeMake(1024, 780)];
             NSData *imageData     = UIImageJPEGRepresentation(scaledImage, 1.0);
             
             [manager POST:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                 [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
             } success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"Success - URL : %@", [responseObject valueForKey:@"file"]);
-                [self addNewRecordToApiWithPicture:[NSString stringWithFormat:@"http://188.166.54.59:3000%@", [responseObject valueForKey:@"file"]]];
+                [self addNewRecordToApiWithPicture:[NSString stringWithFormat:@"http://188.166.54.59%@", [responseObject valueForKey:@"file"]]];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Failure %@, %@", error, operation.responseString);
                 [KVNProgress showErrorWithStatus:@"Impossible de contacter le serveur"];

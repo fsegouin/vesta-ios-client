@@ -101,7 +101,7 @@
                 [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/jpeg"];
             } success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"Success - URL : %@", [responseObject valueForKey:@"file"]);
-                [self signupWithProfilePicture:[NSString stringWithFormat:@"http://188.166.54.59:3000%@", [responseObject valueForKey:@"file"]]];
+                [self signupWithProfilePicture:[NSString stringWithFormat:@"http://188.166.54.59%@", [responseObject valueForKey:@"file"]]];
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Failure %@, %@", error, operation.responseString);
                 [KVNProgress showErrorWithStatus:@"Impossible de contacter le serveur"];
@@ -120,7 +120,7 @@
     manager.responseSerializer             = [AFJSONResponseSerializer serializer];
     manager.requestSerializer              = [AFJSONRequestSerializer serializer];
     
-    NSString *urlString = @"http://vesta-api.herokuapp.com/api/users/";
+    NSString *urlString = @"https://vesta-api.herokuapp.com/api/users/";
     NSDictionary *parameters = @{
                                  @"firstname": self.firstnameTextField.text,
                                  @"lastname": self.lastnameTextField.text,
