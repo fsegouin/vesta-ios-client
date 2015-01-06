@@ -11,6 +11,8 @@
 
 @interface SJLocation : NSObject <MKAnnotation>
 
+@property (nonatomic, copy) NSString *type;
+
 - (id)initWithName:(NSString*)name note:(NSString*)note coordinate:(CLLocationCoordinate2D)coordinate;
 - (MKMapItem*)mapItem;
 

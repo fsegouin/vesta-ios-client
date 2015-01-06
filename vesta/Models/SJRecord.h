@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *imageUrl;
 @property (nonatomic, copy) NSString *note;
 @property (nonatomic, copy) NSArray *points;
+@property (nonatomic, copy) NSArray *categories;
 @property (nonatomic, copy) id userId;
 @property (nonatomic, copy) id cartopartyId;
 

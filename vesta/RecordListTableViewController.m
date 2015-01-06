@@ -68,6 +68,8 @@
             [record setCartopartyId:[model valueForKey:@"cartopartyId"]];
             [record setObjectId:[model valueForKey:@"id"]];
             [record setPoints:[model objectForKey:@"points"]];
+            [record setCategories:[model objectForKey:@"categories"]];
+            [record setImageUrl:[model objectForKey:@"picture"]];
             
             [self.tableData addObject:record];
             
@@ -85,7 +87,7 @@
     // Invoke the allWithSuccess message for the LBModelRepository
     // Equivalent http JSON endpoint request : http://localhost:3000/api/Cartoparties/:id/records
     
-    [cartopartyRepository invokeStaticMethod:@"records" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
+    [cartopartyRepository invokeStaticMethod:@"records" parameters:@{@"filter":@{@"include":@"categories"}} success:loadSuccessBlock failure:loadErrorBlock];
     
 };
 
@@ -168,8 +170,9 @@
         NSInteger selectedIndex = [[self.tableView indexPathForSelectedRow] row];
         RecordDetailTableViewController *controller = [segue destinationViewController];
         SJRecord *selectedRecord = [self.tableData objectAtIndex:selectedIndex];
-        [controller setRecordId: [NSString stringWithFormat:@"%@", [selectedRecord objectId]]];
-        [controller setRecordName: [selectedRecord name]];
+        [controller setRecord:selectedRecord];
+//        [controller setRecordId: [NSString stringWithFormat:@"%@", [selectedRecord objectId]]];
+//        [controller setRecordName: [selectedRecord name]];
         
         
     }

@@ -9,13 +9,12 @@
 #import "AppDelegate.h"
 #import "RecordDetailTableViewController.h"
 #import "SJRecord.h"
+#import "SJLocation.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+#define METERS_PER_MILE 1609.344
+
 @interface RecordDetailTableViewController ()
-
-@property (strong, nonatomic) SJRecord *record;
-@property (strong, nonatomic) NSMutableArray *tableData;
-
 
 @end
 
@@ -24,17 +23,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.recordName;
-    self.record = [[SJRecord alloc] init];
-    self.tableData = [NSMutableArray array];
+    self.title = [self.record name];
+    self.mapView.delegate = self;
     
+    if([[self.record imageUrl] isKindOfClass:[NSNull class]] || [[self.record imageUrl] isEqualToString:@""])
+        [self.recordPicture setImage:[UIImage imageNamed:@"record-nopicture-master"]];
+    else
+        [self.recordPicture sd_setImageWithURL:[NSURL URLWithString:[self.record imageUrl]] placeholderImage:[UIImage imageNamed:@"record-placeholder-master"]];
     
-    [self getModels];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.recordDescription.text = [self.record name];
+    self.recordNote.text = [self.record note];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self parseData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,150 +42,182 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - API calls
+#pragma mark - MapKit delegate methods
 
-- (void)getModels
-{
-    // +++++++++++++++++++++++++++++++++++++++++
-    // Get the model instances on the server
-    // +++++++++++++++++++++++++++++++++++++++++
-    
-    // Define the load error functional block
-    void (^loadErrorBlock)(NSError *) = ^(NSError *error) {
-        NSLog( @"Error %@", error.description);
-    };//end selfFailblock
-    
-    // Define the load success block for the LBModelRepository allWithSuccess message
-    void (^loadSuccessBlock)(NSDictionary *) = ^(NSDictionary *model) {
-        
-        [self.record setName:[model valueForKey:@"name"]];
-        [self.record setNote:[model valueForKey:@"note"]];
-        [self.record setUserId:[model valueForKey:@"userId"]];
-        [self.record setCartopartyId:[model valueForKey:@"cartopartyId"]];
-        [self.record setObjectId:[model valueForKey:@"id"]];
-        [self.record setPoints:[model objectForKey:@"points"]];
-        [self.record setImageUrl:[model valueForKey:@"picture"]];
-        
-        [self.tableView reloadData];
-        
-    };//end selfSuccessBlock
-    
-    //Get a local representation of the model type
-    SJRecordRepository *recordRepository = (SJRecordRepository *)[[AppDelegate adapter] repositoryWithClass:[SJRecordRepository class]];
-    
-    [[[AppDelegate adapter] contract] addItem:[SLRESTContractItem itemWithPattern:[NSString stringWithFormat:@"/Records/%@", self.recordId] verb:@"GET"] forMethod:@"Records.findById"];
-    
-    // Invoke the allWithSuccess message for the LBModelRepository
-    // Equivalent http JSON endpoint request : http://localhost:3000/api/Records/:id
-    
-    [recordRepository invokeStaticMethod:@"findById" parameters:nil success:loadSuccessBlock failure:loadErrorBlock];
-    
-};
-
-#pragma mark - Table view data source
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 2;
-}
-
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    switch (section) {
-        case 0:
-            return 2;
-            break;
-        case 1:
-            return ([[self.record points] count] > 0) ? [[self.record points] count] : 1;
-            break;
-        default:
-            break;
-    }
-    return 0;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *cellIdentifier = nil;
-    
-    // Configure the cell...
-    
-    switch (indexPath.section) {
-        case 0:
-            if (indexPath.row == 0)
-                cellIdentifier = @"PictureCell";
-            else if (indexPath.row == 1)
-                cellIdentifier = @"NoteCell";
-            break;
-        case 1:
-            cellIdentifier = @"GeopointCell";
-            break;
-        default:
-            break;
-    }
-    
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            UIImageView *recordPicture = (UIImageView *)[cell viewWithTag:10];
-//            NSString *imageUrlString = [[self.record imageUrl] absoluteString];
-//            NSURL *emptyUrl = [NSURL URLWithString:@"<null>"];
-//            NSLog(@"imageUrl : %@", [self.record imageUrl]);
-            if([[self.record imageUrl] isKindOfClass:[NSNull class]] || [[self.record imageUrl] isEqualToString:@""])
-                [recordPicture setImage:[UIImage imageNamed:@"record-nopicture-master"]];
-            else
-                [recordPicture sd_setImageWithURL:[NSURL URLWithString:[self.record imageUrl]] placeholderImage:[UIImage imageNamed:@"record-placeholder-master"]];
-//                        [recordPicture sd_setImageWithURL:[NSURL URLWithString:@"http://www.toilettes-mps.com/photos/_MPS-Toilettes-Publiques_11_20131006_171229.jpg"] placeholderImage:nil];
-        }
-        else if (indexPath.row == 1) {
-            //            UILabel *label = (UILabel *)[cell viewWithTag:20];
-            cell.textLabel.text = ([[self.record note] isKindOfClass:[NSNull class]]) ? @"Pas de description." : [self.record note];
-            [cell.textLabel setTextColor:[UIColor grayColor]];
-            [cell.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    static NSString *identifier = @"SJLocation";
+    if ([annotation isKindOfClass:[SJLocation class]]) {
+        NSString *annotationType = [(SJLocation *)annotation type];
+        MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            annotationView.enabled = YES;
+            annotationView.canShowCallout = YES;
             
+            if ([annotationType isEqualToString:@"Bâtiment"])
+                annotationView.image = [UIImage imageNamed:@"icon-annotation-building"];
+            else if ([annotationType isEqualToString:@"Zone"])
+                annotationView.image = [UIImage imageNamed:@"icon-annotation-zone"];
+            else
+                annotationView.image = [UIImage imageNamed:@"icon-annotation-poi"];
+            
+                                        
+        } else {
+            annotationView.annotation = annotation;
         }
-    }
-    else {
-        if ([[self.record points] count] > 0) {
-            NSDictionary *point = [[self.record points] objectAtIndex:indexPath.row];
-            cell.textLabel.text = [NSString stringWithFormat:@"lat : %@, long : %@", [point valueForKey:@"lat"], [point valueForKey:@"lng"]];
-        }
-        else
-            cell.textLabel.text = @"Aucun point enregistré pour ce POI.";
-        [cell.textLabel setFont:[UIFont fontWithName:@"Montserrat-Regular" size:16]];
+        
+        return annotationView;
     }
     
-    return cell;
+    return nil;
 }
 
+#pragma mark - Class methods
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat height = 0;
-    switch (indexPath.section) {
-        case 0:
-            if (indexPath.row == 0)
-                height = 236;
-            else if (indexPath.row == 1)
-                height = 44;
-            break;
-        case 1:
-            height = 44;
-            break;
-        default:
-            height = 44;
-            break;
+- (void)parseData {
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        [_mapView removeAnnotation:annotation];
+    } // remove old annotations in mapView
+    
+    for (NSDictionary *point in [self.record points]) {
+        NSNumber *latitude = [point valueForKey:@"lat"];
+        NSNumber *longitude = [point valueForKey:@"lng"];
+        
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = latitude.doubleValue;
+        coordinate.longitude = longitude.doubleValue;
+        SJLocation *annotation = [[SJLocation alloc] initWithName:[self.record name] note:[self.record note] coordinate:coordinate];
+        [annotation setType:[[[self.record categories] firstObject] valueForKey:@"name"]];
+        [_mapView addAnnotation:annotation];
     }
-    return height;
+    
+    SJLocation *firstAnnotation = [[self.mapView annotations] firstObject];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance([firstAnnotation coordinate], 0.2*METERS_PER_MILE, 0.2*METERS_PER_MILE);
+    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+    
+    [self.tableView reloadData];
 }
 
+//#pragma mark - Table view data source
+
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    //#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 3;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    //#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    switch (section) {
+//        case 0:
+//        case 1:
+//            return 1;
+//            break;
+//        case 2:
+//            return ([[self.record points] count] > 0) ? [[self.record points] count] : 1;
+//            break;
+//        default:
+//            break;
+//    }
+//    return 0;
+//}
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    static NSString *cellIdentifier = nil;
+//    
+//    // Configure the cell...
+//    
+//    switch (indexPath.section) {
+//        case 0:
+//            cellIdentifier = @"PictureCell";
+//            break;
+//        case 1:
+//            cellIdentifier = @"MapCell";
+//            break;
+//        case 2:
+//            cellIdentifier = @"GeopointCell";
+//            break;
+//        default:
+//            break;
+//    }
+//    
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+//    
+//    if (indexPath.section == 0) {
+//        UIImageView *recordPicture = (UIImageView *)[cell viewWithTag:10];
+//        if([[self.record imageUrl] isKindOfClass:[NSNull class]] || [[self.record imageUrl] isEqualToString:@""])
+//            [recordPicture setImage:[UIImage imageNamed:@"record-nopicture-master"]];
+//        else
+//            [recordPicture sd_setImageWithURL:[NSURL URLWithString:[self.record imageUrl]] placeholderImage:[UIImage imageNamed:@"record-placeholder-master"]];
+//        
+//        UILabel *descriptionLabel = (UILabel*)[cell viewWithTag:20];
+//        descriptionLabel.text = [self.record name];
+//        
+//        UILabel *noteLabel = (UILabel*)[cell viewWithTag:21];
+//        noteLabel.text = [self.record note];
+//    }
+//    else if (indexPath.section == 1) {
+//        MKMapView *mapView = (MKMapView *)[cell viewWithTag:10];
+//        mapView.delegate = self;
+//        self.mapView = mapView;
+//    }
+//    else {
+//        UILabel *latitudeLabel = (UILabel *)[cell viewWithTag:10];
+//        if ([[self.record points] count] > 0) {
+////            UILabel *latitudeLabel = (UILabel *)[cell viewWithTag:10];
+//            UILabel *longitudeLabel = (UILabel *)[cell viewWithTag:11];
+//            NSDictionary *point = [[self.record points] objectAtIndex:indexPath.row];
+//            [latitudeLabel setText:[NSString stringWithFormat:@"Latitude : %@", [[point valueForKey:@"lat"] stringValue]]];
+//            [longitudeLabel setText:[NSString stringWithFormat:@"Longitude : %@", [[point valueForKey:@"lng"] stringValue]]];
+//        }
+//        else {
+//            [latitudeLabel setText:@"Aucun point enregistré pour ce POI."];
+//        }
+//    }
+//    
+//    return cell;
+//}
+//
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    CGFloat height = 0;
+//    switch (indexPath.section) {
+//        case 0:
+//            height = 236;
+//            break;
+//        case 1:
+//            height = 150;
+//            break;
+//        case 2:
+//            height = 60;
+//            break;
+//        default:
+//            height = 44;
+//            break;
+//    }
+//    return height;
+//}
+//
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    NSString *headerTitle = nil;
+//    
+//    switch (section) {
+//        case 1:
+//            headerTitle = @"Carte";
+//            break;
+//        case 2:
+//            headerTitle = @"Points";
+//            
+//        default:
+//            break;
+//    }
+//    
+//    return headerTitle;
+//}
 
 /*
  // Override to support conditional editing of the table view.
