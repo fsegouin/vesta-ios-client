@@ -81,7 +81,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-5V-P5T">
+                                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-5V-P5T">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="y95-XT-cZO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -101,11 +101,19 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </view>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="60" id="a7A-bm-COa"/>
+                                                                </constraints>
                                                                 <vibrancyEffect>
                                                                     <blurEffect style="light"/>
                                                                 </vibrancyEffect>
                                                             </visualEffectView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="tLP-5V-P5T" secondAttribute="bottom" id="D3U-sU-3yN"/>
+                                                            <constraint firstAttribute="trailing" secondItem="tLP-5V-P5T" secondAttribute="trailing" id="T43-Gd-oVA"/>
+                                                            <constraint firstItem="tLP-5V-P5T" firstAttribute="leading" secondItem="RbT-zf-nzW" secondAttribute="leading" id="fdR-hv-mF7"/>
+                                                        </constraints>
                                                     </view>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="qwF-0f-lbZ"/>
@@ -1297,7 +1305,7 @@
         <scene sceneID="aeM-z3-4xm">
             <objects>
                 <tableViewController id="0QA-rb-SA9" customClass="RecordDetailTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NaQ-LO-PL6">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NaQ-LO-PL6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1311,15 +1319,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record-placeholder-master@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="S4f-zi-JIC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="235"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="236"/>
                                                 </imageView>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qu-cE-6ex">
-                                                    <rect key="frame" x="0.0" y="175" width="600" height="60"/>
+                                                    <rect key="frame" x="0.0" y="176" width="600" height="60"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eA2-aU-UEc">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c8W-sT-DOB">
+                                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8W-sT-DOB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1ru-XH-wIz">
                                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -1339,11 +1347,19 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </view>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="60" id="FxW-64-aJA"/>
+                                                                </constraints>
                                                                 <vibrancyEffect>
                                                                     <blurEffect style="light"/>
                                                                 </vibrancyEffect>
                                                             </visualEffectView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="c8W-sT-DOB" secondAttribute="trailing" id="HWN-pp-jQ6"/>
+                                                            <constraint firstItem="c8W-sT-DOB" firstAttribute="leading" secondItem="eA2-aU-UEc" secondAttribute="leading" id="JEs-zw-ZDa"/>
+                                                            <constraint firstAttribute="bottom" secondItem="c8W-sT-DOB" secondAttribute="bottom" id="enT-9n-5e6"/>
+                                                        </constraints>
                                                     </view>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="BMH-XP-awa"/>
@@ -1367,20 +1383,20 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Carte" id="v8n-TE-Nqd">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MapCell" rowHeight="150" id="dvk-I8-XOC">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MapCell" rowHeight="180" id="dvk-I8-XOC">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dvk-I8-XOC" id="aj1-Rz-r3r">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" tag="10" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kti-Wz-yn7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
                                                 </mapView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Kti-Wz-yn7" secondAttribute="bottom" constant="-8" id="JO5-0X-KxS"/>
-                                                <constraint firstItem="Kti-Wz-yn7" firstAttribute="leading" secondItem="aj1-Rz-r3r" secondAttribute="leadingMargin" constant="-8" id="UBg-7T-kfb"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Kti-Wz-yn7" secondAttribute="trailing" constant="-8" id="lZm-hj-ohW"/>
-                                                <constraint firstItem="Kti-Wz-yn7" firstAttribute="top" secondItem="aj1-Rz-r3r" secondAttribute="topMargin" constant="-8" id="ya4-Ju-aiB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Kti-Wz-yn7" secondAttribute="trailing" constant="-8" id="7RO-UC-z3n"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Kti-Wz-yn7" secondAttribute="bottom" constant="-8" id="Cez-n3-fiH"/>
+                                                <constraint firstItem="Kti-Wz-yn7" firstAttribute="leading" secondItem="aj1-Rz-r3r" secondAttribute="leadingMargin" constant="-8" id="dOe-le-U1f"/>
+                                                <constraint firstItem="Kti-Wz-yn7" firstAttribute="top" secondItem="aj1-Rz-r3r" secondAttribute="topMargin" constant="-8" id="vmu-aI-gAt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1401,7 +1417,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAd-Mj-4Mq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2109" y="128"/>
+            <point key="canvasLocation" x="2109" y="127"/>
         </scene>
     </scenes>
     <resources>
