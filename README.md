@@ -30,9 +30,15 @@ In your clone directory, run the following:
 	$ gem install cocoapods
 	$ pod install
 
-### Final Step
+### Step 4
 
 Open the vesta.xcworkspace file that Cocoapods generates in your project directory.
+
+### Final Step
+
+Go to *PrefixHeader.pch* and edit all the define values to set the API root path, file server root path & api. Same thing for Flickr API Key & Shared Key. If you don't have a Flickr API Key, you need to create an app [here](https://www.flickr.com/services/api/).
+
+You will also need to setup an API to allow users to upload their profile pictures & pictures for each POIs. You can use our API, written in Node.js, with Express and Multer, available [here](https://github.com/fsegouin/vesta-fileserver).
 
 ## Install and debug the app on a real device (Xcode 6.1.1)
 
