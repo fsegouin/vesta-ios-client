@@ -32,7 +32,7 @@ static LBRESTAdapter * _adapter = nil;
         
 //        
 //        PROD -- HEROKU
-        _adapter = [LBRESTAdapter adapterWithURL:[NSURL URLWithString:@"https://vesta-api.herokuapp.com/api/"]];
+        _adapter = [LBRESTAdapter adapterWithURL:[NSURL URLWithString:@API_ROOT]];
         
 //        Add custom routes (static methods)
         [[_adapter contract] addItem:[SLRESTContractItem itemWithPattern:@"/Cartoparties" verb:@"GET"] forMethod:@"Cartoparties.filter"];
@@ -55,7 +55,7 @@ static LBRESTAdapter * _adapter = nil;
     
     // Flickr API Wraper
     FlickrKit *fk = [FlickrKit sharedFlickrKit];
-    [fk initializeWithAPIKey:@"225b171188afd87d71b8fdfddb58a92c" sharedSecret:@"72dd0915bafad010"];
+    [fk initializeWithAPIKey:@FLICKR_API_KEY sharedSecret:@FLICKR_SHARED_SECRET];
     
     // Check for credentials in Keychain, decrypt them and store them in RESTAdapter
     [SJCryptorWrapper decryptCredentials];

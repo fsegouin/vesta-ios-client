@@ -13,5 +13,10 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #define APP ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define API_ROOT ""
+#define FILE_SERVER_ROOT ""
+#define API_FILE_SERVER ""
+#define FLICKR_API_KEY ""
+#define FLICKR_SHARED_SECRET ""
 
 #endif
