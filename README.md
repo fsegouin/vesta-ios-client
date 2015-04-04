@@ -1,12 +1,12 @@
 ![vesta logo](http://oi61.tinypic.com/35iapzp.jpg)
 
-# Vesta iOS
+# [Vesta iOS](http://florentsegouin.me/vesta/)
 
-Client iOS pour le projet VESTA
+Client iOS pour le projet [VESTA](http://florentsegouin.me/vesta/)
 
 ## Releases
 
-Still under development. ETA: January 2015.
+v1.0 : January 2015
 
 ## Installation
 
